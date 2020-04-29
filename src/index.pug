@@ -45,6 +45,33 @@ html(lang="en")
             .scroll
               span.scroll__text Скролл
               +icon('scroll', 'scroll__img', '30')
+        section.section.about
+          .container
+            .about__top
+              .about__avatar
+                .about__avatar-frame
+                  +image('content/user.jpg', 'user-pic')
+              .about__description
+                p.about__description-top Привет, меня зовут
+                h2.section__title Валентина Понамарева
+                p.about__description-text Я занимаюсь разработкой современных сайтов и приложений.
+                p.about__description-text Мне нравится делать интересные и современные проекты.
+            .about__bottom
+              table.about__table
+                tr.about__table-row
+                  th.about__table-header Проживаю:
+                  td.about__table-data Санкт-Петербург
+                tr.about__table-row
+                  th.about__table-header Возраст:
+                  td.about__table-data 28 лет
+                tr.about__table-row
+                  th.about__table-header Родилась:
+                  td.about__table-data 5 октября 1991
+              .about__note
+                span.about__note-icon *
+                p.about__note-text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            
+
       .maincontent
         +image('content/user.jpg', 'user-pic')
         +icon('link', 'link-class')
