@@ -9,6 +9,42 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
+      .wrapper__section
+        section.section.hero
+          .container
+            header.header
+              .logo ВП
+              nav.nav
+                ul.nav__list
+                  li.nav__item
+                    a.nav__link(href="#") Главная
+                  li.nav__item
+                    a.nav__link(href="#") Обо мне
+                  li.nav__item
+                    a.nav__link(href="#") Навыки
+                  li.nav__item
+                    a.nav__link(href="#") Работы
+                  li.nav__item
+                    a.nav__link(href="#") Отзывы
+                  li.nav__item
+                    a.nav__link(href="#") Связаться
+              .socials
+                ul.socials__list
+                  li.socials__item
+                    a.socials__link(href="#")
+                      +icon('insta', 'socials__img', '25', '25')
+                  li.socials__item
+                    a.socials__link(href="#")
+                      +icon('vk', 'socials__img', '31', '30')
+                  li.socials__item
+                    a.socials__link(href="#")
+                      +icon('github', 'socials__img', '27', '27')
+            .hero__content
+              p.hero__content-text Личный сайт веб разработчика
+              h1.page-title Валентина Понамарева
+            .scroll
+              span.scroll__text Скролл
+              +icon('scroll', 'scroll__img', '30')
       .maincontent
         +image('content/user.jpg', 'user-pic')
         +icon('link', 'link-class')
