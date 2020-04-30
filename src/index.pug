@@ -106,7 +106,39 @@ html(lang="en")
 
       section.section.works
         .container
-          h2.section__title
+          h2.section__title Мои работы
+          .works__content
+            .slider
+              +image('content/work_preview1.jpg', 'slider__image')
+              ul.slider__previews-list
+                li.slider__previews-item
+                  +image('content/work_preview2.jpg', 'slider__preview-image')
+                li.slider__previews-item
+                  +image('content/work_preview3.jpg', 'slider__preview-image')
+                li.slider__previews-item
+                  +image('content/work_preview4.jpg', 'slider__preview-image')
+                li.slider__previews-item
+                  +image('content/work_preview4.jpg', 'slider__preview-image')
+              .slider__controls
+                a.slider__btn.slider__btn-next(href="#")
+                  +icon('arrow-down', 'slider__btn-next-icon', '10', '8')
+                a.slider__btn.slider__btn-prev(href="#")
+                  +icon('arrow-down', 'slider__btn-prev-icon', '10', '8')
+            .works__description
+              ul.works__description-list
+                li.works__description-item
+                  span.works__description-number
+                  .works__description-content
+                    ul.works__description-tags
+                      li.works__description-tag HTML
+                      li.works__description-tag CSS
+                      li.works__description-tag Javascript
+                    h3.works__description-title Сайт школы образования
+                    p.works__description-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                    a.works__description-link Посмотреть сайт
+
+      section.section.reviews
+
 
       .maincontent
         +image('content/user.jpg', 'user-pic')
