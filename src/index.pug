@@ -45,6 +45,7 @@ html(lang="en")
             .scroll
               span.scroll__text Скролл
               +icon('scroll', 'scroll__img', '30')
+
         section.section.about
           .container
             .about__top
@@ -71,6 +72,41 @@ html(lang="en")
                 span.about__note-icon *
                 p.about__note-text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             
+      section.section.skills
+        .container
+          .skills__image
+            .skills__image-frame
+          .skills__content
+            h2.section__title Чем я могу быть полезна вам
+            p.skills__note Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
+            ul.skills__groups
+              li.skills__groups-item
+                h3.skills__title Front-end
+                ul.skills__list
+                  li.skills__item 
+                    span.skills__item-text HTML5
+                  li.skills__item 
+                    span.skills__item-text CSS3
+                  li.skills__item 
+                    span.skills__item-text Javascript
+                  li.skills__item 
+                    span.skills__item-text jquery
+              li.skills__groups-item
+                h3.skills__title Workflow
+                ul.skills__list
+                  li.skills__item 
+                    span.skills__item-text GIT
+                  li.skills__item 
+                    span.skills__item-text Terminal
+                  li.skills__item 
+                    span.skills__item-text Gulp
+                  li.skills__item 
+                    span.skills__item-text Webpack
+
+      section.section.works
+        .container
+          h2.section__title
 
       .maincontent
         +image('content/user.jpg', 'user-pic')
