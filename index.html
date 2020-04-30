@@ -141,25 +141,90 @@
                     <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                   </svg></a></div>
             </div>
-            <div class="works__description">
-              <ul class="works__description-list">
-                <li class="works__description-item"><span class="works__description-number"></span>
-                  <div class="works__description-content">
-                    <ul class="works__description-tags">
-                      <li class="works__description-tag">HTML</li>
-                      <li class="works__description-tag">CSS</li>
-                      <li class="works__description-tag">Javascript</li>
-                    </ul>
-                    <h3 class="works__description-title">Сайт школы образования</h3>
-                    <p class="works__description-text">Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p><a class="works__description-link">Посмотреть сайт</a>
-                  </div>
-                </li>
-              </ul>
+            <div class="works__description"><span class="works__description-number"></span>
+              <div class="works__description-content">
+                <ul class="works__description-tags">
+                  <li class="works__description-tag">HTML</li>
+                  <li class="works__description-tag">CSS</li>
+                  <li class="works__description-tag">Javascript</li>
+                </ul>
+                <h3 class="works__description-title">Сайт школы образования</h3>
+                <p class="works__description-text">Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p><a class="works__description-link" href="#">Посмотреть сайт</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section reviews"></section>
+      <section class="section reviews">
+        <div class="container">
+          <div class="reviews__top">
+            <h2 class="section__title">Что обо мне говорят</h2>
+            <div class="reviews__controls"><a class="reviews__btn reviews__btn-prev" href="#">
+                <svg class="reviews__btn-prev-icon" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
+                  <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+                </svg></a><a class="reviews__btn reviews__btn-next" href="#">
+                <svg class="reviews__btn-next-icon" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
+                  <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+                </svg></a></div>
+          </div>
+          <div class="reviews__list-wrap">
+            <ul class="reviews__list">
+              <li class="reviews__item">
+                <svg class="reviews__item-icon" viewBox="0 0 95.333 95.332" preserveAspectRatio="none" width="75" height="63">
+                  <use xlink:href="/portfolio/sprite.svg#quote"></use>
+                </svg>
+                <div class="reviews__item-content">
+                  <p class="reviews__item-text">Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!</p>
+                  <cite></cite>
+                  <div class="reviews__item-source">
+                    <div class="reviews__item-avatar"><img class="reviews__item-img" src="/portfolio/fbab623dca7d79c766e1cb0fd1c7ba42.jpg">
+                    </div>
+                    <div class="reviews__item-author"><span class="reviews__item-name">Ковальчук Дмитрий</span><span class="reviews__item-position">Основатель Loftschool</span></div>
+                  </div>
+                </div>
+              </li>
+              <li class="reviews__item">
+                <svg class="reviews__item-icon" viewBox="0 0 95.333 95.332" preserveAspectRatio="none" width="75" height="63">
+                  <use xlink:href="/portfolio/sprite.svg#quote"></use>
+                </svg>
+                <div class="reviews__item-content">
+                  <p class="reviews__item-text">Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
+                  <cite></cite>
+                  <div class="reviews__item-source">
+                    <div class="reviews__item-avatar"><img class="reviews__item-img" src="/portfolio/c4ef12235e89317280205f801a1896ee.jpg">
+                    </div>
+                    <div class="reviews__item-author"><span class="reviews__item-name">Владимир Сабанцев</span><span class="reviews__item-position">Преподаватель</span></div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="section contacts">
+        <div class="container">
+          <h2 class="section__title">Связаться со мной</h2>
+          <form class="contacts__form" action="#" method="POST">
+            <div class="contacts__form-row">
+              <label class="contacts__form-block"><span class="contacts__form-label">Введите ваше имя</span>
+                <input class="contacts__form-input" type="text" name="name">
+              </label>
+              <label class="contacts__form-block"><span class="contacts__form-label">Введите ваш email</span>
+                <input class="contacts__form-input" type="email" name="email">
+              </label>
+            </div>
+            <div class="contacts__form-row">
+              <label class="contacts__form-block"><span class="contacts__form-label">Сообщение к письму</span>
+                <textarea class="contacts__form-input" type="text" name="message"></textarea>
+              </label>
+            </div>
+            <div class="contacts__form-row">
+              <input class="btn" type="submit" value="Отправить">
+            </div>
+          </form>
+        </div>
+      </section>
+      <footer class="footer"></footer>
       <div class="maincontent"><img class="user-pic" src="/portfolio/f11a05dd8ebf037660e4ea01df4872d7.jpg">
         <svg class="link-class" viewBox="0 0 512.092 512.092" preserveAspectRatio="none">
           <use xlink:href="/portfolio/sprite.svg#link"></use>
@@ -167,5 +232,5 @@
         <div class="icon-bg"></div>
       </div>
     </div>
-  <script type="text/javascript" src="/portfolio/main.800988e196b099ac680c.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.ab36567e9d133cac7e78.build.js"></script></body>
 </html>
