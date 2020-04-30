@@ -9,102 +9,87 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .wrapper__section
-        section.section.hero
+      .welcome__section
+        section.hero
           .container
             header.header
-              .logo ВП
-              nav.nav
-                ul.nav__list
-                  li.nav__item
-                    a.nav__link(href="#") Главная
-                  li.nav__item
-                    a.nav__link(href="#") Обо мне
-                  li.nav__item
-                    a.nav__link(href="#") Навыки
-                  li.nav__item
-                    a.nav__link(href="#") Работы
-                  li.nav__item
-                    a.nav__link(href="#") Отзывы
-                  li.nav__item
-                    a.nav__link(href="#") Связаться
-              .socials
-                ul.socials__list
-                  li.socials__item
-                    a.socials__link(href="#")
-                      +icon('insta', 'socials__img', '25', '25')
-                  li.socials__item
-                    a.socials__link(href="#")
-                      +icon('vk', 'socials__img', '31', '30')
-                  li.socials__item
-                    a.socials__link(href="#")
-                      +icon('github', 'socials__img', '27', '27')
+              .hero__logo
+                .logo ВП
+              .hero__menu
+                nav.nav
+                  - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a.nav__link(href="#") #{item}
+              .hero__links
+                - var icons = ['insta', 'vk', 'github'];
+                ul.socials
+                  each item in icons
+                    li.socials__item
+                      a.socials__link(href="#")
+                        +icon(`${item}`, 'socials__img', '25', '25')
+
             .hero__content
               p.hero__content-text Личный сайт веб разработчика
               h1.page-title Валентина Понамарева
-            .scroll
-              span.scroll__text Скролл
-              +icon('scroll', 'scroll__img', '30')
+            .hero__scroll
+              .scroll
+                span.scroll__text Скролл
+                +icon('scroll', 'scroll__img', '30')
 
-        section.section.about
+        section.about
           .container
-            .about__top
-              .about__avatar
-                .about__avatar-frame
-                  +image('content/user.jpg', 'user-pic')
-              .about__description
-                p.about__description-top Привет, меня зовут
-                h2.section__title Валентина Понамарева
-                p.about__description-text Я занимаюсь разработкой современных сайтов и приложений.
-                p.about__description-text Мне нравится делать интересные и современные проекты.
-            .about__bottom
-              table.about__table
-                tr.about__table-row
-                  th.about__table-header Проживаю:
-                  td.about__table-data Санкт-Петербург
-                tr.about__table-row
-                  th.about__table-header Возраст:
-                  td.about__table-data 28 лет
-                tr.about__table-row
-                  th.about__table-header Родилась:
-                  td.about__table-data 5 октября 1991
-              .about__note
-                span.about__note-icon *
-                p.about__note-text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-            
-      section.section.skills
+            .about__content
+              .about__left
+                .user
+                  .avatar.user__avatar
+                    +image('content/user.jpg', 'avatar-pic')
+                  table.user__info
+                    tr.user__info-row
+                      th.user__info-header Проживаю:
+                      td.user__info-data Санкт-Петербург
+                    tr.user__info-row
+                      th.user__info-header Возраст:
+                      td.user__info-data 28 лет
+                    tr.user__info-row
+                      th.user__info-header Родилась:
+                      td.user__info-data 5 октября 1991
+
+              .about__right
+                .about__description
+                  p.about__description-top Привет, меня зовут
+                  h2.section__title Валентина Понамарева
+                  p.about__description-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                .about__note
+                  span.about__note-icon *
+                  p.about__note-text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+              
+      section.values
         .container
-          .skills__image
-            .skills__image-frame
-          .skills__content
+          .values__image
+            .values__image-frame
+          .values__content
             h2.section__title Чем я могу быть полезна вам
-            p.skills__note Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .values__desc
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
-            ul.skills__groups
-              li.skills__groups-item
-                h3.skills__title Front-end
-                ul.skills__list
-                  li.skills__item
-                    span.skills__item-text HTML5
-                  li.skills__item
-                    span.skills__item-text CSS3
-                  li.skills__item
-                    span.skills__item-text Javascript
-                  li.skills__item
-                    span.skills__item-text jquery
-              li.skills__groups-item
-                h3.skills__title Workflow
-                ul.skills__list
-                  li.skills__item
-                    span.skills__item-text GIT
-                  li.skills__item
-                    span.skills__item-text Terminal
-                  li.skills__item
-                    span.skills__item-text Gulp
-                  li.skills__item
-                    span.skills__item-text Webpack
+            ul.skill-groups
+              - 
+                var skills = [
+                  ['frontend', ['html', 'css', 'javascript', 'jquery']],
+                  ['workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
+                ]
+              each item in skills
+                li.skill__groups-item.skills-row
+                  h3.skills-row__title #{item[0]}
+                  ul.skills-row__list
+                    each skill in item[1]
+                      li.skills-row__item
+                        .skill
+                          .skill__title #{skill}
 
-      section.section.works
+      section.works
         .container
           h2.section__title Мои работы
           .works__content
@@ -135,7 +120,7 @@ html(lang="en")
                 p.works__description-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                 a.works__description-link(href='#') Посмотреть сайт
 
-      section.section.reviews
+      section.reviews
         .container
           .reviews__top
             h2.section__title Что обо мне говорят
@@ -169,7 +154,7 @@ html(lang="en")
                       span.reviews__item-name Владимир Сабанцев
                       span.reviews__item-position Преподаватель
 
-      section.section.contacts
+      section.contacts
         .container
           h2.section__title Связаться со мной
           form.contacts__form(action="#" method="POST")
