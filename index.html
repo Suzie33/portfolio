@@ -8,33 +8,37 @@
   <link href="/portfolio/main.678b4a9cdcad3c290e5c.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
-      <div class="wrapper__section">
-        <section class="section hero">
+      <div class="welcome__section">
+        <section class="hero">
           <div class="container">
             <header class="header">
-              <div class="logo">ВП</div>
-              <nav class="nav">
-                <ul class="nav__list">
-                  <li class="nav__item"><a class="nav__link" href="#">Главная</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Обо мне</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Навыки</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Работы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Отзывы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Связаться</a></li>
-                </ul>
-              </nav>
-              <div class="socials">
-                <ul class="socials__list">
+              <div class="hero__logo">
+                <div class="logo">ВП</div>
+              </div>
+              <div class="hero__menu">
+                <nav class="nav">
+                  <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="#">Главная</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#">Обо мне</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#">Навыки</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#">Работы</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#">Отзывы</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#">Связаться</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="hero__links">
+                <ul class="socials">
                   <li class="socials__item"><a class="socials__link" href="#">
                       <svg class="socials__img" viewBox="0 0 97.395 97.395" preserveAspectRatio="none" width="25" height="25">
                         <use xlink:href="/portfolio/sprite.svg#insta"></use>
                       </svg></a></li>
                   <li class="socials__item"><a class="socials__link" href="#">
-                      <svg class="socials__img" viewBox="0 0 548.358 548.358" preserveAspectRatio="none" width="31" height="30">
+                      <svg class="socials__img" viewBox="0 0 548.358 548.358" preserveAspectRatio="none" width="25" height="25">
                         <use xlink:href="/portfolio/sprite.svg#vk"></use>
                       </svg></a></li>
                   <li class="socials__item"><a class="socials__link" href="#">
-                      <svg class="socials__img" viewBox="0 0 475.084 475.084" preserveAspectRatio="none" width="27" height="27">
+                      <svg class="socials__img" viewBox="0 0 475.084 475.084" preserveAspectRatio="none" width="25" height="25">
                         <use xlink:href="/portfolio/sprite.svg#github"></use>
                       </svg></a></li>
                 </ul>
@@ -44,81 +48,118 @@
               <p class="hero__content-text">Личный сайт веб разработчика</p>
               <h1 class="page-title">Валентина Понамарева</h1>
             </div>
-            <div class="scroll"><span class="scroll__text">Скролл</span>
-              <svg class="scroll__img" viewBox="-90 0 512 512" preserveAspectRatio="none" width="30">
-                <use xlink:href="/portfolio/sprite.svg#scroll"></use>
-              </svg>
+            <div class="hero__scroll">
+              <div class="scroll"><span class="scroll__text">Скролл</span>
+                <svg class="scroll__img" viewBox="-90 0 512 512" preserveAspectRatio="none" width="30">
+                  <use xlink:href="/portfolio/sprite.svg#scroll"></use>
+                </svg>
+              </div>
             </div>
           </div>
         </section>
-        <section class="section about">
+        <section class="about">
           <div class="container">
-            <div class="about__top">
-              <div class="about__avatar">
-                <div class="about__avatar-frame"><img class="user-pic" src="/portfolio/f11a05dd8ebf037660e4ea01df4872d7.jpg">
+            <div class="about__content">
+              <div class="about__left">
+                <div class="user">
+                  <div class="avatar user__avatar"><img class="avatar-pic" src="/portfolio/f11a05dd8ebf037660e4ea01df4872d7.jpg">
+                  </div>
+                  <table class="user__info">
+                    <tr class="user__info-row">
+                      <th class="user__info-header">Проживаю:</th>
+                      <td class="user__info-data">Санкт-Петербург</td>
+                    </tr>
+                    <tr class="user__info-row">
+                      <th class="user__info-header">Возраст:</th>
+                      <td class="user__info-data">28 лет</td>
+                    </tr>
+                    <tr class="user__info-row">
+                      <th class="user__info-header">Родилась:</th>
+                      <td class="user__info-data">5 октября 1991</td>
+                    </tr>
+                  </table>
                 </div>
               </div>
-              <div class="about__description">
-                <p class="about__description-top">Привет, меня зовут</p>
-                <h2 class="section__title">Валентина Понамарева</h2>
-                <p class="about__description-text">Я занимаюсь разработкой современных сайтов и приложений.</p>
-                <p class="about__description-text">Мне нравится делать интересные и современные проекты.</p>
-              </div>
-            </div>
-            <div class="about__bottom">
-              <table class="about__table">
-                <tr class="about__table-row">
-                  <th class="about__table-header">Проживаю:</th>
-                  <td class="about__table-data">Санкт-Петербург</td>
-                </tr>
-                <tr class="about__table-row">
-                  <th class="about__table-header">Возраст:</th>
-                  <td class="about__table-data">28 лет</td>
-                </tr>
-                <tr class="about__table-row">
-                  <th class="about__table-header">Родилась:</th>
-                  <td class="about__table-data">5 октября 1991</td>
-                </tr>
-              </table>
-              <div class="about__note"><span class="about__note-icon">*</span>
-                <p class="about__note-text">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
+              <div class="about__right">
+                <div class="about__description">
+                  <p class="about__description-top">Привет, меня зовут</p>
+                  <h2 class="section__title">Валентина Понамарева</h2>
+                  <p class="about__description-text">Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.</p>
+                </div>
+                <div class="about__note"><span class="about__note-icon">*</span>
+                  <p class="about__note-text">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </div>
-      <section class="section skills">
+      <section class="values">
         <div class="container">
-          <div class="skills__image">
-            <div class="skills__image-frame"></div>
+          <div class="values__image">
+            <div class="values__image-frame"></div>
           </div>
-          <div class="skills__content">
+          <div class="values__content">
             <h2 class="section__title">Чем я могу быть полезна вам</h2>
-            <p class="skills__note">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
-            <ul class="skills__groups">
-              <li class="skills__groups-item">
-                <h3 class="skills__title">Front-end</h3>
-                <ul class="skills__list">
-                  <li class="skills__item"><span class="skills__item-text">HTML5</span></li>
-                  <li class="skills__item"><span class="skills__item-text">CSS3</span></li>
-                  <li class="skills__item"><span class="skills__item-text">Javascript</span></li>
-                  <li class="skills__item"><span class="skills__item-text">jquery</span></li>
+            <div class="values__desc">
+              <p>Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
+            </div>
+            <ul class="skill-groups">
+              <li class="skill__groups-item skills-row">
+                <h3 class="skills-row__title">frontend</h3>
+                <ul class="skills-row__list">
+                  <li class="skills-row__item">
+                    <div class="skill">
+                      <div class="skill__title">html</div>
+                    </div>
+                  </li>
+                  <li class="skills-row__item">
+                    <div class="skill">
+                      <div class="skill__title">css</div>
+                    </div>
+                  </li>
+                  <li class="skills-row__item">
+                    <div class="skill">
+                      <div class="skill__title">javascript</div>
+                    </div>
+                  </li>
+                  <li class="skills-row__item">
+                    <div class="skill">
+                      <div class="skill__title">jquery</div>
+                    </div>
+                  </li>
                 </ul>
               </li>
-              <li class="skills__groups-item">
-                <h3 class="skills__title">Workflow</h3>
-                <ul class="skills__list">
-                  <li class="skills__item"><span class="skills__item-text">GIT</span></li>
-                  <li class="skills__item"><span class="skills__item-text">Terminal</span></li>
-                  <li class="skills__item"><span class="skills__item-text">Gulp</span></li>
-                  <li class="skills__item"><span class="skills__item-text">Webpack</span></li>
+              <li class="skill__groups-item skills-row">
+                <h3 class="skills-row__title">workflow</h3>
+                <ul class="skills-row__list">
+                  <li class="skills-row__item">
+                    <div class="skill">
+                      <div class="skill__title">GIT</div>
+                    </div>
+                  </li>
+                  <li class="skills-row__item">
+                    <div class="skill">
+                      <div class="skill__title">Terminal</div>
+                    </div>
+                  </li>
+                  <li class="skills-row__item">
+                    <div class="skill">
+                      <div class="skill__title">Gulp</div>
+                    </div>
+                  </li>
+                  <li class="skills-row__item">
+                    <div class="skill">
+                      <div class="skill__title">Webpack</div>
+                    </div>
+                  </li>
                 </ul>
               </li>
             </ul>
           </div>
         </div>
       </section>
-      <section class="section works">
+      <section class="works">
         <div class="container">
           <h2 class="section__title">Мои работы</h2>
           <div class="works__content">
@@ -155,7 +196,7 @@
           </div>
         </div>
       </section>
-      <section class="section reviews">
+      <section class="reviews">
         <div class="container">
           <div class="reviews__top">
             <h2 class="section__title">Что обо мне говорят</h2>
@@ -201,7 +242,7 @@
           </div>
         </div>
       </section>
-      <section class="section contacts">
+      <section class="contacts">
         <div class="container">
           <h2 class="section__title">Связаться со мной</h2>
           <form class="contacts__form" action="#" method="POST">
@@ -232,5 +273,5 @@
         <div class="icon-bg"></div>
       </div>
     </div>
-  <script type="text/javascript" src="/portfolio/main.ab36567e9d133cac7e78.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.a7691e7bcb8175ac0a21.build.js"></script></body>
 </html>
