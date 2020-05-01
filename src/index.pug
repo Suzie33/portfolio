@@ -9,8 +9,8 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .welcome__section
-        section.hero
+      .welcome-section
+        section.hero.fullscreen-section
           .container
             header.header
               .hero__logo
@@ -28,15 +28,15 @@ html(lang="en")
                   each item in icons
                     li.socials__item
                       a.socials__link(href="#")
-                        +icon(`${item}`, 'socials__img', '25', '25')
+                        +icon(`${item}`, 'socials__icon')
 
             .hero__content
               p.hero__content-text Личный сайт веб разработчика
-              h1.page-title Валентина Понамарева
+              h1.hero__title Валентины Понамаревой
             .hero__scroll
-              .scroll
+              a.scroll
                 span.scroll__text Скролл
-                +icon('scroll', 'scroll__img', '30')
+                +icon('scroll', 'scroll__icon', '30')
 
         section.about
           .container
@@ -179,9 +179,3 @@ html(lang="en")
               input.btn(type="submit" value="Отправить")
 
       footer.footer
-
-
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
