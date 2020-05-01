@@ -1,0 +1,58 @@
+.about {
+    min-height: 650px;
+}
+
+.about__container {
+    display: flex;
+    justify-content: space-between;
+    width: 52%;
+}
+
+.about__left {
+    width: 35%;
+}
+
+.about__right {
+    display: flex;
+    flex-direction: column;
+    width: 56%;
+    padding-bottom: 20px;
+}
+
+.about__description-top, .about__description-text, .about__note {
+    opacity: 0.5;
+}
+
+.about__description {
+    margin-bottom: auto;
+}
+
+.about__description-top {
+    margin-bottom: 20px;
+}
+
+.about__description-text {
+    line-height: 1.9;
+}
+
+.about__note {
+    position: relative;
+    font-weight: 400;
+    line-height: 1.9;
+    font-style: italic;
+
+    &:before {
+        content: "*";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: -55px;
+
+        font-size: 48px;
+        line-height: 1;
+        font-style: italic;
+        font-weight: 400;
+        color: #db0200;
+        opacity: .1;
+    }
+}

@@ -3,5 +3,5 @@ mixin icon(name, className, width, height)
   svg(class=className viewBox=icon.viewBox preserveAspectRatio="none" width=width height=height fill="currentcolor")
     use(xlink:href=icon.url)
 
-mixin image(path, className)
-  img(src=require(`images/${path}`) class=className)
+mixin image(path, className, alt)
+  img(src=require(`images/${path}`) class=className alt=alt)

@@ -13,8 +13,7 @@ html(lang="en")
         section.hero.fullscreen-section
           .container
             header.header
-              .hero__logo
-                .logo ВП
+              .hero__logo.logo ВП
               .hero__menu
                 nav.nav
                   - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
@@ -39,33 +38,35 @@ html(lang="en")
                 +icon('scroll', 'scroll__icon', '30')
 
         section.about
-          .container
-            .about__content
-              .about__left
-                .user
-                  .avatar.user__avatar
-                    +image('content/user.jpg', 'avatar-pic')
-                  table.user__info
-                    tr.user__info-row
-                      th.user__info-header Проживаю:
-                      td.user__info-data Санкт-Петербург
-                    tr.user__info-row
-                      th.user__info-header Возраст:
-                      td.user__info-data 28 лет
-                    tr.user__info-row
-                      th.user__info-header Родилась:
-                      td.user__info-data 5 октября 1991
+          .container.about__container
+            .about__left
+              .user
+                .avatar.user__avatar
+                  +image('content/user.jpg', 'avatar-pic', 'avatar')
+                table.user__info
+                  tr.user__info-row
+                    th.user__info-header Проживаю:
+                    td.user__info-data Санкт-Петербург
+                  tr.user__info-row
+                    th.user__info-header Возраст:
+                    td.user__info-data 28 лет
+                  tr.user__info-row
+                    th.user__info-header Родилась:
+                    td.user__info-data 5 октября 1991
 
-              .about__right
-                .about__description
-                  p.about__description-top Привет, меня зовут
-                  h2.section-title Валентина Понамарева
-                  p.about__description-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                .about__note
-                  span.about__note-icon *
-                  p.about__note-text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-              
+            .about__right
+              .about__description
+                p.about__description-top Привет, меня зовут
+                h2.section-title Валентина Понамарева
+                p.about__description-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. 
+              p.about__note Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            
       section.values
+        .triangles
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 0,100 1000,100")
+          svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,100 1000,100 1000,0")
         .container
           .values__image
             .values__image-frame
