@@ -1,3 +1,36 @@
 .values {
     position: relative;
+    padding-top: 135px;
+    margin-bottom: 100px;
+    min-height: 930px;
+}
+
+.values__content {
+    width: 882px;
+    margin-left: auto;
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 712px;
+        height: 627px;
+        position: absolute;
+        top: 100px;
+        left: -640px;
+        background: url('../images/rucksack.png') no-repeat center center;
+        background-size: cover;
+    }
+}
+
+.values__desc {
+    margin-bottom: 90px;
+}
+
+.values__desc p {
+    opacity: .5;
+}
+
+.values__skills {
+    padding-left: 90px;
 }

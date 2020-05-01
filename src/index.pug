@@ -53,7 +53,6 @@ html(lang="en")
                   tr.user__info-row
                     th.user__info-header Родилась:
                     td.user__info-data 5 октября 1991
-
             .about__right
               .about__description
                 p.about__description-top Привет, меня зовут
@@ -68,63 +67,63 @@ html(lang="en")
           svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
             polygon(points="0,100 1000,100 1000,0")
         .container
-          .values__image
-            .values__image-frame
           .values__content
-            h2.section-title Чем я могу быть полезна вам
+            h2.section-title.section-title--values Чем я могу быть полезна вам
             .values__desc
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
-            ul.skill-groups
-              - 
-                var skills = [
-                  ['frontend', ['html', 'css', 'javascript', 'jquery']],
-                  ['workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
-                ]
-              each item in skills
-                li.skill__groups-item.skills-row
-                  h3.skills-row__title #{item[0]}
-                  ul.skills-row__list
-                    each skill in item[1]
-                      li.skills-row__item
-                        .skill
-                          .skill__title #{skill}
+            .values__skills
+              ul.skill-groups
+                - 
+                  var skills = [
+                    ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js']],
+                    ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
+                  ]
+                each item in skills
+                  li.skill__groups-item.skills-row
+                    h3.skills-row__title #{item[0]}
+                    ul.skills-row__list
+                      each skill in item[1]
+                        li.skills-row__item
+                          .skill
+                            .skill__title #{skill}
 
       section.works
         .container
-          h2.section-title Мои работы
-          .works__slider
-            .slider
-              +image('content/work_preview1.jpg', 'slider__image')
-              .slider__previews
-                ul.slider__previews-list
-                  li.slider__previews-item
-                    +image('content/work_preview2.jpg', 'slider__preview-image')
-                  li.slider__previews-item
-                    +image('content/work_preview3.jpg', 'slider__preview-image')
-                  li.slider__previews-item
-                    +image('content/work_preview4.jpg', 'slider__preview-image')
-                  li.slider__previews-item
-                    +image('content/work_preview4.jpg', 'slider__preview-image')
-              .slider__controls
-                .slider-btns
-                  button.slider-btns__item.slider-btns__item--slide--next
-                    +icon('arrow-down', 'slider-btns__icon--slide--next', '10', '8')
-                  button.slider-btns__item.slider-btns__item--slide--prev
-                    +icon('arrow-down', 'slider-btns__icon--slide--prev', '10', '8')
-          .works__description
-            .wors__tags
-              - var tags = ['html', 'css', 'javascript'];
-              each tag in tags
+          h2.section-title.section-title--works Мои работы
+          .works__content
+            .works__slider
+              .slider
+                +image('content/work_preview1.jpg', 'slider__image')
+                .slider__previews
+                  ul.slider__previews-list
+                    li.slider__previews-item
+                      +image('content/work_preview2.jpg', 'slider__preview-image')
+                    li.slider__previews-item
+                      +image('content/work_preview3.jpg', 'slider__preview-image')
+                    li.slider__previews-item
+                      +image('content/work_preview4.jpg', 'slider__preview-image')
+                    li.slider__previews-item
+                      +image('content/work_preview4.jpg', 'slider__preview-image')
+                .slider__controls
+                  .slider-btns
+                    button.slider-btns__item.slider-btns__item--slide--next
+                      +icon('arrow-down', 'slider-btns__icon--slide--next', '10', '8')
+                    button.slider-btns__item.slider-btns__item--slide--prev
+                      +icon('arrow-down', 'slider-btns__icon--slide--prev', '10', '8')
+            .works__description
+              .wors__tags
+                - var tags = ['HTML', 'CSS', 'Javascript'];
                 ul.tags
-                  li.tags__item #{tag}
-            .works__text
-              h3.works__title Сайт школы образования
-              .works__definition
-                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-              a.iconed-link(href='#')
-                .iconed-link__icon 
-                span.iconed-link__text Посмотреть сайт
+                  each tag in tags
+                    li.tags__item #{tag}
+              .works__text
+                h3.works__title Сайт школы образования
+                .works__definition
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                a.iconed-link(href='#')
+                  .iconed-link__icon 
+                  span.iconed-link__text Посмотреть сайт
 
       section.reviews
         .container
