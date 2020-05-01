@@ -83,7 +83,7 @@
               <div class="about__right">
                 <div class="about__description">
                   <p class="about__description-top">Привет, меня зовут</p>
-                  <h2 class="section__title">Валентина Понамарева</h2>
+                  <h2 class="section-title">Валентина Понамарева</h2>
                   <p class="about__description-text">Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.</p>
                 </div>
                 <div class="about__note"><span class="about__note-icon">*</span>
@@ -100,7 +100,7 @@
             <div class="values__image-frame"></div>
           </div>
           <div class="values__content">
-            <h2 class="section__title">Чем я могу быть полезна вам</h2>
+            <h2 class="section-title">Чем я могу быть полезна вам</h2>
             <div class="values__desc">
               <p>Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
             </div>
@@ -161,37 +161,55 @@
       </section>
       <section class="works">
         <div class="container">
-          <h2 class="section__title">Мои работы</h2>
-          <div class="works__content">
+          <h2 class="section-title">Мои работы</h2>
+          <div class="works__slider">
             <div class="slider"><img class="slider__image" src="/portfolio/1767cd6b950d0b92a4d7ad85438bdbb8.jpg">
-              <ul class="slider__previews-list">
-                <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/58015bdcbda14318644bfea176883c35.jpg">
-                </li>
-                <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/43ba37393fd02808b8e351ccd4d978c5.jpg">
-                </li>
-                <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/83ca764884bc40110d96be8ad4e2ca45.jpg">
-                </li>
-                <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/83ca764884bc40110d96be8ad4e2ca45.jpg">
-                </li>
-              </ul>
-              <div class="slider__controls"><a class="slider__btn slider__btn-next" href="#">
-                  <svg class="slider__btn-next-icon" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
-                    <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                  </svg></a><a class="slider__btn slider__btn-prev" href="#">
-                  <svg class="slider__btn-prev-icon" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
-                    <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                  </svg></a></div>
-            </div>
-            <div class="works__description"><span class="works__description-number"></span>
-              <div class="works__description-content">
-                <ul class="works__description-tags">
-                  <li class="works__description-tag">HTML</li>
-                  <li class="works__description-tag">CSS</li>
-                  <li class="works__description-tag">Javascript</li>
+              <div class="slider__previews">
+                <ul class="slider__previews-list">
+                  <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/58015bdcbda14318644bfea176883c35.jpg">
+                  </li>
+                  <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/43ba37393fd02808b8e351ccd4d978c5.jpg">
+                  </li>
+                  <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/83ca764884bc40110d96be8ad4e2ca45.jpg">
+                  </li>
+                  <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/83ca764884bc40110d96be8ad4e2ca45.jpg">
+                  </li>
                 </ul>
-                <h3 class="works__description-title">Сайт школы образования</h3>
-                <p class="works__description-text">Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p><a class="works__description-link" href="#">Посмотреть сайт</a>
               </div>
+              <div class="slider__controls">
+                <div class="slider-btns">
+                  <button class="slider-btns__item slider-btns__item--slide--next">
+                    <svg class="slider-btns__icon--slide--next" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
+                      <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+                    </svg>
+                  </button>
+                  <button class="slider-btns__item slider-btns__item--slide--prev">
+                    <svg class="slider-btns__icon--slide--prev" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
+                      <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="works__description">
+            <div class="wors__tags">
+              <ul class="tags">
+                <li class="tags__item">html</li>
+              </ul>
+              <ul class="tags">
+                <li class="tags__item">css</li>
+              </ul>
+              <ul class="tags">
+                <li class="tags__item">javascript</li>
+              </ul>
+            </div>
+            <div class="works__text">
+              <h3 class="works__title">Сайт школы образования</h3>
+              <div class="works__definition">
+                <p>Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p>
+              </div><a class="iconed-link" href="#">
+                <div class="iconed-link__icon"> </div><span class="iconed-link__text">Посмотреть сайт</span></a>
             </div>
           </div>
         </div>
@@ -199,42 +217,51 @@
       <section class="reviews">
         <div class="container">
           <div class="reviews__top">
-            <h2 class="section__title">Что обо мне говорят</h2>
-            <div class="reviews__controls"><a class="reviews__btn reviews__btn-prev" href="#">
-                <svg class="reviews__btn-prev-icon" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
-                  <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                </svg></a><a class="reviews__btn reviews__btn-next" href="#">
-                <svg class="reviews__btn-next-icon" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
-                  <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                </svg></a></div>
+            <h2 class="section-title">Что обо мне говорят</h2>
+            <div class="reviews__controls">
+              <div class="circle-btns">
+                <button class="circle-btns__item circle-btns__item--slide--prev">
+                  <svg class="circle-btns__icon--slide--prev" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
+                    <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+                  </svg>
+                </button>
+                <button class="circle-btns__item circle-btns__item--slide--next">
+                  <svg class="circle-btns__icon--slide--next" viewBox="0 0 306 306" preserveAspectRatio="none" width="10" height="8">
+                    <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
           <div class="reviews__list-wrap">
-            <ul class="reviews__list">
-              <li class="reviews__item">
-                <svg class="reviews__item-icon" viewBox="0 0 95.333 95.332" preserveAspectRatio="none" width="75" height="63">
+            <ul class="slider-horizontal">
+              <li class="slider-horizontal__item">
+                <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" preserveAspectRatio="none" width="75" height="63">
                   <use xlink:href="/portfolio/sprite.svg#quote"></use>
                 </svg>
-                <div class="reviews__item-content">
-                  <p class="reviews__item-text">Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!</p>
-                  <cite></cite>
-                  <div class="reviews__item-source">
-                    <div class="reviews__item-avatar"><img class="reviews__item-img" src="/portfolio/fbab623dca7d79c766e1cb0fd1c7ba42.jpg">
+                <div class="slider-horizontal__content">
+                  <div class="slider-horizontal__text">
+                    <p>Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!</p>
+                  </div>
+                  <div class="slider-horizontal__source">
+                    <div class="avatar slider-horizontal__avatar"><img class="avatar-pic" src="/portfolio/fbab623dca7d79c766e1cb0fd1c7ba42.jpg">
                     </div>
-                    <div class="reviews__item-author"><span class="reviews__item-name">Ковальчук Дмитрий</span><span class="reviews__item-position">Основатель Loftschool</span></div>
+                    <div class="slider-horizontal__author"><span class="slider-horizontal__name">Ковальчук Дмитрий</span><span class="slider-horizontal__position">Основатель Loftschool</span></div>
                   </div>
                 </div>
               </li>
-              <li class="reviews__item">
-                <svg class="reviews__item-icon" viewBox="0 0 95.333 95.332" preserveAspectRatio="none" width="75" height="63">
+              <li class="slider-horizontal__item">
+                <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" preserveAspectRatio="none" width="75" height="63">
                   <use xlink:href="/portfolio/sprite.svg#quote"></use>
                 </svg>
-                <div class="reviews__item-content">
-                  <p class="reviews__item-text">Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
-                  <cite></cite>
-                  <div class="reviews__item-source">
-                    <div class="reviews__item-avatar"><img class="reviews__item-img" src="/portfolio/c4ef12235e89317280205f801a1896ee.jpg">
+                <div class="slider-horizontal__content">
+                  <div class="slider-horizontal__text">
+                    <p>Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
+                  </div>
+                  <div class="slider-horizontal__source">
+                    <div class="avatar slider-horizontal__avatar"><img class="avatar-pic" src="/portfolio/fbab623dca7d79c766e1cb0fd1c7ba42.jpg">
                     </div>
-                    <div class="reviews__item-author"><span class="reviews__item-name">Владимир Сабанцев</span><span class="reviews__item-position">Преподаватель</span></div>
+                    <div class="slider-horizontal__author"><span class="slider-horizontal__name">Владимир Сабанцев</span><span class="slider-horizontal__position">Преподаватель</span></div>
                   </div>
                 </div>
               </li>
@@ -244,22 +271,22 @@
       </section>
       <section class="contacts">
         <div class="container">
-          <h2 class="section__title">Связаться со мной</h2>
-          <form class="contacts__form" action="#" method="POST">
-            <div class="contacts__form-row">
-              <label class="contacts__form-block"><span class="contacts__form-label">Введите ваше имя</span>
-                <input class="contacts__form-input" type="text" name="name">
+          <h2 class="section-title">Связаться со мной</h2>
+          <form class="form" action="#" method="POST">
+            <div class="form__row">
+              <label class="form__block"><span class="form__label">Введите ваше имя</span>
+                <input class="form__input" type="text" name="name">
               </label>
-              <label class="contacts__form-block"><span class="contacts__form-label">Введите ваш email</span>
-                <input class="contacts__form-input" type="email" name="email">
-              </label>
-            </div>
-            <div class="contacts__form-row">
-              <label class="contacts__form-block"><span class="contacts__form-label">Сообщение к письму</span>
-                <textarea class="contacts__form-input" type="text" name="message"></textarea>
+              <label class="form__block"><span class="form__label">Введите ваш email</span>
+                <input class="form__input" type="email" name="email">
               </label>
             </div>
-            <div class="contacts__form-row">
+            <div class="form__row">
+              <label class="form__block"><span class="form__label">Сообщение к письму</span>
+                <textarea class="form__input" type="text" name="message"></textarea>
+              </label>
+            </div>
+            <div class="form__row">
               <input class="btn" type="submit" value="Отправить">
             </div>
           </form>
@@ -273,5 +300,5 @@
         <div class="icon-bg"></div>
       </div>
     </div>
-  <script type="text/javascript" src="/portfolio/main.a7691e7bcb8175ac0a21.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.815da39154470e4ef911.build.js"></script></body>
 </html>
