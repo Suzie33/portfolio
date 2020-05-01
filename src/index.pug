@@ -59,7 +59,7 @@ html(lang="en")
               .about__right
                 .about__description
                   p.about__description-top Привет, меня зовут
-                  h2.section__title Валентина Понамарева
+                  h2.section-title Валентина Понамарева
                   p.about__description-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                 .about__note
                   span.about__note-icon *
@@ -70,7 +70,7 @@ html(lang="en")
           .values__image
             .values__image-frame
           .values__content
-            h2.section__title Чем я могу быть полезна вам
+            h2.section-title Чем я могу быть полезна вам
             .values__desc
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
@@ -91,85 +91,91 @@ html(lang="en")
 
       section.works
         .container
-          h2.section__title Мои работы
-          .works__content
+          h2.section-title Мои работы
+          .works__slider
             .slider
               +image('content/work_preview1.jpg', 'slider__image')
-              ul.slider__previews-list
-                li.slider__previews-item
-                  +image('content/work_preview2.jpg', 'slider__preview-image')
-                li.slider__previews-item
-                  +image('content/work_preview3.jpg', 'slider__preview-image')
-                li.slider__previews-item
-                  +image('content/work_preview4.jpg', 'slider__preview-image')
-                li.slider__previews-item
-                  +image('content/work_preview4.jpg', 'slider__preview-image')
+              .slider__previews
+                ul.slider__previews-list
+                  li.slider__previews-item
+                    +image('content/work_preview2.jpg', 'slider__preview-image')
+                  li.slider__previews-item
+                    +image('content/work_preview3.jpg', 'slider__preview-image')
+                  li.slider__previews-item
+                    +image('content/work_preview4.jpg', 'slider__preview-image')
+                  li.slider__previews-item
+                    +image('content/work_preview4.jpg', 'slider__preview-image')
               .slider__controls
-                a.slider__btn.slider__btn-next(href="#")
-                  +icon('arrow-down', 'slider__btn-next-icon', '10', '8')
-                a.slider__btn.slider__btn-prev(href="#")
-                  +icon('arrow-down', 'slider__btn-prev-icon', '10', '8')
-            .works__description
-              span.works__description-number
-              .works__description-content
-                ul.works__description-tags
-                  li.works__description-tag HTML
-                  li.works__description-tag CSS
-                  li.works__description-tag Javascript
-                h3.works__description-title Сайт школы образования
-                p.works__description-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a.works__description-link(href='#') Посмотреть сайт
+                .slider-btns
+                  button.slider-btns__item.slider-btns__item--slide--next
+                    +icon('arrow-down', 'slider-btns__icon--slide--next', '10', '8')
+                  button.slider-btns__item.slider-btns__item--slide--prev
+                    +icon('arrow-down', 'slider-btns__icon--slide--prev', '10', '8')
+          .works__description
+            .wors__tags
+              - var tags = ['html', 'css', 'javascript'];
+              each tag in tags
+                ul.tags
+                  li.tags__item #{tag}
+            .works__text
+              h3.works__title Сайт школы образования
+              .works__definition
+                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+              a.iconed-link(href='#')
+                .iconed-link__icon 
+                span.iconed-link__text Посмотреть сайт
 
       section.reviews
         .container
           .reviews__top
-            h2.section__title Что обо мне говорят
+            h2.section-title Что обо мне говорят
             .reviews__controls
-              a.reviews__btn.reviews__btn-prev(href="#")
-                +icon('arrow-down', 'reviews__btn-prev-icon', '10', '8')
-              a.reviews__btn.reviews__btn-next(href="#")
-                +icon('arrow-down', 'reviews__btn-next-icon', '10', '8')
+              .circle-btns
+                button.circle-btns__item.circle-btns__item--slide--prev
+                  +icon('arrow-down', 'circle-btns__icon--slide--prev', '10', '8')
+                button.circle-btns__item.circle-btns__item--slide--next
+                  +icon('arrow-down', 'circle-btns__icon--slide--next', '10', '8')
           .reviews__list-wrap
-            ul.reviews__list
-              li.reviews__item
-                +icon('quote', 'reviews__item-icon', '75', '63')
-                .reviews__item-content
-                  p.reviews__item-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                  cite.
-                  .reviews__item-source
-                    .reviews__item-avatar
-                      +image('content/review1.jpg', 'reviews__item-img')
-                    .reviews__item-author
-                      span.reviews__item-name Ковальчук Дмитрий
-                      span.reviews__item-position Основатель Loftschool
-              li.reviews__item
-                +icon('quote', 'reviews__item-icon', '75', '63')
-                .reviews__item-content
-                  p.reviews__item-text Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                  cite.
-                  .reviews__item-source
-                    .reviews__item-avatar
-                      +image('content/review2.jpg', 'reviews__item-img')
-                    .reviews__item-author
-                      span.reviews__item-name Владимир Сабанцев
-                      span.reviews__item-position Преподаватель
+            ul.slider-horizontal
+              li.slider-horizontal__item
+                +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                .slider-horizontal__content
+                  .slider-horizontal__text
+                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                  .slider-horizontal__source
+                    .avatar.slider-horizontal__avatar
+                      +image('content/review1.jpg', 'avatar-pic')
+                    .slider-horizontal__author
+                      span.slider-horizontal__name Ковальчук Дмитрий
+                      span.slider-horizontal__position Основатель Loftschool
+              li.slider-horizontal__item
+                +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                .slider-horizontal__content
+                  .slider-horizontal__text
+                    p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                  .slider-horizontal__source
+                    .avatar.slider-horizontal__avatar
+                      +image('content/review1.jpg', 'avatar-pic')
+                    .slider-horizontal__author
+                      span.slider-horizontal__name Владимир Сабанцев
+                      span.slider-horizontal__position Преподаватель
 
       section.contacts
         .container
-          h2.section__title Связаться со мной
-          form.contacts__form(action="#" method="POST")
-            .contacts__form-row
-              label.contacts__form-block
-                span.contacts__form-label Введите ваше имя
-                input.contacts__form-input(type="text" name="name")
-              label.contacts__form-block
-                span.contacts__form-label Введите ваш email
-                input.contacts__form-input(type="email" name="email")
-            .contacts__form-row
-              label.contacts__form-block
-                span.contacts__form-label Сообщение к письму
-                textarea.contacts__form-input(type="text" name="message")
-            .contacts__form-row
+          h2.section-title Связаться со мной
+          form.form(action="#" method="POST")
+            .form__row
+              label.form__block
+                span.form__label Введите ваше имя
+                input.form__input(type="text" name="name")
+              label.form__block
+                span.form__label Введите ваш email
+                input.form__input(type="email" name="email")
+            .form__row
+              label.form__block
+                span.form__label Сообщение к письму
+                textarea.form__input(type="text" name="message")
+            .form__row
               input.btn(type="submit" value="Отправить")
 
       footer.footer
