@@ -42,7 +42,7 @@ html(lang="en")
             .about__left
               .user
                 .avatar.user__avatar
-                  +image('content/user.jpg', 'avatar-pic', 'avatar')
+                  +image('content/user.jpg', 'avatar__pic', 'avatar')
                 table.user__info
                   tr.user__info-row
                     th.user__info-header Проживаю:
@@ -121,61 +121,68 @@ html(lang="en")
                 h3.works__title Сайт школы образования
                 .works__definition
                   p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a.iconed-link(href='#')
+                a.iconed-link(href='#' target="_blank")
                   .iconed-link__icon
                   span.iconed-link__text Посмотреть сайт
 
-      section.reviews
-        .container
-          .reviews__top
-            h2.section-title Что обо мне говорят
-            .reviews__controls
-              .circle-btns
-                button.circle-btns__item.circle-btns__item--slide--prev
-                  +icon('arrow-down', 'circle-btns__icon--slide--prev', '10', '8')
-                button.circle-btns__item.circle-btns__item--slide--next
-                  +icon('arrow-down', 'circle-btns__icon--slide--next', '10', '8')
-          .reviews__list-wrap
-            ul.slider-horizontal
-              li.slider-horizontal__item
-                +icon('quote', 'slider-horizontal__item-icon', '75', '63')
-                .slider-horizontal__content
-                  .slider-horizontal__text
-                    p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                  .slider-horizontal__source
-                    .avatar.slider-horizontal__avatar
-                      +image('content/review1.jpg', 'avatar-pic')
-                    .slider-horizontal__author
-                      span.slider-horizontal__name Ковальчук Дмитрий
-                      span.slider-horizontal__position Основатель Loftschool
-              li.slider-horizontal__item
-                +icon('quote', 'slider-horizontal__item-icon', '75', '63')
-                .slider-horizontal__content
-                  .slider-horizontal__text
-                    p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                  .slider-horizontal__source
-                    .avatar.slider-horizontal__avatar
-                      +image('content/review1.jpg', 'avatar-pic')
-                    .slider-horizontal__author
-                      span.slider-horizontal__name Владимир Сабанцев
-                      span.slider-horizontal__position Преподаватель
+      .reviews-ans-contact-section
+        .triangles.triangles--rotated
+            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,0 0,100 1000,100")
+            svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,100 1000,100 1000,0")
 
-      section.contacts
-        .container
-          h2.section-title Связаться со мной
-          form.form(action="#" method="POST")
-            .form__row
-              label.form__block
-                span.form__label Введите ваше имя
-                input.form__input(type="text" name="name")
-              label.form__block
-                span.form__label Введите ваш email
-                input.form__input(type="email" name="email")
-            .form__row
-              label.form__block
-                span.form__label Сообщение к письму
-                textarea.form__input(type="text" name="message")
-            .form__row
-              input.btn(type="submit" value="Отправить")
+        section.reviews
+          .container
+            .reviews__top
+              h2.section-title.section-title--reviews Что обо мне говорят
+              .reviews__controls
+                .circle-btns
+                  button.circle-btns__item.circle-btns__item--slide--prev
+                    +icon('arrow-down', 'circle-btns__icon', '10', '8')
+                  button.circle-btns__item.circle-btns__item--slide--next
+                    +icon('arrow-down', 'circle-btns__icon', '10', '8')
+            .reviews__list-wrap
+              ul.slider-horizontal
+                li.slider-horizontal__item
+                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                  .slider-horizontal__content
+                    .slider-horizontal__text
+                      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                    .slider-horizontal__source
+                      .avatar.slider-horizontal__avatar
+                        +image('content/review1.jpg', 'avatar__pic')
+                      .slider-horizontal__author
+                        .slider-horizontal__name Ковальчук Дмитрий
+                        .slider-horizontal__position Основатель Loftschool
+                li.slider-horizontal__item
+                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                  .slider-horizontal__content
+                    .slider-horizontal__text
+                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .slider-horizontal__source
+                      .avatar.slider-horizontal__avatar
+                        +image('content/review2.jpg', 'avatar__pic')
+                      .slider-horizontal__author
+                        .slider-horizontal__name Владимир Сабанцев
+                        .slider-horizontal__position Преподаватель
+
+        section.contacts
+          .container
+            h2.section-title.section-title--contacts Связаться со мной
+            form.form(action="#" method="POST")
+              .form__row
+                label.form__block
+                  span.form__label Введите ваше имя
+                  input.form__input(type="text" name="name")
+                label.form__block
+                  span.form__label Введите ваш email
+                  input.form__input(type="email" name="email")
+              .form__row
+                label.form__block
+                  span.form__label Сообщение к письму
+                  textarea.form__input(type="text" name="message")
+              .form__row
+                input.btn(type="submit" value="Отправить")
 
       footer.footer
