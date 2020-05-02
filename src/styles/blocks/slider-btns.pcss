@@ -1,0 +1,22 @@
+.slider-btns {
+    font-size: 0;
+}
+
+.slider-btns__item {
+    width: 50px;
+    height: 50px;
+    background-color: #353e4e;
+
+    &--slide--next .slider-btns__icon {
+        transform: rotate(90deg);
+    }
+
+    &--slide--prev .slider-btns__icon {
+        transform: rotate(-90deg);
+    }
+}
+
+.slider-btns__icon {
+    fill: #fff;
+    fill-opacity: .3;
+}

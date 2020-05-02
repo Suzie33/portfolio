@@ -4,7 +4,7 @@
 
 .works__content {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
 }
 
@@ -14,8 +14,33 @@
 
 .works__description {
     width: 350px;
+    position: relative;
+
+    &::before {
+        content: "4";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 100%;
+        font-size: 400px;
+        font-weight: 800;
+        line-height: 0.8;
+        color: #e6e6e6;
+        z-index: -5;
+    }
 }
 
 .wors__tags {
+    margin-bottom: 40px;
+}
+
+.works__title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.works__definition {
+    line-height: 1.9;
     margin-bottom: 40px;
 }
