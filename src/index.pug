@@ -186,28 +186,31 @@ html(lang="en")
                 input.btn(type="submit" value="Отправить")
 
       footer.footer
-        .footer__copyright
-          .footer__copyright-year
-          .footer__copyright-name
-        .footer__right
-          .footer__top
-            nav.nav
-                  - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
-                  ul.nav__list
-                    each item in menu
-                      li.nav__item
-                        a.nav__link(href="#") #{item}
-          .footer__bottom
-            .footer__bottom-left
-              p.footer__note Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool 
-              .footer__links
-              - var icons = ['insta', 'vk', 'github'];
-                ul.socials
-                  each item in icons
-                    li.socials__item
-                      a.socials__link(href="#")
-                        +icon(`${item}`, 'socials__icon')
-            .footer__bottom-right
-              .blockquote
-                p.blockquote__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
-                span.blockquote__author Martin Golding
+        .container.footer__container
+          .footer__copyright
+            .footer__copyright-year &copy; 2019
+            .footer__copyright-name
+              .footer__copyright-myname Владимир Астаханов
+              .footer__copyright-note Личный сайт веб-разработчика
+          .footer__right
+            .footer__top
+              nav.nav
+                    - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
+                    ul.nav__list
+                      each item in menu
+                        li.nav__item
+                          a.nav__link(href="#") #{item}
+            .footer__bottom
+              .footer__bottom-left
+                p.footer__note Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool 
+                .footer__links
+                - var icons = ['insta', 'vk', 'github'];
+                  ul.socials
+                    each item in icons
+                      li.socials__item.socials__item--circled
+                        a.socials__link(href="#")
+                          +icon(`${item}`, 'socials__icon')
+              .footer__bottom-right
+                .blockquote
+                  p.blockquote__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                  span.blockquote__author Martin Golding
