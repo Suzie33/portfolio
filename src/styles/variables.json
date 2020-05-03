@@ -1,6 +1,7 @@
 {
   "text-color": "#464d62",
   "links-color": "#586ed3",
+  "form-label-color": "#c6c9d0",
   "footer-color": "#252830",
   "bp-desktop-hd": "1800px",
   "bp-desktop": "1200px",

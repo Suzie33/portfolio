@@ -181,14 +181,17 @@ html(lang="en")
               .form__row
                 label.form__block
                   span.form__label Введите ваше имя
+                  +icon('user', 'form__input-icon', '30', '29')
                   input.form__input(type="text" name="name")
                 label.form__block
                   span.form__label Введите ваш email
+                  +icon('envelope', 'form__input-icon', '30', '30')
                   input.form__input(type="email" name="email")
-              .form__row
+              .form__row.form__row--margin--l
                 label.form__block
                   span.form__label Сообщение к письму
-                  textarea.form__input(type="text" name="message")
+                  +icon('message', 'form__input-icon', '30', '30')
+                  textarea.form__input.form__input--textarea(type="text" name="message")
               .form__row
                 input.btn(type="submit" value="Отправить")
 
