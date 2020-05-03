@@ -9,10 +9,21 @@
 
     &--slide--next .slider-btns__icon {
         transform: rotate(90deg);
+        fill-opacity: 1;
     }
 
     &--slide--prev .slider-btns__icon {
         transform: rotate(-90deg);
+    }
+
+    &:hover {
+        background-color: #5500f2;
+        outline: none;
+        transition: .2s;
+    }
+
+    &:active {
+        opacity: .7;
     }
 }
 

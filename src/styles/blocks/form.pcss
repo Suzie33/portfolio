@@ -43,6 +43,15 @@
 
     font-size: 18px;
     font-weight: 700;
+
+    &:focus {
+        border-bottom-color: #5500f2;
+        outline: none;
+
+        &+.form__input-icon {
+            fill: #5500f2;
+        }
+    }
 }
 
 .form__input--textarea {
@@ -55,4 +64,31 @@
     left: 0;
     top: 39px;
     fill: $form-label-color;
+}
+
+.form__error {
+    display: none;
+    position: absolute;
+    top: 98%;
+    left: 40px;
+    width: auto;
+    padding: 10px 20px;
+    background-color: #cd1515;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+
+    &:before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        
+        display: block;
+        border: 5px solid #cd1515;
+        border-top: none;
+        border-left-color: 8px transparent;
+        border-right-color: 8px transparent;
+    }
 }

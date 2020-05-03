@@ -76,7 +76,7 @@ html(lang="en")
               ul.skill-groups
                 - 
                   var skills = [
-                    ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'], [25, 15, 75, 45]],
+                    ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'], [25, 15, 75, 20]],
                     ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack'], [15, 25, 50, 40]],
                   ]
                 each item in skills
@@ -96,7 +96,7 @@ html(lang="en")
                 +image('content/work_preview1.jpg', 'slider__image')
                 .slider__previews
                   ul.slider__previews-list
-                    li.slider__previews-item
+                    li.slider__previews-item.slider__previews-item--active
                       +image('content/work_preview2.jpg', 'slider__preview-image')
                     li.slider__previews-item
                       +image('content/work_preview3.jpg', 'slider__preview-image')
@@ -106,9 +106,9 @@ html(lang="en")
                       +image('content/work_preview5.jpg', 'slider__preview-image')
                 .slider__controls
                   .slider-btns
-                    button.slider-btns__item.slider-btns__item--slide--next
-                      +icon('arrow-down', 'slider-btns__icon', '8', '10')
                     button.slider-btns__item.slider-btns__item--slide--prev
+                      +icon('arrow-down', 'slider-btns__icon', '8', '10')
+                    button.slider-btns__item.slider-btns__item--slide--next
                       +icon('arrow-down', 'slider-btns__icon', '8', '10')
             .works__description
               span.works__number 4
@@ -174,17 +174,20 @@ html(lang="en")
               .form__row
                 label.form__block
                   span.form__label Введите ваше имя
-                  +icon('user', 'form__input-icon', '30', '29')
                   input.form__input(type="text" name="name")
+                  +icon('user', 'form__input-icon', '30', '29')
+                  .form__error Какая-то ошибка
                 label.form__block
                   span.form__label Введите ваш email
-                  +icon('envelope', 'form__input-icon', '30', '30')
                   input.form__input(type="email" name="email")
+                  +icon('envelope', 'form__input-icon', '30', '30')
+                  .form__error Какая-то ошибка
               .form__row.form__row--margin--l
                 label.form__block
                   span.form__label Сообщение к письму
-                  +icon('message', 'form__input-icon', '30', '30')
                   textarea.form__input.form__input--textarea(type="text" name="message")
+                  +icon('message', 'form__input-icon', '30', '30')
+                  .form__error Какая-то ошибка
               .form__row
                 input.btn(type="submit" value="Отправить")
 
