@@ -4,7 +4,7 @@
 }
 
 .skill__shape {
-    width: 100%;
+    width: 168px;
 }
 
 .skill__title {
@@ -21,8 +21,6 @@
 }
 
 .skill__circle {
-    width: 132px;
-    height: 132px;
     fill: transparent;
 
     &--position--under {
@@ -33,8 +31,21 @@
     &--position--above {
         stroke: url(#skill-linear-gradient);
         stroke-width: 20px;
-        stroke-dasharray: 378 126;
-        stroke-dashoffset: 252;
+        stroke-dasharray: 504;
+
+        transform: rotate(180deg);
+        transform-origin: 50% 50%;
+        animation: skillPercent 100s linear infinite; 
+        animation-play-state: paused;
     }
 }
 
+@keyframes skillPercent {
+    0% {
+        stroke-dashoffset: 502;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

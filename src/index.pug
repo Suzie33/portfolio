@@ -76,24 +76,17 @@ html(lang="en")
               ul.skill-groups
                 - 
                   var skills = [
-                    ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js']],
-                    ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']],
+                    ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'], [25, 15, 75, 45]],
+                    ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack'], [15, 25, 50, 40]],
                   ]
                 each item in skills
                   li.skill__groups-item.skills-row
                     h3.skills-row__title #{item[0]}
                     ul.skills-row__list
-                      each skill in item[1]
+                      each skill, index in item[1]
                         li.skills-row__item
-                          .skill
-                            svg(viewBox="0 0 200 200").skill__shape
-                              circle(r="80" cx="50%" cy="50%").skill__circle.skill__circle--position--under
-                              circle(r="80" cx="50%" cy="50%").skill__circle.skill__circle--position--above
-                              linearGradient#skill-linear-gradient
-                                stop(offset="0%" stop-color="#9300e8")
-                                stop(offset="100%" stop-color="#4a00ed")
-                            .skill__title #{skill}
-
+                          +skill(item[2][index], skill)
+                          
       section.works
         .container
           h2.section-title.section-title--works Мои работы
