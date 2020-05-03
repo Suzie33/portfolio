@@ -86,6 +86,12 @@ html(lang="en")
                       each skill in item[1]
                         li.skills-row__item
                           .skill
+                            svg(viewBox="0 0 200 200" preserveAspectRatio="none").skill__shape
+                              circle(r="80" cx="50%" cy="50%").skill__circle.skill__circle--position--under
+                              circle(r="80" cx="50%" cy="50%").skill__circle.skill__circle--position--above
+                              linearGradient#skill-linear-gradient
+                                stop(offset="0%" stop-color="#9300e8")
+                                stop(offset="100%" stop-color="#4a00ed")
                             .skill__title #{skill}
 
       section.works
@@ -104,7 +110,7 @@ html(lang="en")
                     li.slider__previews-item
                       +image('content/work_preview4.jpg', 'slider__preview-image')
                     li.slider__previews-item
-                      +image('content/work_preview4.jpg', 'slider__preview-image')
+                      +image('content/work_preview5.jpg', 'slider__preview-image')
                 .slider__controls
                   .slider-btns
                     button.slider-btns__item.slider-btns__item--slide--next
@@ -112,6 +118,7 @@ html(lang="en")
                     button.slider-btns__item.slider-btns__item--slide--prev
                       +icon('arrow-down', 'slider-btns__icon', '8', '10')
             .works__description
+              span.works__number 4
               .wors__tags
                 - var tags = ['HTML', 'CSS', 'Javascript'];
                 ul.tags
@@ -208,7 +215,7 @@ html(lang="en")
                   ul.socials
                     each item in icons
                       li.socials__item.socials__item--circled
-                        a.socials__link(href="#")
+                        a.socials__link(href="#" target="_blank")
                           +icon(`${item}`, 'socials__icon')
               .footer__bottom-right
                 .blockquote

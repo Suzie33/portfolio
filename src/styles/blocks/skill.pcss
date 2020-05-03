@@ -1,5 +1,36 @@
+.skill {
+    position: relative;
+    line-height: 1;
+}
+
 .skill__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     font-size: 18px;
+    line-height: 1.4;
     font-weight: 700;
+    text-align: center;
     opacity: .5;
 }
+
+.skill__circle {
+    width: 132px;
+    height: 132px;
+    fill: transparent;
+
+    &--position--under {
+        stroke: #e9e9e9;
+        stroke-width: 10px;
+    }
+
+    &--position--above {
+        stroke: url(#skill-linear-gradient);
+        stroke-width: 20px;
+        stroke-dasharray: 378 126;
+        stroke-dashoffset: 252;
+    }
+}
+
