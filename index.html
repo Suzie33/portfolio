@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.a5d5f904ea50f26ecd76.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.9079fc338124899902ac.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <div class="welcome-section">
@@ -148,7 +148,7 @@
                       <div class="skill">
                         <svg class="skill__shape" viewBox="0 0 200 200">
                           <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -45s"></circle>
+                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -20s"></circle>
                           <linearGradient id="skill-linear-gradient">
                             <stop offset="0%" stop-color="#9300e8"></stop>
                             <stop offset="100%" stop-color="#4a00ed"></stop>
@@ -229,7 +229,7 @@
               <div class="slider"><img class="slider__image" src="/portfolio/1767cd6b950d0b92a4d7ad85438bdbb8.jpg">
                 <div class="slider__previews">
                   <ul class="slider__previews-list">
-                    <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/58015bdcbda14318644bfea176883c35.jpg">
+                    <li class="slider__previews-item slider__previews-item--active"><img class="slider__preview-image" src="/portfolio/58015bdcbda14318644bfea176883c35.jpg">
                     </li>
                     <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/43ba37393fd02808b8e351ccd4d978c5.jpg">
                     </li>
@@ -241,12 +241,12 @@
                 </div>
                 <div class="slider__controls">
                   <div class="slider-btns">
-                    <button class="slider-btns__item slider-btns__item--slide--next">
+                    <button class="slider-btns__item slider-btns__item--slide--prev">
                       <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
                         <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                       </svg>
                     </button>
-                    <button class="slider-btns__item slider-btns__item--slide--prev">
+                    <button class="slider-btns__item slider-btns__item--slide--next">
                       <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
                         <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                       </svg>
@@ -350,24 +350,27 @@
             <form class="form" action="#" method="POST">
               <div class="form__row">
                 <label class="form__block"><span class="form__label">Введите ваше имя</span>
+                  <input class="form__input" type="text" name="name">
                   <svg class="form__input-icon" viewBox="0 0 482.9 482.9" width="30" height="29" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#user"></use>
                   </svg>
-                  <input class="form__input" type="text" name="name">
+                  <div class="form__error">Какая-то ошибка</div>
                 </label>
                 <label class="form__block"><span class="form__label">Введите ваш email</span>
+                  <input class="form__input" type="email" name="email">
                   <svg class="form__input-icon" viewBox="0 0 483.3 483.3" width="30" height="30" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#envelope"></use>
                   </svg>
-                  <input class="form__input" type="email" name="email">
+                  <div class="form__error">Какая-то ошибка</div>
                 </label>
               </div>
               <div class="form__row form__row--margin--l">
                 <label class="form__block"><span class="form__label">Сообщение к письму</span>
+                  <textarea class="form__input form__input--textarea" type="text" name="message"></textarea>
                   <svg class="form__input-icon" viewBox="0 0 612 612" width="30" height="30" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#message"></use>
                   </svg>
-                  <textarea class="form__input form__input--textarea" type="text" name="message"></textarea>
+                  <div class="form__error">Какая-то ошибка</div>
                 </label>
               </div>
               <div class="form__row">
@@ -428,5 +431,5 @@
         </div>
       </footer>
     </div>
-  <script type="text/javascript" src="/portfolio/main.c00f6c4196f3b3e4106c.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.dc982ed05ac23643f5b8.build.js"></script></body>
 </html>
