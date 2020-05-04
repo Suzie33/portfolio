@@ -13,15 +13,15 @@ html(lang="en")
         section.hero.fullscreen-section
           .container
             header.header
-              .hero__logo.logo ВП
-              .hero__menu
+              .header__logo.logo ВП
+              .header__menu
                 nav.nav
                   - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
                   ul.nav__list
                     each item in menu
                       li.nav__item
                         a.nav__link(href="#") #{item}
-              .hero__links
+              .header__links
                 - var icons = ['insta', 'vk', 'github'];
                 ul.socials
                   each item in icons
@@ -174,18 +174,18 @@ html(lang="en")
               .form__row
                 label.form__block
                   span.form__label Введите ваше имя
-                  input.form__input(type="text" name="name")
+                  input.form__input(type="text" name="name" placeholder="Валентина Понамарева")
                   +icon('user', 'form__input-icon', '30', '29')
                   .form__error Какая-то ошибка
                 label.form__block
                   span.form__label Введите ваш email
-                  input.form__input(type="email" name="email")
+                  input.form__input(type="email" name="email" placeholder="valiazin@gmail.com")
                   +icon('envelope', 'form__input-icon', '30', '30')
                   .form__error Какая-то ошибка
               .form__row.form__row--margin--l
                 label.form__block
                   span.form__label Сообщение к письму
-                  textarea.form__input.form__input--textarea(type="text" name="message")
+                  textarea.form__input.form__input--textarea(type="text" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
                   +icon('message', 'form__input-icon', '30', '30')
                   .form__error Какая-то ошибка
               .form__row
