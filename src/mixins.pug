@@ -1,7 +1,17 @@
 mixin icon(name, className, width, height)
   - var icon = require(`images/icons/${name}.svg`);
-  svg(class=className viewBox=icon.viewBox preserveAspectRatio="none" width=width height=height fill="currentcolor")
+  svg(class=className viewBox=icon.viewBox width=width height=height fill="currentcolor")
     use(xlink:href=icon.url)
 
 mixin image(path, className, alt)
   img(src=require(`images/${path}`) class=className alt=alt)
+
+mixin skill(percent, text)
+  .skill
+    svg(viewBox="0 0 200 200").skill__shape
+      circle(r="80" cx="50%" cy="50%").skill__circle.skill__circle--position--under
+      circle(r="80" cx="50%" cy="50%" style=`animation-delay: -${percent}s`).skill__circle.skill__circle--position--above
+      linearGradient#skill-linear-gradient
+        stop(offset="0%" stop-color="#9300e8")
+        stop(offset="100%" stop-color="#4a00ed")
+    .skill__title #{text}

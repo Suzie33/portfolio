@@ -1,0 +1,33 @@
+.circle-btns {
+    font-size: 0;
+}
+
+.circle-btns__item {
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+    border-radius: 50%;
+
+    background-color: transparent;
+    border: 1px solid #353e4e;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &--slide--prev .circle-btns__icon {
+        transform: rotate(180deg);
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:active {
+        opacity: .7;
+    }
+}
+
+.circle-btns__icon {
+    fill: #353e4e;
+}

@@ -1,4 +1,5 @@
 .triangles {
+    width: 100%;
     display: flex;
 
     position: absolute;
@@ -9,5 +10,14 @@
 .triangles__item {
     width: 50%;
     height: 125px;
+    margin-right: -1px;
     fill: currentColor;
+}
+
+.triangles--rotated {
+    top: 0;
+
+    & .triangles__item {
+        transform: rotate(180deg);
+    }
 }
