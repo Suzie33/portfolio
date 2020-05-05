@@ -20,6 +20,16 @@
         left: -640px;
         background: url('../images/rucksack.png') no-repeat center center;
         background-size: cover;
+        z-index: -10;
+
+        @include desktop {
+            left: -550px;
+        }
+    }
+
+    @include desktop {
+        width: 75%;
+        min-width: 700px;
     }
 }
 
@@ -33,5 +43,6 @@
 }
 
 .values__skills {
-    padding-left: 90px;
+    padding-left: 11%;
+    min-width: 710px;
 }
