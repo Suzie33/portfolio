@@ -1,6 +1,10 @@
 .reviews {
     padding-top: 245px;
     margin-bottom: 175px;
+
+    @include desktop {
+        padding-top: 185px;
+    }
 }
 
 .reviews__top {
@@ -10,5 +14,9 @@
 }
 
 .reviews__list-wrap {
-    width: 1000px;
+    width: 975px;
+
+    @include desktop {
+        width: 900px;
+    }
 }

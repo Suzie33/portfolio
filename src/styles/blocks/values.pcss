@@ -2,7 +2,11 @@
     position: relative;
     padding-top: 135px;
     margin-bottom: 100px;
-    min-height: 930px;
+
+    @include desktop {
+        padding-top: 160px;
+        margin-bottom: 70px;
+    }
 }
 
 .values__content {
@@ -34,7 +38,7 @@
 
 .values__desc {
     max-width: 600px;
-    margin-bottom: 90px;
+    margin-bottom: 70px;
 }
 
 .values__desc p {
