@@ -10,10 +10,15 @@
     display: flex;
     justify-content: space-between;
     width: 980px;
+
+    @include desktop {
+        justify-content: flex-start;
+        width: 91%;
+    }
 }
 
 .about__left {
-    width: 35%;
+    width: 350px;
     margin-right: 8%;
 }
 
@@ -22,6 +27,10 @@
     flex-direction: column;
     width: 56%;
     padding-bottom: 20px;
+
+    @include desktop {
+        width: 49%;
+    }
 }
 
 .about__description-top, .about__description-text, .about__note {
@@ -37,6 +46,7 @@
 }
 
 .about__description-text {
+    margin-bottom: 10px;
     line-height: 1.9;
 }
 
