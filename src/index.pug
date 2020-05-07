@@ -194,13 +194,13 @@ html(lang="en")
           .footer__copyright
             .footer__copyright-year &copy; 2019
             .footer__copyright-name
-              .footer__copyright-myname Владимир Астаханов
+              .footer__copyright-myname Валентина Понамарева
               .footer__copyright-note Личный сайт веб-разработчика
           .footer__right
             .footer__top
               nav.nav
                     - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
-                    ul.nav__list
+                    ul.nav__list.nav__list--left
                       each item in menu
                         li.nav__item
                           a.nav__link(href="#") #{item}
