@@ -5,6 +5,10 @@
     @include desktop {
         margin-bottom: 360px;
     }
+
+    @include tablets {
+        margin-bottom: 0;
+    }
 }
 
 .hero__content {
@@ -20,6 +24,12 @@
         justify-content: center;
         width: auto;
         min-width: 64%;
+    }
+
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 250px;
     }
 }
 
@@ -39,6 +49,12 @@
         margin-bottom: 0;
         margin-right: 60px;
     }
+
+    @include tablets {
+        text-align: center;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
 }
 
 .hero__title {
@@ -50,6 +66,11 @@
     @include desktop {
         text-align: left;
     }
+
+    @include tablets {
+        text-align: center;
+        font-size: 48px;
+    }
 }
 
 .hero__scroll {
@@ -60,5 +81,9 @@
 
     @include desktop {
         bottom: 4%;
+    }
+
+    @include tablets {
+        display: none;
     }
 }

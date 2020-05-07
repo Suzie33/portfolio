@@ -4,6 +4,11 @@
     @include desktop {
         min-height: 605px;
     }
+
+    @include tablets {
+        min-height: 460px;
+        font-size: 14px;
+    }
 }
 
 .about__container {
@@ -20,6 +25,10 @@
 .about__left {
     width: 350px;
     margin-right: 8%;
+
+    @include tablets {
+        width: 38%;
+    }
 }
 
 .about__right {
@@ -30,6 +39,11 @@
 
     @include desktop {
         width: 49%;
+    }
+
+    @include tablets {
+        width: 54%;
+        padding-bottom: 0;
     }
 }
 

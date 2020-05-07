@@ -3,6 +3,13 @@
     height: 200px;
     margin: 0 auto;
     margin-bottom: 70px;
+
+    @include tablets {
+        width: 175px;
+        height: 175px;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
 }
 
 .user__info-row {
@@ -18,4 +25,8 @@
     width: 174px;
     text-align: left;
     opacity: .3;
+
+    @include tablets {
+        width: 118px;
+    }
 }
