@@ -10,10 +10,21 @@
     &--values {
         font-size: 30px;
         margin-bottom: 50px;
+
+        @include tablets {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+        }
     }
 
     &--works {
         margin-bottom: 80px;
+
+        @include tablets {
+            margin-bottom: 45px;
+        }
     }
 
     &--reviews {
