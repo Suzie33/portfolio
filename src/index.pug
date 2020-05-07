@@ -10,21 +10,21 @@ html(lang="en")
   body
     .wrapper
       .welcome-section
-        .parallax
-          .parallax__layer
-            +image('parallax/layer-01_sky.png', 'parallax__img')
-          .parallax__layer
-            +image('parallax/layer-02_mountain.png', 'parallax__img')
-          .parallax__layer
-            +image('parallax/layer-03_baloon.png', 'parallax__img')
-          .parallax__layer
-            +image('parallax/layer-04_cloud.png', 'parallax__img')
-          .parallax__layer
-            +image('parallax/layer-05_man.png', 'parallax__img')
-          .parallax__layer
-            +image('parallax/layer-06_mountain2.png', 'parallax__img')
-          .parallax__layer
-            +image('parallax/layer-07_white.png', 'parallax__img')
+        //- .parallax
+        //-   .parallax__layer
+        //-     +image('parallax/layer-01_sky.png', 'parallax__img')
+        //-   .parallax__layer
+        //-     +image('parallax/layer-02_mountain.png', 'parallax__img')
+        //-   .parallax__layer
+        //-     +image('parallax/layer-03_baloon.png', 'parallax__img')
+        //-   .parallax__layer
+        //-     +image('parallax/layer-04_cloud.png', 'parallax__img')
+        //-   .parallax__layer
+        //-     +image('parallax/layer-05_man.png', 'parallax__img')
+        //-   .parallax__layer
+        //-     +image('parallax/layer-06_mountain2.png', 'parallax__img')
+        //-   .parallax__layer
+        //-     +image('parallax/layer-07_white.png', 'parallax__img')
 
         .welcome-section__content
           section.hero.fullscreen-section
@@ -45,6 +45,8 @@ html(lang="en")
                       li.socials__item
                         a.socials__link(href="#")
                           +icon(`${item}`, 'socials__icon')
+                  a.hamburger-menu-link(href="#")
+                    .hamburger-menu-link__bars
 
               .hero__content
                 p.hero__content-text Личный сайт веб разработчика

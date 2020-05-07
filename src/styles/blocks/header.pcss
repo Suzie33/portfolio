@@ -8,4 +8,12 @@
 
 .header__menu {
     flex-grow: 1;
+
+    @include tablets {
+        display: none;
+    }
+}
+
+.header__links {
+    display: flex;
 }

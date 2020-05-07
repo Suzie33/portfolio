@@ -1,113 +1,113 @@
-.parallax {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+// .parallax {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     overflow: hidden;
 
-    perspective: 100px;
-    z-index: -10;
-}
+//     perspective: 100px;
+//     z-index: -10;
+// }
 
-.parallax__layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+// .parallax__layer {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
 
-    &:nth-child(1) {
-        .parallax__img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-    }
+//     &:nth-child(1) {
+//         .parallax__img {
+//             object-fit: cover;
+//             width: 100%;
+//             height: 100%;
+//         }
+//     }
 
-    &:nth-child(2) {
-        .parallax__img {
-            right: 0;
-            top: 360px;
-        }
-    }
+//     &:nth-child(2) {
+//         .parallax__img {
+//             right: 0;
+//             top: 360px;
+//         }
+//     }
 
-    &:nth-child(3) {
-        .parallax__img {
-            top: 518px;
-            left: 50%;
-            margin-left: 12%;
-        }
-    }
+//     &:nth-child(3) {
+//         .parallax__img {
+//             top: 518px;
+//             left: 50%;
+//             margin-left: 12%;
+//         }
+//     }
 
-    &:nth-child(4) {
-        .parallax__img {
-            left: 0;
-            top: 610px;
-        }
-    }
+//     &:nth-child(4) {
+//         .parallax__img {
+//             left: 0;
+//             top: 610px;
+//         }
+//     }
 
-    &:nth-child(5) {
-        .parallax__img {
-            left: 0;
-            top: 610px;
-        }
-    }
+//     &:nth-child(5) {
+//         .parallax__img {
+//             left: 0;
+//             top: 610px;
+//         }
+//     }
 
-    &:nth-child(6) {
-        .parallax__img {
-            right: 0;
-            bottom: 0;
-        }
-    }
+//     &:nth-child(6) {
+//         .parallax__img {
+//             right: 0;
+//             bottom: 0;
+//         }
+//     }
 
-    &:nth-child(7) {
-        .parallax__img {
-            left: 0;
-            bottom: 0;
-        }
-    }
-}
-
-.parallax__img {
-    position: absolute;
-}
-
-// $layers: 7;
-
-// @for $layerNum from $layers through 1 {
-//     .parallax__layer:nth-child(#{$layerNum}) {
-//         $currentLayer: $layers - $layerNum;
-//         $perspective: -$currentLayer * 50px;
-
-//         transform: translateZ($perspective);
+//     &:nth-child(7) {
+//         .parallax__img {
+//             left: 0;
+//             bottom: 0;
+//         }
 //     }
 // }
 
-.parallax__layer:nth-child(7) {
-    transform: translateZ(0px) scale(1);
-}
+// .parallax__img {
+//     position: absolute;
+// }
 
-.parallax__layer:nth-child(6) {
-    transform: translateZ(-50px) scale(1.5);
-}
+// // $layers: 7;
 
-.parallax__layer:nth-child(5) {
-    transform: translateZ(-100px) scale(2);
-}
+// // @for $layerNum from $layers through 1 {
+// //     .parallax__layer:nth-child(#{$layerNum}) {
+// //         $currentLayer: $layers - $layerNum;
+// //         $perspective: -$currentLayer * 50px;
 
-.parallax__layer:nth-child(4) {
-    transform: translateZ(-150px) scale(2.5);
-}
+// //         transform: translateZ($perspective);
+// //     }
+// // }
 
-.parallax__layer:nth-child(3) {
-    transform: translateZ(-200px) scale(3);
-}
+// .parallax__layer:nth-child(7) {
+//     transform: translateZ(0px) scale(1);
+// }
 
-.parallax__layer:nth-child(2) {
-    transform: translateZ(-250px) scale(3.5);
-}
+// .parallax__layer:nth-child(6) {
+//     transform: translateZ(-50px) scale(1.5);
+// }
 
-.parallax__layer:nth-child(1) {
-    transform: translateZ(-300px) scale(4);
-}
+// .parallax__layer:nth-child(5) {
+//     transform: translateZ(-100px) scale(2);
+// }
+
+// .parallax__layer:nth-child(4) {
+//     transform: translateZ(-150px) scale(2.5);
+// }
+
+// .parallax__layer:nth-child(3) {
+//     transform: translateZ(-200px) scale(3);
+// }
+
+// .parallax__layer:nth-child(2) {
+//     transform: translateZ(-250px) scale(3.5);
+// }
+
+// .parallax__layer:nth-child(1) {
+//     transform: translateZ(-300px) scale(4);
+// }
