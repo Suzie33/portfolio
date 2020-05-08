@@ -13,11 +13,19 @@
         padding-top: 50px;
         padding-bottom: 60px;
     }
+
+    @include phones {
+        padding-top: 60px;
+    }
 }
 
 .footer__container {
     display: flex;
     justify-content: space-between;
+
+    @include phones {
+        flex-direction: column;
+    }
 }
 
 .footer__copyright {
@@ -30,6 +38,12 @@
         flex-direction: column;
         justify-content: start;
         margin-right: 10.4%;
+    }
+
+    @include phones {
+        margin-right: 0;
+        margin-bottom: 30px;
+        width: 100%;
     }
 }
 
@@ -50,6 +64,10 @@
 .footer__copyright-name {
     width: 160px;
     flex-shrink: 0;
+
+    @include phones {
+        width: 100%;
+    }
 }
 
 .footer__copyright-myname {
@@ -58,6 +76,10 @@
     font-size: 18px;
     line-height: 1.67;
     font-weight: 700;
+
+    @include phones {
+        margin-bottom: 10px;
+    }
 }
 
 .footer__copyright-note {
@@ -70,6 +92,10 @@
 
     @include tablets {
         margin-bottom: 30px;
+    }
+
+    @include phones {
+        margin-bottom: 20%;
     }
 }
 

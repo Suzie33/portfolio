@@ -10,6 +10,11 @@
         margin-left: 0;
         margin-bottom: 50px;
     }
+
+    @include phones {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
 }
 
 .user__info-row {
@@ -28,5 +33,9 @@
 
     @include tablets {
         width: 118px;
+    }
+
+    @include phones {
+        width: 140px;
     }
 }

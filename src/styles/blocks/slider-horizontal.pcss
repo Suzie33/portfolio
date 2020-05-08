@@ -10,6 +10,12 @@
     @include desktop {
         padding-right: 3.8%;
     }
+
+    @include phones {
+        width: 100%;
+        flex-shrink: 0;
+        padding-right: 0;
+    }
 }
 
 .slider-horizontal__item-icon {
@@ -21,6 +27,10 @@
         width: 30px;
         height: 26px;
         margin-right: 10px;
+    }
+
+    @include phones {
+        display: none;
     }
 }
 
@@ -47,6 +57,11 @@
 
     @include tablets {
         margin-right: 20px;
+    }
+
+    @include phones {
+        width: 50px;
+        height: 50px;
     }
 }
 

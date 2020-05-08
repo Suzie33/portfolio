@@ -9,6 +9,10 @@
     @include tablets {
         margin-bottom: 100px;
     }
+
+    @include phones {
+        padding-top: 100px;
+    }
 }
 
 .reviews__top {
@@ -19,10 +23,16 @@
     @include tablets {
         margin-bottom: 55px;
     }
+
+    @include phones {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
 }
 
 .reviews__list-wrap {
     width: 975px;
+    overflow: hidden;
 
     @include desktop {
         width: 83%;
@@ -30,5 +40,9 @@
 
     @include tablets {
         width: 97%;
+    }
+
+    @include phones {
+        width: 100%;
     }
 }

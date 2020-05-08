@@ -25,6 +25,10 @@
             margin-bottom: 30px;
         }
     }
+
+    @include phones {
+        flex-wrap: wrap;
+    }
 }
 
 .form__block {
@@ -36,6 +40,15 @@
 
     &:last-child {
         margin-right: 0;
+    }
+
+    @include phones {
+        margin-right: 0;
+        margin-bottom: 35px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -86,6 +99,10 @@
     &::-webkit-input-placeholder {
         color: #414c63;
         opacity: .3;
+    }
+
+    @include phones {
+        min-height: 70px;
     }
 }
 

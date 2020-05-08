@@ -8,6 +8,10 @@
     @include tablets {
         padding-top: 40px;
     }
+
+    @include phones {
+        padding-top: 50px;
+    }
 }
 
 .header__menu {
@@ -20,4 +24,13 @@
 
 .header__links {
     display: flex;
+
+    @include tablets {
+        margin-right: 60px;
+        margin-left: auto;
+    }
+
+    @include phones {
+        display: none;
+    }
 }
