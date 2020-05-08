@@ -16,6 +16,12 @@
     flex-shrink: 0;
     margin-right: 20px;
     opacity: .05;
+
+    @include tablets {
+        width: 30px;
+        height: 26px;
+        margin-right: 10px;
+    }
 }
 
 .slider-horizontal__text {
@@ -23,6 +29,10 @@
     margin-bottom: 20px;
     opacity: .5;
     line-height: 1.9;
+
+    @include tablets {
+        min-height: 100px;
+    }
 }
 
 .slider-horizontal__source {
@@ -34,6 +44,10 @@
     height: 75px;
     flex-shrink: 0;
     margin-right: 30px;
+
+    @include tablets {
+        margin-right: 20px;
+    }
 }
 
 .slider-horizontal__author {
@@ -45,6 +59,10 @@
 .slider-horizontal__name {
     font-size: 18px;
     font-weight: 700;
+
+    @include tablets {
+        font-size: 16px;
+    }
 }
 
 .slider-horizontal__position {
