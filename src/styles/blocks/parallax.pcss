@@ -68,8 +68,13 @@
     &:nth-child(7) {
         .parallax__img {
             left: 0;
-            bottom: -600px;
-            z-index: 100;
+            bottom: -900px;
+            transform: scale(4);
+            
+
+            @include desktop {
+                bottom: -100px;
+            }
         }
     }
 }
