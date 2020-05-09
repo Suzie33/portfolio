@@ -47,23 +47,12 @@
     }
 
     &--position--above {
-        stroke: url(#skill-linear-gradient);
+        stroke: url(#gradient);
         stroke-width: 20px;
-        stroke-dasharray: 504;
+        stroke-dasharray: 251;
+        stroke-dashoffset: 100;
 
         transform: rotate(180deg);
         transform-origin: 50% 50%;
-        animation: skillPercent 100s linear infinite; 
-        animation-play-state: paused;
-    }
-}
-
-@keyframes skillPercent {
-    0% {
-        stroke-dashoffset: 502;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
     }
 }

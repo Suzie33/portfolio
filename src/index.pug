@@ -6,6 +6,7 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     title Portfolio | main page
   body
     .wrapper
@@ -104,20 +105,8 @@ html(lang="en")
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
             .values__skills
-              ul.skill-groups
-                - 
-                  var skills = [
-                    ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'], [25, 15, 75, 20]],
-                    ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack'], [15, 25, 50, 40]],
-                  ]
-                each item in skills
-                  li.skill__groups-item.skills-row
-                    h3.skills-row__title #{item[0]}
-                    ul.skills-row__list
-                      each skill, index in item[1]
-                        li.skills-row__item
-                          +skill(item[2][index], skill)
-                          
+              #skills-component
+
       section.works
         .container
           h2.section-title.section-title--works Мои работы
@@ -249,3 +238,5 @@ html(lang="en")
                 .blockquote
                   p.blockquote__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                   span.blockquote__author Martin Golding
+
+    include ./templates/entry.pug
