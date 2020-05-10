@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.f2ca4849bd65e5eb496c.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.dbfb368043e9b6107002.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <div class="welcome-section">
@@ -27,75 +27,78 @@
           </div>
         </div>
         <div class="welcome-section__content">
-          <section class="hero fullscreen-section">
+          <section class="hero fullscreen-section" id="hero-section">
             <div class="container">
               <header class="header">
                 <div class="header__logo logo">ВП</div>
                 <div class="header__menu">
                   <nav class="nav">
                     <ul class="nav__list">
-                      <li class="nav__item"><a class="nav__link" href="#">Главная</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#">Обо мне</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#">Навыки</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#">Работы</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#">Отзывы</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#">Связаться</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
                     </ul>
                   </nav>
                 </div>
                 <div class="header__links">
                   <ul class="socials">
-                    <li class="socials__item"><a class="socials__link" href="#">
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
                         <svg class="socials__icon" viewBox="0 0 97.395 97.395" fill="currentcolor">
                           <use xlink:href="/portfolio/sprite.svg#insta"></use>
                         </svg></a></li>
-                    <li class="socials__item"><a class="socials__link" href="#">
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
                         <svg class="socials__icon" viewBox="0 0 548.358 548.358" fill="currentcolor">
                           <use xlink:href="/portfolio/sprite.svg#vk"></use>
                         </svg></a></li>
-                    <li class="socials__item"><a class="socials__link" href="#">
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
                         <svg class="socials__icon" viewBox="0 0 475.084 475.084" fill="currentcolor">
                           <use xlink:href="/portfolio/sprite.svg#github"></use>
                         </svg></a></li>
                   </ul>
-                </div><a class="hamburger-menu-link" href="#">
+                </div><a class="hamburger-menu-link" href="#" id="hamburger-menu-link">
                   <div class="hamburger-menu-link__bars"></div></a>
-                <nav class="hamburger-menu">
+                <nav class="hamburger-menu" id="hamburger-menu">
                   <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="#">Главная</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Обо мне</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Навыки</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Работы</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Отзывы</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Связаться</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
                   </ul>
                   <ul class="socials">
-                    <li class="socials__item"><a class="socials__link" href="#">
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
                         <svg class="socials__icon" viewBox="0 0 97.395 97.395" fill="currentcolor">
                           <use xlink:href="/portfolio/sprite.svg#insta"></use>
                         </svg></a></li>
-                    <li class="socials__item"><a class="socials__link" href="#">
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
                         <svg class="socials__icon" viewBox="0 0 548.358 548.358" fill="currentcolor">
                           <use xlink:href="/portfolio/sprite.svg#vk"></use>
                         </svg></a></li>
-                    <li class="socials__item"><a class="socials__link" href="#">
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
                         <svg class="socials__icon" viewBox="0 0 475.084 475.084" fill="currentcolor">
                           <use xlink:href="/portfolio/sprite.svg#github"></use>
                         </svg></a></li>
-                  </ul>
+                  </ul><a class="close-button" id="close-nav-button" href="#">
+                    <svg class="close-button__img" viewBox="0 0 18 18" width="20" fill="currentcolor">
+                      <use xlink:href="/portfolio/sprite.svg#close"></use>
+                    </svg></a>
                 </nav>
               </header>
               <div class="hero__content">
                 <p class="hero__content-text">Личный сайт веб разработчика</p>
                 <h1 class="hero__title">Валентины Понамаревой</h1>
               </div>
-              <div class="hero__scroll"><a class="scroll"><span class="scroll__text">Скролл</span>
+              <div class="hero__scroll"><a class="scroll" href="#about-section"><span class="scroll__text">Скролл</span>
                   <svg class="scroll__icon" viewBox="-90 0 512 512" width="30" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#scroll"></use>
                   </svg></a></div>
             </div>
           </section>
-          <section class="about">
+          <section class="about" id="about-section">
             <div class="container about__container">
               <div class="about__left">
                 <div class="user">
@@ -129,7 +132,7 @@
           </section>
         </div>
       </div>
-      <section class="values">
+      <section class="values" id="values-section">
         <div class="triangles">
           <svg class="triangles__item" viewBox="0 0 1000 100" preserveAspectRatio="none">
             <polygon points="0,0 0,100 1000,100"></polygon>
@@ -150,7 +153,7 @@
           </div>
         </div>
       </section>
-      <section class="works">
+      <section class="works" id="works-section">
         <div class="container">
           <h2 class="section-title section-title--works">Мои работы</h2>
           <div class="works__content">
@@ -325,7 +328,7 @@
             </div>
           </div>
         </section>
-        <section class="contacts">
+        <section class="contacts" id="contacts-section">
           <div class="container">
             <h2 class="section-title section-title--contacts">Связаться со мной</h2>
             <form class="form" action="#" method="POST">
@@ -361,7 +364,7 @@
           </div>
         </section>
       </div>
-      <footer class="footer">
+      <footer class="footer" id="footer-section">
         <div class="container footer__container">
           <div class="footer__copyright">
             <div class="footer__copyright-year">&copy; 2019</div>
@@ -374,12 +377,12 @@
             <div class="footer__top">
               <nav class="nav">
                 <ul class="nav__list nav__list--left">
-                  <li class="nav__item"><a class="nav__link" href="#">Главная</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Обо мне</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Навыки</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Работы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Отзывы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Связаться</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
                 </ul>
               </nav>
             </div>
@@ -443,5 +446,5 @@
     <div class="skill__title">{{skill.title}}</div>
   </div>
 </script>
-  <script type="text/javascript" src="/portfolio/main.eb68251e7532f3ba3971.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.f3a765b8d563a64c05d8.build.js"></script></body>
 </html>
