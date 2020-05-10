@@ -20,11 +20,19 @@
     }
 
     &:hover {
-        transform: scale(1.05);
+        transform: none;
     }
 
     &:active {
         opacity: .7;
+    }
+
+    &[disabled] {
+        opacity: .3;
+
+        &:hover {
+            transform: scale(1);
+        }
     }
 }
 

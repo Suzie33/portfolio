@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.4b7b4d13197c51f0f376.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.f2ca4849bd65e5eb496c.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <div class="welcome-section">
@@ -210,18 +210,18 @@
             <polygon points="0,100 1000,100 1000,0"></polygon>
           </svg>
         </div>
-        <section class="reviews" id="reviews-section">
+        <section class="reviews" id="reviews-section" @click="checkArrows" @touchEnd="checkArrows">
           <div class="container">
             <div class="reviews__top">
               <h2 class="section-title section-title--reviews">Что обо мне говорят</h2>
               <div class="reviews__controls">
                 <div class="circle-btns">
-                  <button class="circle-btns__item circle-btns__item--slide--prev" @click="previous()">
+                  <button class="circle-btns__item circle-btns__item--slide--prev" @click="previous" :disabled="true" ref="circleBtnPrev">
                     <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
                       <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                     </svg>
                   </button>
-                  <button class="circle-btns__item circle-btns__item--slide--next" @click="next()">
+                  <button class="circle-btns__item circle-btns__item--slide--next" @click="next" :disabled="false" ref="circleBtnNext">
                     <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
                       <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                     </svg>
@@ -443,5 +443,5 @@
     <div class="skill__title">{{skill.title}}</div>
   </div>
 </script>
-  <script type="text/javascript" src="/portfolio/main.25c2ca4b16fd743f52c1.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.eb68251e7532f3ba3971.build.js"></script></body>
 </html>

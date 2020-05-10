@@ -150,15 +150,15 @@ html(lang="en")
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
               polygon(points="0,100 1000,100 1000,0")
 
-        section.reviews#reviews-section
+        section.reviews#reviews-section(@click="checkArrows" @touchEnd="checkArrows")
           .container
             .reviews__top
               h2.section-title.section-title--reviews Что обо мне говорят
               .reviews__controls
                 .circle-btns
-                  button.circle-btns__item.circle-btns__item--slide--prev(@click="previous()")
+                  button.circle-btns__item.circle-btns__item--slide--prev(@click='previous' :disabled='true' ref="circleBtnPrev")
                     +icon('arrow-down', 'circle-btns__icon', '10', '8')
-                  button.circle-btns__item.circle-btns__item--slide--next(@click="next()")
+                  button.circle-btns__item.circle-btns__item--slide--next(@click='next' :disabled='false' ref="circleBtnNext")
                     +icon('arrow-down', 'circle-btns__icon', '10', '8')
             .reviews__slider
               flickity(ref="flickity" :options="flickityOptions").slider-horizontal
