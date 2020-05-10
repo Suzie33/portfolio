@@ -61,7 +61,8 @@
     &:nth-child(6) {
         .parallax__img {
             right: 0;
-            bottom: 0;
+            bottom: -200px;
+            transform: scale(1.8);
         }
     }
 
@@ -70,11 +71,6 @@
             left: 0;
             bottom: -900px;
             transform: scale(4);
-            
-
-            @include desktop {
-                bottom: -100px;
-            }
         }
     }
 }

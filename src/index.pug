@@ -13,19 +13,33 @@ html(lang="en")
       .welcome-section
         .parallax
           .parallax__layer(data-speed="0.1")
-            +image('parallax/layer-01_sky.png', 'parallax__img')
+            picture.parallax__img
+              source(srcset=require("images/parallax/layer-01_sky.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="" alt="Background image")
           .parallax__layer(data-speed="0.25")
-            +image('parallax/layer-02_mountain.png', 'parallax__img')
+            picture
+              source(srcset=require("images/parallax/layer-02_mountain.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
           .parallax__layer(data-speed="0.35")
-            +image('parallax/layer-03_baloon.png', 'parallax__img')
+            picture
+              source(srcset=require("images/parallax/layer-03_baloon.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
           .parallax__layer(data-speed="0.38")
-            +image('parallax/layer-04_cloud.png', 'parallax__img')
+            picture
+              source(srcset=require("images/parallax/layer-04_cloud.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
           .parallax__layer(data-speed="0.45")
-            +image('parallax/layer-05_man.png', 'parallax__img')
+            picture
+              source(srcset=require("images/parallax/layer-05_man.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
           .parallax__layer(data-speed="0.48")
-            +image('parallax/layer-06_mountain2.png', 'parallax__img')
+            picture
+              source(srcset=require("images/parallax/layer-06_mountain2.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
           .parallax__layer(data-speed="0.50")
-            +image('parallax/layer-07_white.png', 'parallax__img')
+            picture
+              source(srcset=require("images/parallax/layer-07_white.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
 
         .welcome-section__content
           section.hero.fullscreen-section#hero-section

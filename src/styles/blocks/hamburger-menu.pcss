@@ -36,9 +36,27 @@
 
     &--active {
         display: flex;
+
+        @include tablets {
+            animation: animateWidth .5s;
+        }
     }
 
     @include phones {
         width: 100%;
+        animation: none;
+    }
+}
+
+@keyframes animateWidth {
+    0% {
+        width: 0;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    100% {
+        padding-left: 65px;
+        padding-right: 65px;
+        width: 320px;
     }
 }
