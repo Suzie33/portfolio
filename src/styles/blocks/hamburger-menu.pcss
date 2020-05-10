@@ -34,7 +34,11 @@
         }
     }
 
-    @include tablets {
+    &--active {
         display: flex;
+    }
+
+    @include phones {
+        width: 100%;
     }
 }

@@ -8,7 +8,7 @@
 
     z-index: -10;
 
-    @include tablets {
+    @include desktop {
         display: none;
     }
 }
@@ -82,42 +82,3 @@
 .parallax__img {
     position: absolute;
 }
-
-// // $layers: 7;
-
-// // @for $layerNum from $layers through 1 {
-// //     .parallax__layer:nth-child(#{$layerNum}) {
-// //         $currentLayer: $layers - $layerNum;
-// //         $perspective: -$currentLayer * 50px;
-
-// //         transform: translateZ($perspective);
-// //     }
-// // }
-
-// .parallax__layer:nth-child(7) {
-//     transform: translateZ(0px) scale(1);
-// }
-
-// .parallax__layer:nth-child(6) {
-//     transform: translateZ(-50px) scale(1.5);
-// }
-
-// .parallax__layer:nth-child(5) {
-//     transform: translateZ(-100px) scale(2);
-// }
-
-// .parallax__layer:nth-child(4) {
-//     transform: translateZ(-150px) scale(2.5);
-// }
-
-// .parallax__layer:nth-child(3) {
-//     transform: translateZ(-200px) scale(3);
-// }
-
-// .parallax__layer:nth-child(2) {
-//     transform: translateZ(-250px) scale(3.5);
-// }
-
-// .parallax__layer:nth-child(1) {
-//     transform: translateZ(-300px) scale(4);
-// }
