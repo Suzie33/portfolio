@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.a12978d16177f5467434.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.4b7b4d13197c51f0f376.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <div class="welcome-section">
@@ -210,18 +210,18 @@
             <polygon points="0,100 1000,100 1000,0"></polygon>
           </svg>
         </div>
-        <section class="reviews">
+        <section class="reviews" id="reviews-section">
           <div class="container">
             <div class="reviews__top">
               <h2 class="section-title section-title--reviews">Что обо мне говорят</h2>
               <div class="reviews__controls">
                 <div class="circle-btns">
-                  <button class="circle-btns__item circle-btns__item--slide--prev">
+                  <button class="circle-btns__item circle-btns__item--slide--prev" @click="previous()">
                     <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
                       <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                     </svg>
                   </button>
-                  <button class="circle-btns__item circle-btns__item--slide--next">
+                  <button class="circle-btns__item circle-btns__item--slide--next" @click="next()">
                     <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
                       <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                     </svg>
@@ -229,9 +229,9 @@
                 </div>
               </div>
             </div>
-            <div class="reviews__list-wrap">
-              <ul class="slider-horizontal">
-                <li class="slider-horizontal__item">
+            <div class="reviews__slider">
+              <flickity class="slider-horizontal" ref="flickity" :options="flickityOptions">
+                <div class="slider-horizontal__item">
                   <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#quote"></use>
                   </svg>
@@ -248,8 +248,8 @@
                       </div>
                     </div>
                   </div>
-                </li>
-                <li class="slider-horizontal__item">
+                </div>
+                <div class="slider-horizontal__item">
                   <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#quote"></use>
                   </svg>
@@ -266,8 +266,62 @@
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+                <div class="slider-horizontal__item">
+                  <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
+                    <use xlink:href="/portfolio/sprite.svg#quote"></use>
+                  </svg>
+                  <div class="slider-horizontal__content">
+                    <div class="slider-horizontal__text">
+                      <p>Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
+                    </div>
+                    <div class="slider-horizontal__source">
+                      <div class="avatar slider-horizontal__avatar"><img class="avatar__pic" src="/portfolio/c4ef12235e89317280205f801a1896ee.jpg">
+                      </div>
+                      <div class="slider-horizontal__author">
+                        <div class="slider-horizontal__name">Владимир Сабанцев</div>
+                        <div class="slider-horizontal__position">Преподаватель</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-horizontal__item">
+                  <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
+                    <use xlink:href="/portfolio/sprite.svg#quote"></use>
+                  </svg>
+                  <div class="slider-horizontal__content">
+                    <div class="slider-horizontal__text">
+                      <p>Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
+                    </div>
+                    <div class="slider-horizontal__source">
+                      <div class="avatar slider-horizontal__avatar"><img class="avatar__pic" src="/portfolio/c4ef12235e89317280205f801a1896ee.jpg">
+                      </div>
+                      <div class="slider-horizontal__author">
+                        <div class="slider-horizontal__name">Владимир Сабанцев</div>
+                        <div class="slider-horizontal__position">Преподаватель</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-horizontal__item">
+                  <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
+                    <use xlink:href="/portfolio/sprite.svg#quote"></use>
+                  </svg>
+                  <div class="slider-horizontal__content">
+                    <div class="slider-horizontal__text">
+                      <p>Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
+                    </div>
+                    <div class="slider-horizontal__source">
+                      <div class="avatar slider-horizontal__avatar"><img class="avatar__pic" src="/portfolio/c4ef12235e89317280205f801a1896ee.jpg">
+                      </div>
+                      <div class="slider-horizontal__author">
+                        <div class="slider-horizontal__name">Владимир Сабанцев</div>
+                        <div class="slider-horizontal__position">Преподаватель</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </flickity>
             </div>
           </div>
         </section>
@@ -389,5 +443,5 @@
     <div class="skill__title">{{skill.title}}</div>
   </div>
 </script>
-  <script type="text/javascript" src="/portfolio/main.d337a373e650669d336f.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.25c2ca4b16fd743f52c1.build.js"></script></body>
 </html>

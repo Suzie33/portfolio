@@ -150,19 +150,19 @@ html(lang="en")
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
               polygon(points="0,100 1000,100 1000,0")
 
-        section.reviews
+        section.reviews#reviews-section
           .container
             .reviews__top
               h2.section-title.section-title--reviews Что обо мне говорят
               .reviews__controls
                 .circle-btns
-                  button.circle-btns__item.circle-btns__item--slide--prev
+                  button.circle-btns__item.circle-btns__item--slide--prev(@click="previous()")
                     +icon('arrow-down', 'circle-btns__icon', '10', '8')
-                  button.circle-btns__item.circle-btns__item--slide--next
+                  button.circle-btns__item.circle-btns__item--slide--next(@click="next()")
                     +icon('arrow-down', 'circle-btns__icon', '10', '8')
-            .reviews__list-wrap
-              ul.slider-horizontal
-                li.slider-horizontal__item
+            .reviews__slider
+              flickity(ref="flickity" :options="flickityOptions").slider-horizontal
+                .slider-horizontal__item
                   +icon('quote', 'slider-horizontal__item-icon', '75', '63')
                   .slider-horizontal__content
                     .slider-horizontal__text
@@ -173,7 +173,40 @@ html(lang="en")
                       .slider-horizontal__author
                         .slider-horizontal__name Ковальчук Дмитрий
                         .slider-horizontal__position Основатель Loftschool
-                li.slider-horizontal__item
+                .slider-horizontal__item
+                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                  .slider-horizontal__content
+                    .slider-horizontal__text
+                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .slider-horizontal__source
+                      .avatar.slider-horizontal__avatar
+                        +image('content/review2.jpg', 'avatar__pic')
+                      .slider-horizontal__author
+                        .slider-horizontal__name Владимир Сабанцев
+                        .slider-horizontal__position Преподаватель
+                .slider-horizontal__item
+                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                  .slider-horizontal__content
+                    .slider-horizontal__text
+                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .slider-horizontal__source
+                      .avatar.slider-horizontal__avatar
+                        +image('content/review2.jpg', 'avatar__pic')
+                      .slider-horizontal__author
+                        .slider-horizontal__name Владимир Сабанцев
+                        .slider-horizontal__position Преподаватель
+                .slider-horizontal__item
+                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                  .slider-horizontal__content
+                    .slider-horizontal__text
+                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .slider-horizontal__source
+                      .avatar.slider-horizontal__avatar
+                        +image('content/review2.jpg', 'avatar__pic')
+                      .slider-horizontal__author
+                        .slider-horizontal__name Владимир Сабанцев
+                        .slider-horizontal__position Преподаватель
+                .slider-horizontal__item
                   +icon('quote', 'slider-horizontal__item-icon', '75', '63')
                   .slider-horizontal__content
                     .slider-horizontal__text
