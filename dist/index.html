@@ -4,88 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.a66afffb2bf83f7c541e.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.4be6f03178c163bd839f.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <div class="welcome-section">
-        <section class="hero fullscreen-section">
-          <div class="container">
-            <header class="header">
-              <div class="header__logo logo">ВП</div>
-              <div class="header__menu">
-                <nav class="nav">
-                  <ul class="nav__list">
-                    <li class="nav__item"><a class="nav__link" href="#">Главная</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Обо мне</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Навыки</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Работы</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Отзывы</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#">Связаться</a></li>
-                  </ul>
-                </nav>
-              </div>
-              <div class="header__links">
-                <ul class="socials">
-                  <li class="socials__item"><a class="socials__link" href="#">
-                      <svg class="socials__icon" viewBox="0 0 97.395 97.395" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#insta"></use>
-                      </svg></a></li>
-                  <li class="socials__item"><a class="socials__link" href="#">
-                      <svg class="socials__icon" viewBox="0 0 548.358 548.358" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#vk"></use>
-                      </svg></a></li>
-                  <li class="socials__item"><a class="socials__link" href="#">
-                      <svg class="socials__icon" viewBox="0 0 475.084 475.084" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#github"></use>
-                      </svg></a></li>
-                </ul>
-              </div>
-            </header>
-            <div class="hero__content">
-              <p class="hero__content-text">Личный сайт веб разработчика</p>
-              <h1 class="hero__title">Валентины Понамаревой</h1>
-            </div>
-            <div class="hero__scroll"><a class="scroll"><span class="scroll__text">Скролл</span>
-                <svg class="scroll__icon" viewBox="-90 0 512 512" width="30" fill="currentcolor">
-                  <use xlink:href="/portfolio/sprite.svg#scroll"></use>
-                </svg></a></div>
+        <div class="parallax">
+          <div class="parallax__layer" data-speed="0.1">
+            <picture class="parallax__img">
+              <source class="parallax__img" srcset="/portfolio/a3dafc9a41753c808cae68d16c4b5bb2.png" media="(min-width: 1200px)"><img class="parallax__img" src="" alt="Background image">
+            </picture>
           </div>
-        </section>
-        <section class="about">
-          <div class="container about__container">
-            <div class="about__left">
-              <div class="user">
-                <div class="avatar user__avatar"><img class="avatar__pic" src="/portfolio/f11a05dd8ebf037660e4ea01df4872d7.jpg" alt="avatar">
+          <div class="parallax__layer" data-speed="0.25">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/9fa5756bd50872f799f56377383ce211.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0.35">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/4ad0d2043395f1c45eca6f018e105d04.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0.38">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/e2c2110d4a2bb4498bd3a1fff32ae883.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0.45">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/e5d9920e03815e77fbb56db0a1d40696.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0.48">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/acedc5398c8382441db43b88d7ca0cae.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0.50">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/b74d2546ecd531e4665cd558f289deaf.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+        </div>
+        <div class="welcome-section__content">
+          <section class="hero fullscreen-section" id="hero-section">
+            <div class="container">
+              <header class="header">
+                <div class="header__logo logo">ВП</div>
+                <div class="header__menu">
+                  <nav class="nav">
+                    <ul class="nav__list">
+                      <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
+                    </ul>
+                  </nav>
                 </div>
-                <table class="user__info">
-                  <tr class="user__info-row">
-                    <th class="user__info-header">Проживаю:</th>
-                    <td class="user__info-data">Санкт-Петербург</td>
-                  </tr>
-                  <tr class="user__info-row">
-                    <th class="user__info-header">Возраст:</th>
-                    <td class="user__info-data">28 лет</td>
-                  </tr>
-                  <tr class="user__info-row">
-                    <th class="user__info-header">Родилась:</th>
-                    <td class="user__info-data">5 октября 1991</td>
-                  </tr>
-                </table>
+                <div class="header__links">
+                  <ul class="socials">
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 97.395 97.395" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#insta"></use>
+                        </svg></a></li>
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 548.358 548.358" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#vk"></use>
+                        </svg></a></li>
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 475.084 475.084" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#github"></use>
+                        </svg></a></li>
+                  </ul>
+                </div><a class="hamburger-menu-link" href="#" id="hamburger-menu-link">
+                  <div class="hamburger-menu-link__bars"></div></a>
+                <nav class="hamburger-menu" id="hamburger-menu">
+                  <ul class="nav__list">
+                    <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
+                  </ul>
+                  <ul class="socials">
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 97.395 97.395" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#insta"></use>
+                        </svg></a></li>
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 548.358 548.358" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#vk"></use>
+                        </svg></a></li>
+                    <li class="socials__item"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 475.084 475.084" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#github"></use>
+                        </svg></a></li>
+                  </ul><a class="close-button" id="close-nav-button" href="#">
+                    <svg class="close-button__img" viewBox="0 0 18 18" width="20" fill="currentcolor">
+                      <use xlink:href="/portfolio/sprite.svg#close"></use>
+                    </svg></a>
+                </nav>
+              </header>
+              <div class="hero__content">
+                <p class="hero__content-text">Личный сайт веб разработчика</p>
+                <h1 class="hero__title">Валентины Понамаревой</h1>
+              </div>
+              <div class="hero__scroll"><a class="scroll" href="#about-section"><span class="scroll__text">Скролл</span>
+                  <svg class="scroll__icon" viewBox="-90 0 512 512" width="30" fill="currentcolor">
+                    <use xlink:href="/portfolio/sprite.svg#scroll"></use>
+                  </svg></a></div>
+            </div>
+          </section>
+          <section class="about" id="about-section">
+            <div class="container about__container">
+              <div class="about__left">
+                <div class="user">
+                  <div class="avatar user__avatar"><img class="avatar__pic" src="/portfolio/f11a05dd8ebf037660e4ea01df4872d7.jpg" alt="avatar">
+                  </div>
+                  <table class="user__info">
+                    <tr class="user__info-row">
+                      <th class="user__info-header">Проживаю:</th>
+                      <td class="user__info-data">Санкт-Петербург</td>
+                    </tr>
+                    <tr class="user__info-row">
+                      <th class="user__info-header">Возраст:</th>
+                      <td class="user__info-data">28 лет</td>
+                    </tr>
+                    <tr class="user__info-row">
+                      <th class="user__info-header">Родилась:</th>
+                      <td class="user__info-data">5 октября 1991</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="about__right">
+                <div class="about__description">
+                  <p class="about__description-top">Привет, меня зовут</p>
+                  <h2 class="section-title">Валентина Понамарева</h2>
+                  <p class="about__description-text">Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. </p>
+                </div>
+                <p class="about__note">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
               </div>
             </div>
-            <div class="about__right">
-              <div class="about__description">
-                <p class="about__description-top">Привет, меня зовут</p>
-                <h2 class="section-title">Валентина Понамарева</h2>
-                <p class="about__description-text">Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. </p>
-              </div>
-              <p class="about__note">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
-      <section class="values">
+      <section class="values" id="values-section">
         <div class="triangles">
           <svg class="triangles__item" viewBox="0 0 1000 100" preserveAspectRatio="none">
             <polygon points="0,0 0,100 1000,100"></polygon>
@@ -101,127 +169,12 @@
               <p>Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
             </div>
             <div class="values__skills">
-              <ul class="skill-groups">
-                <li class="skill__groups-item skills-row">
-                  <h3 class="skills-row__title">Front-end</h3>
-                  <ul class="skills-row__list">
-                    <li class="skills-row__item">
-                      <div class="skill">
-                        <svg class="skill__shape" viewBox="0 0 200 200">
-                          <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -25s"></circle>
-                          <linearGradient id="skill-linear-gradient">
-                            <stop offset="0%" stop-color="#9300e8"></stop>
-                            <stop offset="100%" stop-color="#4a00ed"></stop>
-                          </linearGradient>
-                        </svg>
-                        <div class="skill__title">HTML5</div>
-                      </div>
-                    </li>
-                    <li class="skills-row__item">
-                      <div class="skill">
-                        <svg class="skill__shape" viewBox="0 0 200 200">
-                          <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -15s"></circle>
-                          <linearGradient id="skill-linear-gradient">
-                            <stop offset="0%" stop-color="#9300e8"></stop>
-                            <stop offset="100%" stop-color="#4a00ed"></stop>
-                          </linearGradient>
-                        </svg>
-                        <div class="skill__title">CSS3</div>
-                      </div>
-                    </li>
-                    <li class="skills-row__item">
-                      <div class="skill">
-                        <svg class="skill__shape" viewBox="0 0 200 200">
-                          <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -75s"></circle>
-                          <linearGradient id="skill-linear-gradient">
-                            <stop offset="0%" stop-color="#9300e8"></stop>
-                            <stop offset="100%" stop-color="#4a00ed"></stop>
-                          </linearGradient>
-                        </svg>
-                        <div class="skill__title">Javascript</div>
-                      </div>
-                    </li>
-                    <li class="skills-row__item">
-                      <div class="skill">
-                        <svg class="skill__shape" viewBox="0 0 200 200">
-                          <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -20s"></circle>
-                          <linearGradient id="skill-linear-gradient">
-                            <stop offset="0%" stop-color="#9300e8"></stop>
-                            <stop offset="100%" stop-color="#4a00ed"></stop>
-                          </linearGradient>
-                        </svg>
-                        <div class="skill__title">Jquery и Vue.js</div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-                <li class="skill__groups-item skills-row">
-                  <h3 class="skills-row__title">Workflow</h3>
-                  <ul class="skills-row__list">
-                    <li class="skills-row__item">
-                      <div class="skill">
-                        <svg class="skill__shape" viewBox="0 0 200 200">
-                          <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -15s"></circle>
-                          <linearGradient id="skill-linear-gradient">
-                            <stop offset="0%" stop-color="#9300e8"></stop>
-                            <stop offset="100%" stop-color="#4a00ed"></stop>
-                          </linearGradient>
-                        </svg>
-                        <div class="skill__title">GIT</div>
-                      </div>
-                    </li>
-                    <li class="skills-row__item">
-                      <div class="skill">
-                        <svg class="skill__shape" viewBox="0 0 200 200">
-                          <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -25s"></circle>
-                          <linearGradient id="skill-linear-gradient">
-                            <stop offset="0%" stop-color="#9300e8"></stop>
-                            <stop offset="100%" stop-color="#4a00ed"></stop>
-                          </linearGradient>
-                        </svg>
-                        <div class="skill__title">Terminal</div>
-                      </div>
-                    </li>
-                    <li class="skills-row__item">
-                      <div class="skill">
-                        <svg class="skill__shape" viewBox="0 0 200 200">
-                          <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -50s"></circle>
-                          <linearGradient id="skill-linear-gradient">
-                            <stop offset="0%" stop-color="#9300e8"></stop>
-                            <stop offset="100%" stop-color="#4a00ed"></stop>
-                          </linearGradient>
-                        </svg>
-                        <div class="skill__title">Gulp</div>
-                      </div>
-                    </li>
-                    <li class="skills-row__item">
-                      <div class="skill">
-                        <svg class="skill__shape" viewBox="0 0 200 200">
-                          <circle class="skill__circle skill__circle--position--under" r="80" cx="50%" cy="50%"></circle>
-                          <circle class="skill__circle skill__circle--position--above" r="80" cx="50%" cy="50%" style="animation-delay: -40s"></circle>
-                          <linearGradient id="skill-linear-gradient">
-                            <stop offset="0%" stop-color="#9300e8"></stop>
-                            <stop offset="100%" stop-color="#4a00ed"></stop>
-                          </linearGradient>
-                        </svg>
-                        <div class="skill__title">Webpack</div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              <div id="skills-component"></div>
             </div>
           </div>
         </div>
       </section>
-      <section class="works">
+      <section class="works" id="works-section">
         <div class="container">
           <h2 class="section-title section-title--works">Мои работы</h2>
           <div class="works__content">
@@ -234,8 +187,6 @@
                     <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/43ba37393fd02808b8e351ccd4d978c5.jpg">
                     </li>
                     <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/83ca764884bc40110d96be8ad4e2ca45.jpg">
-                    </li>
-                    <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/42565f0749b645c2bc343aa6a5d55340.jpg">
                     </li>
                   </ul>
                 </div>
@@ -253,9 +204,9 @@
                     </button>
                   </div>
                 </div>
-              </div>
+              </div><span class="works__number">4</span>
             </div>
-            <div class="works__description"><span class="works__number">4</span>
+            <div class="works__description">
               <div class="wors__tags">
                 <ul class="tags">
                   <li class="tags__item">HTML</li>
@@ -283,18 +234,50 @@
             <polygon points="0,100 1000,100 1000,0"></polygon>
           </svg>
         </div>
-        <section class="reviews">
+        <div class="parallax parallax--budda">
+          <div class="parallax__layer" data-speed="0.1">
+            <picture class="parallax__img">
+              <source class="parallax__img" srcset="/portfolio/5c7636ba6071950a3aa0f65e1045d72a.png" media="(min-width: 1200px)"><img class="parallax__img" src="" alt="Background image">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0.25">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/05cf7db8b12e767f139d8668aa96a9a4.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0.3">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/dc7e4a42ceb27d9b9b9913b650612cc2.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0.38">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/87ee80f5ad667d725140b66ce7f3ae62.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/8a26b5b80ee3d9e684dc775cd81d4c87.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+          <div class="parallax__layer" data-speed="0">
+            <picture>
+              <source class="parallax__img" srcset="/portfolio/44d1ca7f889826e094fefef6bf51bf50.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
+            </picture>
+          </div>
+        </div>
+        <section class="reviews" id="reviews-section" @click="checkArrows" @touchEnd="checkArrows">
           <div class="container">
             <div class="reviews__top">
               <h2 class="section-title section-title--reviews">Что обо мне говорят</h2>
               <div class="reviews__controls">
                 <div class="circle-btns">
-                  <button class="circle-btns__item circle-btns__item--slide--prev">
+                  <button class="circle-btns__item circle-btns__item--slide--prev" @click="previous" :disabled="true" ref="circleBtnPrev">
                     <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
                       <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                     </svg>
                   </button>
-                  <button class="circle-btns__item circle-btns__item--slide--next">
+                  <button class="circle-btns__item circle-btns__item--slide--next" @click="next" :disabled="false" ref="circleBtnNext">
                     <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
                       <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
                     </svg>
@@ -302,9 +285,9 @@
                 </div>
               </div>
             </div>
-            <div class="reviews__list-wrap">
-              <ul class="slider-horizontal">
-                <li class="slider-horizontal__item">
+            <div class="reviews__slider">
+              <flickity class="slider-horizontal" ref="flickity" :options="flickityOptions">
+                <div class="slider-horizontal__item">
                   <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#quote"></use>
                   </svg>
@@ -321,8 +304,8 @@
                       </div>
                     </div>
                   </div>
-                </li>
-                <li class="slider-horizontal__item">
+                </div>
+                <div class="slider-horizontal__item">
                   <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#quote"></use>
                   </svg>
@@ -339,12 +322,66 @@
                       </div>
                     </div>
                   </div>
-                </li>
-              </ul>
+                </div>
+                <div class="slider-horizontal__item">
+                  <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
+                    <use xlink:href="/portfolio/sprite.svg#quote"></use>
+                  </svg>
+                  <div class="slider-horizontal__content">
+                    <div class="slider-horizontal__text">
+                      <p>Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
+                    </div>
+                    <div class="slider-horizontal__source">
+                      <div class="avatar slider-horizontal__avatar"><img class="avatar__pic" src="/portfolio/c4ef12235e89317280205f801a1896ee.jpg">
+                      </div>
+                      <div class="slider-horizontal__author">
+                        <div class="slider-horizontal__name">Владимир Сабанцев</div>
+                        <div class="slider-horizontal__position">Преподаватель</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-horizontal__item">
+                  <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
+                    <use xlink:href="/portfolio/sprite.svg#quote"></use>
+                  </svg>
+                  <div class="slider-horizontal__content">
+                    <div class="slider-horizontal__text">
+                      <p>Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
+                    </div>
+                    <div class="slider-horizontal__source">
+                      <div class="avatar slider-horizontal__avatar"><img class="avatar__pic" src="/portfolio/c4ef12235e89317280205f801a1896ee.jpg">
+                      </div>
+                      <div class="slider-horizontal__author">
+                        <div class="slider-horizontal__name">Владимир Сабанцев</div>
+                        <div class="slider-horizontal__position">Преподаватель</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slider-horizontal__item">
+                  <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
+                    <use xlink:href="/portfolio/sprite.svg#quote"></use>
+                  </svg>
+                  <div class="slider-horizontal__content">
+                    <div class="slider-horizontal__text">
+                      <p>Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах</p>
+                    </div>
+                    <div class="slider-horizontal__source">
+                      <div class="avatar slider-horizontal__avatar"><img class="avatar__pic" src="/portfolio/c4ef12235e89317280205f801a1896ee.jpg">
+                      </div>
+                      <div class="slider-horizontal__author">
+                        <div class="slider-horizontal__name">Владимир Сабанцев</div>
+                        <div class="slider-horizontal__position">Преподаватель</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </flickity>
             </div>
           </div>
         </section>
-        <section class="contacts">
+        <section class="contacts" id="contacts-section">
           <div class="container">
             <h2 class="section-title section-title--contacts">Связаться со мной</h2>
             <form class="form" action="#" method="POST">
@@ -380,46 +417,47 @@
           </div>
         </section>
       </div>
-      <footer class="footer">
+      <footer class="footer" id="footer-section">
         <div class="container footer__container">
           <div class="footer__copyright">
             <div class="footer__copyright-year">&copy; 2019</div>
             <div class="footer__copyright-name">
-              <div class="footer__copyright-myname">Владимир Астаханов</div>
+              <div class="footer__copyright-myname">Валентина Понамарева</div>
               <div class="footer__copyright-note">Личный сайт веб-разработчика</div>
             </div>
           </div>
           <div class="footer__right">
             <div class="footer__top">
               <nav class="nav">
-                <ul class="nav__list">
-                  <li class="nav__item"><a class="nav__link" href="#">Главная</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Обо мне</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Навыки</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Работы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Отзывы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#">Связаться</a></li>
+                <ul class="nav__list nav__list--left">
+                  <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
                 </ul>
               </nav>
             </div>
             <div class="footer__bottom">
               <div class="footer__bottom-left">
                 <p class="footer__note">Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool </p>
-                <div class="footer__links"></div>
-                <ul class="socials">
-                  <li class="socials__item socials__item--circled"><a class="socials__link" href="#" target="_blank">
-                      <svg class="socials__icon" viewBox="0 0 97.395 97.395" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#insta"></use>
-                      </svg></a></li>
-                  <li class="socials__item socials__item--circled"><a class="socials__link" href="#" target="_blank">
-                      <svg class="socials__icon" viewBox="0 0 548.358 548.358" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#vk"></use>
-                      </svg></a></li>
-                  <li class="socials__item socials__item--circled"><a class="socials__link" href="#" target="_blank">
-                      <svg class="socials__icon" viewBox="0 0 475.084 475.084" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#github"></use>
-                      </svg></a></li>
-                </ul>
+                <div class="footer__links">
+                  <ul class="socials">
+                    <li class="socials__item socials__item--circled"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 97.395 97.395" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#insta"></use>
+                        </svg></a></li>
+                    <li class="socials__item socials__item--circled"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 548.358 548.358" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#vk"></use>
+                        </svg></a></li>
+                    <li class="socials__item socials__item--circled"><a class="socials__link" href="#" target="_blank">
+                        <svg class="socials__icon" viewBox="0 0 475.084 475.084" fill="currentcolor">
+                          <use xlink:href="/portfolio/sprite.svg#github"></use>
+                        </svg></a></li>
+                  </ul>
+                </div>
               </div>
               <div class="footer__bottom-right">
                 <div class="blockquote">
@@ -431,5 +469,35 @@
         </div>
       </footer>
     </div>
-  <script type="text/javascript" src="/portfolio/main.7059f8c33fdc2e17463d.build.js"></script></body>
+<script type="text/x-template" id="skills-list">
+  <ul class="skill-groups">
+    <li class="skill__groups-item" v-for="category in skills" :key="category.title">
+      <skills-row :category="category"></skills-row>
+    </li>
+  </ul>
+</script>
+<script type="text/x-template" id="skills-row">
+  <div class="skills-row">
+    <h3 class="skills-row__title">{{category.title}}</h3>
+    <ul class="skills-row__list">
+      <li class="skills-row__item" v-for="skill in category.skills" :key="skill.id">
+        <skill :skill="skill"></skill>
+      </li>
+    </ul>
+  </div>
+</script>
+<script type="text/x-template" id="skill">
+  <div class="skill">
+    <svg class="skill__shape" viewBox="0 0 100 100">
+      <circle class="skill__circle skill__circle--position--under" cx="50" cy="50" r="40"></circle>
+      <circle class="skill__circle skill__circle--position--above" cx="50" cy="50" r="40" ref="circle"></circle>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0">
+        <stop offset="0%" stop-color="#5500f2"></stop>
+        <stop offset="100%" stop-color="#8f00ef"></stop>
+      </linearGradient>
+    </svg>
+    <div class="skill__title">{{skill.title}}</div>
+  </div>
+</script>
+  <script type="text/javascript" src="/portfolio/main.c7815d80fcdf965e24c5.build.js"></script></body>
 </html>

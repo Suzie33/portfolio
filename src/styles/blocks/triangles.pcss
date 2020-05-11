@@ -11,7 +11,21 @@
     width: 50%;
     height: 125px;
     margin-right: -1px;
+    margin-top: -1px;
+    margin-bottom: -1px;
     fill: currentColor;
+
+    @include desktop {
+        height: 80px;
+    }
+
+    @include tablets {
+        height: 60px;
+    }
+
+    @include phones {
+        height: 25px;
+    }
 }
 
 .triangles--rotated {

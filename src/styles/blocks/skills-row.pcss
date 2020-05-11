@@ -2,15 +2,25 @@
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 32px;
+
+    @include tablets {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
 }
 
 .skills-row__list {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+
+    @include tablets {
+        justify-content: center;
+    }
 }
 
 .skills-row__item {
-    margin-right: 20px;
+    margin-right: 1%;
 
     &:last-child {
         margin-right: 0;

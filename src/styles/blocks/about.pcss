@@ -1,16 +1,52 @@
 .about {
     min-height: 650px;
+    padding-bottom: 125px;
+
+    @include desktop {
+        min-height: 605px;
+        padding-bottom: 80px;
+    }
+
+    @include tablets {
+        min-height: 460px;
+        font-size: 14px;
+        padding-bottom: 60px;
+    }
+
+    @include phones {
+        padding-bottom: 100px;
+    }
 }
 
 .about__container {
     display: flex;
     justify-content: space-between;
     width: 980px;
+
+    @include desktop {
+        justify-content: flex-start;
+        width: 91%;
+    }
+
+    @include phones {
+        flex-direction: column;
+        width: 83%;
+    }
 }
 
 .about__left {
-    width: 35%;
+    width: 350px;
     margin-right: 8%;
+
+    @include tablets {
+        width: 38%;
+    }
+
+    @include phones {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
 }
 
 .about__right {
@@ -18,6 +54,19 @@
     flex-direction: column;
     width: 56%;
     padding-bottom: 20px;
+
+    @include desktop {
+        width: 49%;
+    }
+
+    @include tablets {
+        width: 54%;
+        padding-bottom: 0;
+    }
+
+    @include phones {
+        width: 100%;
+    }
 }
 
 .about__description-top, .about__description-text, .about__note {
@@ -30,9 +79,14 @@
 
 .about__description-top {
     margin-bottom: 20px;
+
+    @include phones {
+        margin-bottom: 5px;
+    }
 }
 
 .about__description-text {
+    margin-bottom: 10px;
     line-height: 1.9;
 }
 

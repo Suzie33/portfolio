@@ -1,46 +1,126 @@
 .works {
-    padding-top: 50px;
+    padding-top: 35px;
     padding-bottom: 175px;
+
+    @include desktop {
+        padding-bottom: 130px;
+    }
+
+    @include tablets {
+        padding-bottom: 50px;
+    }
+
+    @include phones {
+        padding-bottom: 90px;
+    }
+}
+
+.works__container {
+    position: relative;
 }
 
 .works__content {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
+    @include tablets {
+        flex-direction: column;
+    }
 }
 
 .works__slider {
+    position: relative;
     width: 66%;
+    margin-right: 15px;
+
+    @include desktop {
+        width: 57.7%;
+    }
+
+    @include tablets {
+        width: 91%;
+        margin-bottom: 100px;
+    }
+
+    @include phones {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
 }
 
 .works__description {
     width: 350px;
-    position: relative;
+
+    @include tablets {
+        width: 66%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    @include phones {
+        width: 100%;
+        padding-top: 95%;
+    }
 }
 
 .works__number {
     display: block;
     position: absolute;
-    bottom: 0;
-    right: 100%;
+    left: 92%;
+    top: 15%;
     font-size: 400px;
     font-weight: 800;
-    line-height: 0.8;
+    line-height: 0.7;
     color: #e6e6e6;
     z-index: -5;
+
+    @include desktop {
+        font-size: 300px;
+        left: 90%;
+        top: 0;
+    }
+
+    @include phones {
+        display: none;
+    }
 }
 
 .wors__tags {
     margin-bottom: 40px;
+
+    @include tablets {
+        margin-bottom: 15px;
+    }
+}
+
+.works__text {
+    text-align: left;
 }
 
 .works__title {
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 35px;
+
+    @include tablets {
+        margin-bottom: 17px;
+    }
+
+    @include phones {
+        font-size: 24px;
+    }
 }
 
 .works__definition {
     line-height: 1.9;
     margin-bottom: 40px;
+
+    @include tablets {
+        margin-bottom: 15px;
+    }
 }

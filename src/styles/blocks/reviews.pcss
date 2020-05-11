@@ -1,14 +1,48 @@
 .reviews {
     padding-top: 245px;
-    margin-bottom: 175px;
+    margin-bottom: 155px;
+
+    @include desktop {
+        padding-top: 185px;
+    }
+
+    @include tablets {
+        margin-bottom: 100px;
+    }
+
+    @include phones {
+        padding-top: 100px;
+    }
 }
 
 .reviews__top {
     display: flex;
     align-items: center;
     margin-bottom: 90px;
+
+    @include tablets {
+        margin-bottom: 55px;
+    }
+
+    @include phones {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
 }
 
-.reviews__list-wrap {
-    width: 1000px;
+.reviews__slider {
+    width: 975px;
+    overflow: hidden;
+
+    @include desktop {
+        width: 83%;
+    }
+
+    @include tablets {
+        width: 97%;
+    }
+
+    @include phones {
+        width: 100%;
+    }
 }

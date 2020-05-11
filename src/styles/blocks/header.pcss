@@ -4,4 +4,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include tablets {
+        padding-top: 40px;
+    }
+
+    @include phones {
+        padding-top: 50px;
+    }
+}
+
+.header__menu {
+    flex-grow: 1;
+
+    @include tablets {
+        display: none;
+    }
+}
+
+.header__links {
+    display: flex;
+
+    @include tablets {
+        margin-right: 60px;
+        margin-left: auto;
+    }
+
+    @include phones {
+        display: none;
+    }
 }

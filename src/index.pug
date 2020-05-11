@@ -6,61 +6,108 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     title Portfolio | main page
   body
     .wrapper
       .welcome-section
-        section.hero.fullscreen-section
-          .container
-            header.header
-              .header__logo.logo ВП
-              .header__menu
-                nav.nav
-                  - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
-                  ul.nav__list
-                    each item in menu
-                      li.nav__item
-                        a.nav__link(href="#") #{item}
-              .header__links
-                - var icons = ['insta', 'vk', 'github'];
-                ul.socials
-                  each item in icons
-                    li.socials__item
-                      a.socials__link(href="#")
-                        +icon(`${item}`, 'socials__icon')
+        .parallax
+          .parallax__layer(data-speed="0.1")
+            picture.parallax__img
+              source(srcset=require("images/parallax/layer-01_sky.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="" alt="Background image")
+          .parallax__layer(data-speed="0.25")
+            picture
+              source(srcset=require("images/parallax/layer-02_mountain.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.35")
+            picture
+              source(srcset=require("images/parallax/layer-03_baloon.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.38")
+            picture
+              source(srcset=require("images/parallax/layer-04_cloud.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.45")
+            picture
+              source(srcset=require("images/parallax/layer-05_man.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.48")
+            picture
+              source(srcset=require("images/parallax/layer-06_mountain2.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.50")
+            picture
+              source(srcset=require("images/parallax/layer-07_white.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
 
-            .hero__content
-              p.hero__content-text Личный сайт веб разработчика
-              h1.hero__title Валентины Понамаревой
-            .hero__scroll
-              a.scroll
-                span.scroll__text Скролл
-                +icon('scroll', 'scroll__icon', '30')
+        .welcome-section__content
+          section.hero.fullscreen-section#hero-section
+            .container
+              header.header
+                .header__logo.logo ВП
+                .header__menu
+                  nav.nav
+                    - var menu = [['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'], ['hero-section', 'about-section', 'values-section', 'works-section', 'reviews-section', 'contacts-section']];
+                    ul.nav__list
+                      each item, index in menu[0]
+                        li.nav__item
+                          a.nav__link(href="#" + menu[1][index]) #{item}
+                .header__links
+                  - var icons = ['insta', 'vk', 'github'];
+                  ul.socials
+                    each item in icons
+                      li.socials__item
+                        a.socials__link(href="#" target="_blank")
+                          +icon(`${item}`, 'socials__icon')
+                a.hamburger-menu-link(href="#")#hamburger-menu-link
+                  .hamburger-menu-link__bars
+                nav.hamburger-menu#hamburger-menu
+                    ul.nav__list
+                      each item, index in menu[0]
+                        li.nav__item
+                          a.nav__link(href="#" + menu[1][index]) #{item}
+                      - var icons = ['insta', 'vk', 'github'];
+                    ul.socials
+                      each item in icons
+                        li.socials__item
+                          a.socials__link(href="#" target="_blank")
+                            +icon(`${item}`, 'socials__icon')
+                    a.close-button#close-nav-button(href="#")
+                      +icon('close', 'close-button__img', '20')
 
-        section.about
-          .container.about__container
-            .about__left
-              .user
-                .avatar.user__avatar
-                  +image('content/user.jpg', 'avatar__pic', 'avatar')
-                table.user__info
-                  tr.user__info-row
-                    th.user__info-header Проживаю:
-                    td.user__info-data Санкт-Петербург
-                  tr.user__info-row
-                    th.user__info-header Возраст:
-                    td.user__info-data 28 лет
-                  tr.user__info-row
-                    th.user__info-header Родилась:
-                    td.user__info-data 5 октября 1991
-            .about__right
-              .about__description
-                p.about__description-top Привет, меня зовут
-                h2.section-title Валентина Понамарева
-                p.about__description-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. 
-              p.about__note Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+              .hero__content
+                p.hero__content-text Личный сайт веб разработчика
+                h1.hero__title Валентины Понамаревой
+              .hero__scroll
+                a.scroll(href="#about-section")
+                  span.scroll__text Скролл
+                  +icon('scroll', 'scroll__icon', '30')
+
+          section.about#about-section
+            .container.about__container
+              .about__left
+                .user
+                  .avatar.user__avatar
+                    +image('content/user.jpg', 'avatar__pic', 'avatar')
+                  table.user__info
+                    tr.user__info-row
+                      th.user__info-header Проживаю:
+                      td.user__info-data Санкт-Петербург
+                    tr.user__info-row
+                      th.user__info-header Возраст:
+                      td.user__info-data 28 лет
+                    tr.user__info-row
+                      th.user__info-header Родилась:
+                      td.user__info-data 5 октября 1991
+              .about__right
+                .about__description
+                  p.about__description-top Привет, меня зовут
+                  h2.section-title Валентина Понамарева
+                  p.about__description-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. 
+                p.about__note Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             
-      section.values
+      section.values#values-section
         .triangles
           svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
             polygon(points="0,0 0,100 1000,100")
@@ -73,21 +120,9 @@ html(lang="en")
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
             .values__skills
-              ul.skill-groups
-                - 
-                  var skills = [
-                    ['Front-end', ['HTML5', 'CSS3', 'Javascript', 'Jquery и Vue.js'], [25, 15, 75, 20]],
-                    ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack'], [15, 25, 50, 40]],
-                  ]
-                each item in skills
-                  li.skill__groups-item.skills-row
-                    h3.skills-row__title #{item[0]}
-                    ul.skills-row__list
-                      each skill, index in item[1]
-                        li.skills-row__item
-                          +skill(item[2][index], skill)
-                          
-      section.works
+              #skills-component
+
+      section.works#works-section
         .container
           h2.section-title.section-title--works Мои работы
           .works__content
@@ -102,16 +137,14 @@ html(lang="en")
                       +image('content/work_preview3.jpg', 'slider__preview-image')
                     li.slider__previews-item
                       +image('content/work_preview4.jpg', 'slider__preview-image')
-                    li.slider__previews-item
-                      +image('content/work_preview5.jpg', 'slider__preview-image')
                 .slider__controls
                   .slider-btns
                     button.slider-btns__item.slider-btns__item--slide--prev
                       +icon('arrow-down', 'slider-btns__icon', '8', '10')
                     button.slider-btns__item.slider-btns__item--slide--next
                       +icon('arrow-down', 'slider-btns__icon', '8', '10')
-            .works__description
               span.works__number 4
+            .works__description
               .wors__tags
                 - var tags = ['HTML', 'CSS', 'Javascript'];
                 ul.tags
@@ -132,19 +165,45 @@ html(lang="en")
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
               polygon(points="0,100 1000,100 1000,0")
 
-        section.reviews
+        .parallax.parallax--budda
+          .parallax__layer(data-speed="0.1")
+            picture.parallax__img
+              source(srcset=require("images/parallax/layer-01_skyBudda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="" alt="Background image")
+          .parallax__layer(data-speed="0.25")
+            picture
+              source(srcset=require("images/parallax/layer-02_mountainBudda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.3")
+            picture
+              source(srcset=require("images/parallax/layer-03_Budda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.38")
+            picture
+              source(srcset=require("images/parallax/layer-04_cloudBudda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0")
+            picture
+              source(srcset=require("images/parallax/layer-05_cloud2Budda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0")
+            picture
+              source(srcset=require("images/parallax/layer-06_cloud3Budda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+
+        section.reviews#reviews-section(@click="checkArrows" @touchEnd="checkArrows")
           .container
             .reviews__top
               h2.section-title.section-title--reviews Что обо мне говорят
               .reviews__controls
                 .circle-btns
-                  button.circle-btns__item.circle-btns__item--slide--prev
+                  button.circle-btns__item.circle-btns__item--slide--prev(@click='previous' :disabled='true' ref="circleBtnPrev")
                     +icon('arrow-down', 'circle-btns__icon', '10', '8')
-                  button.circle-btns__item.circle-btns__item--slide--next
+                  button.circle-btns__item.circle-btns__item--slide--next(@click='next' :disabled='false' ref="circleBtnNext")
                     +icon('arrow-down', 'circle-btns__icon', '10', '8')
-            .reviews__list-wrap
-              ul.slider-horizontal
-                li.slider-horizontal__item
+            .reviews__slider
+              flickity(ref="flickity" :options="flickityOptions").slider-horizontal
+                .slider-horizontal__item
                   +icon('quote', 'slider-horizontal__item-icon', '75', '63')
                   .slider-horizontal__content
                     .slider-horizontal__text
@@ -155,7 +214,40 @@ html(lang="en")
                       .slider-horizontal__author
                         .slider-horizontal__name Ковальчук Дмитрий
                         .slider-horizontal__position Основатель Loftschool
-                li.slider-horizontal__item
+                .slider-horizontal__item
+                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                  .slider-horizontal__content
+                    .slider-horizontal__text
+                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .slider-horizontal__source
+                      .avatar.slider-horizontal__avatar
+                        +image('content/review2.jpg', 'avatar__pic')
+                      .slider-horizontal__author
+                        .slider-horizontal__name Владимир Сабанцев
+                        .slider-horizontal__position Преподаватель
+                .slider-horizontal__item
+                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                  .slider-horizontal__content
+                    .slider-horizontal__text
+                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .slider-horizontal__source
+                      .avatar.slider-horizontal__avatar
+                        +image('content/review2.jpg', 'avatar__pic')
+                      .slider-horizontal__author
+                        .slider-horizontal__name Владимир Сабанцев
+                        .slider-horizontal__position Преподаватель
+                .slider-horizontal__item
+                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+                  .slider-horizontal__content
+                    .slider-horizontal__text
+                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
+                    .slider-horizontal__source
+                      .avatar.slider-horizontal__avatar
+                        +image('content/review2.jpg', 'avatar__pic')
+                      .slider-horizontal__author
+                        .slider-horizontal__name Владимир Сабанцев
+                        .slider-horizontal__position Преподаватель
+                .slider-horizontal__item
                   +icon('quote', 'slider-horizontal__item-icon', '75', '63')
                   .slider-horizontal__content
                     .slider-horizontal__text
@@ -167,7 +259,7 @@ html(lang="en")
                         .slider-horizontal__name Владимир Сабанцев
                         .slider-horizontal__position Преподаватель
 
-        section.contacts
+        section.contacts#contacts-section
           .container
             h2.section-title.section-title--contacts Связаться со мной
             form.form(action="#" method="POST")
@@ -191,32 +283,33 @@ html(lang="en")
               .form__row
                 input.btn(type="submit" value="Отправить")
 
-      footer.footer
+      footer.footer#footer-section
         .container.footer__container
           .footer__copyright
             .footer__copyright-year &copy; 2019
             .footer__copyright-name
-              .footer__copyright-myname Владимир Астаханов
+              .footer__copyright-myname Валентина Понамарева
               .footer__copyright-note Личный сайт веб-разработчика
           .footer__right
             .footer__top
               nav.nav
-                    - var menu = ['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'];
-                    ul.nav__list
-                      each item in menu
-                        li.nav__item
-                          a.nav__link(href="#") #{item}
+                ul.nav__list.nav__list--left
+                  each item, index in menu[0]
+                    li.nav__item
+                      a.nav__link(href="#" + menu[1][index]) #{item}
             .footer__bottom
               .footer__bottom-left
                 p.footer__note Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool 
                 .footer__links
-                - var icons = ['insta', 'vk', 'github'];
-                  ul.socials
-                    each item in icons
-                      li.socials__item.socials__item--circled
-                        a.socials__link(href="#" target="_blank")
-                          +icon(`${item}`, 'socials__icon')
+                  - var icons = ['insta', 'vk', 'github'];
+                    ul.socials
+                      each item in icons
+                        li.socials__item.socials__item--circled
+                          a.socials__link(href="#" target="_blank")
+                            +icon(`${item}`, 'socials__icon')
               .footer__bottom-right
                 .blockquote
                   p.blockquote__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                   span.blockquote__author Martin Golding
+
+    include ./templates/entry.pug

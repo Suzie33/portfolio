@@ -10,7 +10,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 175px;
+    width: 28%;
 }
 
 .slider__previews-item {
@@ -37,10 +37,19 @@
     &:hover::after {
         display: block;
     }
+
+    @include phones {
+        display: none;
+    }
 }
 
 .slider__controls {
     position: absolute;
     top: 100%;
     right: 0;
+
+    @include phones {
+        top: auto;
+        bottom: 0;
+    }
 }

@@ -2,7 +2,19 @@
     width: 200px;
     height: 200px;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 70px;
+
+    @include tablets {
+        width: 175px;
+        height: 175px;
+        margin-left: 0;
+        margin-bottom: 50px;
+    }
+
+    @include phones {
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
 }
 
 .user__info-row {
@@ -18,4 +30,12 @@
     width: 174px;
     text-align: left;
     opacity: .3;
+
+    @include tablets {
+        width: 118px;
+    }
+
+    @include phones {
+        width: 140px;
+    }
 }

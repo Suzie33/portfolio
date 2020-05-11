@@ -1,5 +1,13 @@
 .form {
-    width: 57%;
+    width: 850px;
+
+    @include desktop {
+        width: 76.4%;
+    }
+
+    @include tablets {
+        width: 100%;
+    }
 }
 
 .form__row {
@@ -12,6 +20,14 @@
 
     &--margin--l {
         margin-bottom: 60px;
+
+        @include tablets {
+            margin-bottom: 30px;
+        }
+    }
+
+    @include phones {
+        flex-wrap: wrap;
     }
 }
 
@@ -24,6 +40,15 @@
 
     &:last-child {
         margin-right: 0;
+    }
+
+    @include phones {
+        margin-right: 0;
+        margin-bottom: 35px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -44,6 +69,10 @@
     font-size: 18px;
     font-weight: 700;
 
+    @include tablets {
+        font-size: 14px;
+    }
+
     &:focus {
         border-bottom-color: #5500f2;
         outline: none;
@@ -56,6 +85,10 @@
     &::-webkit-input-placeholder {
         color: #414c63;
         opacity: .3;
+
+        @include tablets {
+            font-size: 14px;
+        }
     }
 }
 
@@ -67,6 +100,10 @@
         color: #414c63;
         opacity: .3;
     }
+
+    @include phones {
+        min-height: 70px;
+    }
 }
 
 .form__input-icon {
@@ -74,6 +111,10 @@
     left: 0;
     top: 39px;
     fill: $form-label-color;
+
+    @include tablets {
+        top: 32px;
+    }
 }
 
 .form__error {

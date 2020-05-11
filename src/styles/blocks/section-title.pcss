@@ -3,21 +3,68 @@
     font-size: 36px;
     font-weight: 700;
 
+    @include tablets {
+        font-size: 30px;
+    }
+
+    @include phones {
+        font-size: 24px;
+    }
+
     &--values {
         font-size: 30px;
-        margin-bottom: 35px;
+        margin-bottom: 50px;
+
+        @include tablets {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+        }
+
+        @include phones {
+            width: 100%;
+            text-align: left;
+        }
     }
 
     &--works {
         margin-bottom: 80px;
+
+        @include tablets {
+            margin-bottom: 45px;
+        }
+
+        @include phones {
+            text-align: center;
+            margin-bottom: 25px;
+        }
     }
 
     &--reviews {
         margin-bottom: 0px;
         margin-right: 120px;
+
+        @include desktop {
+            margin-right: 80px;
+        }
+
+        @include phones {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
     }
 
     &--contacts {
         margin-bottom: 70px;
+
+        @include tablets {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        @include phones {
+            text-align: left;
+        }
     }
 }
