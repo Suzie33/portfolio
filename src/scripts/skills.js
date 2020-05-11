@@ -14,7 +14,7 @@ const skill = {
         }
     },
     methods: {
-        drawColoredCircle() {            
+        drawColoredCircle() {
             this.$refs["circle"].style.strokeDashoffset = this.getPercentValue;
         },
     },

@@ -165,6 +165,32 @@ html(lang="en")
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
               polygon(points="0,100 1000,100 1000,0")
 
+        .parallax.parallax--budda
+          .parallax__layer(data-speed="0.1")
+            picture.parallax__img
+              source(srcset=require("images/parallax/layer-01_skyBudda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="" alt="Background image")
+          .parallax__layer(data-speed="0.25")
+            picture
+              source(srcset=require("images/parallax/layer-02_mountainBudda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.3")
+            picture
+              source(srcset=require("images/parallax/layer-03_Budda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0.38")
+            picture
+              source(srcset=require("images/parallax/layer-04_cloudBudda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0")
+            picture
+              source(srcset=require("images/parallax/layer-05_cloud2Budda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+          .parallax__layer(data-speed="0")
+            picture
+              source(srcset=require("images/parallax/layer-06_cloud3Budda.png") media="(min-width: 1200px)").parallax__img
+              img.parallax__img(src="")
+
         section.reviews#reviews-section(@click="checkArrows" @touchEnd="checkArrows")
           .container
             .reviews__top

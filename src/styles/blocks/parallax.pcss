@@ -78,3 +78,61 @@
 .parallax__img {
     position: absolute;
 }
+
+.parallax--budda .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+
+    &:nth-child(1) {
+        .parallax__img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &:nth-child(2) {
+        .parallax__img {
+            right: 0;
+            top: auto;
+            bottom: -50px;
+        }
+    }
+
+    &:nth-child(3) {
+        .parallax__img {
+            top: 318px;
+            left: 50%;
+            margin-left: 12%;
+        }
+    }
+
+    &:nth-child(4) {
+        .parallax__img {
+            left: 0;
+            top: auto;
+            bottom: -300px;
+            transform: scale(3);
+        }
+    }
+
+    &:nth-child(5) {
+        .parallax__img {
+            left: 0;
+            top: auto;
+            bottom: 0;
+        }
+    }
+
+    &:nth-child(6) {
+        .parallax__img {
+            right: 0;
+            bottom: 0;
+            transform: scale(5);
+        }
+    }
+}

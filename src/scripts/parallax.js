@@ -16,3 +16,26 @@ window.addEventListener('scroll', e => {
     const wScroll = window.pageYOffset;
     moveLayersDependsOnScroll(wScroll);
 });
+
+///////// Budda /////////
+
+const parallaxBudda = document.querySelector('.parallax--budda');
+const layersBudda = parallaxBudda.children;
+
+function moveLayersBuddaDependsOnScroll(wScroll) {
+
+    Array.from(layersBudda).forEach(layerBudda => {
+
+        const dividerBudda = layerBudda.dataset.speed;
+        console.log(wScroll);
+        
+        const strafeBudda = (wScroll-3000) * dividerBudda / 15;
+
+        layerBudda.style.transform = `translateY(-${strafeBudda}%)`;
+    });
+}
+
+window.addEventListener('scroll', e => {
+    const wScroll = window.pageYOffset;
+    moveLayersBuddaDependsOnScroll(wScroll);
+});
