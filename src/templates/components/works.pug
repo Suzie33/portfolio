@@ -3,17 +3,18 @@ script(type="text/x-template")#slider-container
         display(
             :currentWork="currentWork"
         )
-        info
+        info(
+            :currentWork="currentWork"
+        )
 
 
 script(type="text/x-template")#slider-display
     .works__slider
-        pre {{currentWork}}
         .slider
-            img.slider__image
+            img(:src="currentWork.photo").slider__image
             previews
             buttons
-        span.works__number 4
+        span.works__number {{currentWork.id}}
 
 script(type="text/x-template")#slider-previews
     .slider__previews
@@ -33,10 +34,10 @@ script(type="text/x-template")#slider-info
     .works__description
         tags
         .works__text
-            h3.works__title Сайт школы образования
+            h3.works__title {{currentWork.title}}
             .works__definition
-                p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-            a.iconed-link(href='#' target="_blank")
+                p {{currentWork.desc}}
+            a.iconed-link(:href='currentWork.link' target="_blank")
                 .iconed-link__icon
                 span.iconed-link__text Посмотреть сайт
 

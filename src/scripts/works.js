@@ -21,6 +21,7 @@ const tags = {
 const info = {
     template: "#slider-info",
     components: { tags },
+    props: ["currentWork"]
 };
 
 
@@ -34,9 +35,18 @@ new Vue ({
             currentWork: {}
         };
     },
+    methods: {
+        makeArrWithRequiredImages(array) {
+            return array.map((item) => {
+                const requirePic = require(`../images/content/${item.photo}`);
+                item.photo = requirePic;
+                return item;
+            });
+        },
+    },
     created() {
         const data = require("../data/works.json");
-        this.works = data;
-        this.currentWork = data[0];
-    }
+        this.works = this.makeArrWithRequiredImages(data);
+        this.currentWork = this.works[0];
+    },
 });

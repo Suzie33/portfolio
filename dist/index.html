@@ -457,16 +457,15 @@
     <script type="text/x-template" id="slider-container">
       <div class="works__content">
         <display :currentWork="currentWork"></display>
-        <info></info>
+        <info :currentWork="currentWork"></info>
       </div>
     </script>
     <script type="text/x-template" id="slider-display">
       <div class="works__slider">
-        <pre>{{currentWork}}</pre>
-        <div class="slider"><img class="slider__image">
+        <div class="slider"><img class="slider__image" :src="currentWork.photo">
           <previews></previews>
           <buttons></buttons>
-        </div><span class="works__number">4</span>
+        </div><span class="works__number">{{currentWork.id}}</span>
       </div>
     </script>
     <script type="text/x-template" id="slider-previews">
@@ -496,10 +495,10 @@
       <div class="works__description">
         <tags></tags>
         <div class="works__text">
-          <h3 class="works__title">Сайт школы образования</h3>
+          <h3 class="works__title">{{currentWork.title}}</h3>
           <div class="works__definition">
-            <p>Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p>
-          </div><a class="iconed-link" href="#" target="_blank">
+            <p>{{currentWork.desc}}</p>
+          </div><a class="iconed-link" :href="currentWork.link" target="_blank">
             <div class="iconed-link__icon"></div><span class="iconed-link__text">Посмотреть сайт</span></a>
         </div>
       </div>
@@ -511,5 +510,5 @@
         </ul>
       </div>
     </script>
-  <script type="text/javascript" src="/portfolio/main.22548dc3eb5f28684a31.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.3902b814a74a09e2c61e.build.js"></script></body>
 </html>
