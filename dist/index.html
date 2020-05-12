@@ -177,52 +177,7 @@
       <section class="works" id="works-section">
         <div class="container">
           <h2 class="section-title section-title--works">Мои работы</h2>
-          <div class="works__content">
-            <div class="works__slider">
-              <div class="slider"><img class="slider__image" src="/portfolio/1767cd6b950d0b92a4d7ad85438bdbb8.jpg">
-                <div class="slider__previews">
-                  <ul class="slider__previews-list">
-                    <li class="slider__previews-item slider__previews-item--active"><img class="slider__preview-image" src="/portfolio/58015bdcbda14318644bfea176883c35.jpg">
-                    </li>
-                    <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/43ba37393fd02808b8e351ccd4d978c5.jpg">
-                    </li>
-                    <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/83ca764884bc40110d96be8ad4e2ca45.jpg">
-                    </li>
-                  </ul>
-                </div>
-                <div class="slider__controls">
-                  <div class="slider-btns">
-                    <button class="slider-btns__item slider-btns__item--slide--prev">
-                      <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                      </svg>
-                    </button>
-                    <button class="slider-btns__item slider-btns__item--slide--next">
-                      <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div><span class="works__number">4</span>
-            </div>
-            <div class="works__description">
-              <div class="wors__tags">
-                <ul class="tags">
-                  <li class="tags__item">HTML</li>
-                  <li class="tags__item">CSS</li>
-                  <li class="tags__item">Javascript</li>
-                </ul>
-              </div>
-              <div class="works__text">
-                <h3 class="works__title">Сайт школы образования</h3>
-                <div class="works__definition">
-                  <p>Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p>
-                </div><a class="iconed-link" href="#" target="_blank">
-                  <div class="iconed-link__icon"></div><span class="iconed-link__text">Посмотреть сайт</span></a>
-              </div>
-            </div>
-          </div>
+          <div id="slider-component"></div>
         </div>
       </section>
       <div class="reviews-ans-contact-section">
@@ -499,5 +454,68 @@
     <div class="skill__title">{{skill.title}}</div>
   </div>
 </script>
-  <script type="text/javascript" src="/portfolio/main.64312fc749ec31a81db3.build.js"></script></body>
+    <script type="text/x-template" id="slider-container">
+      <div class="works__content">
+        <display></display>
+        <info></info>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-display">
+      <div class="works__slider">
+        <div class="slider"><img class="slider__image" src="/portfolio/1767cd6b950d0b92a4d7ad85438bdbb8.jpg">
+          <previews></previews>
+          <buttons></buttons>
+        </div><span class="works__number">4</span>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-previews">
+      <div class="slider__previews">
+        <ul class="slider__previews-list">
+          <li class="slider__previews-item slider__previews-item--active"><img class="slider__preview-image" src="/portfolio/58015bdcbda14318644bfea176883c35.jpg">
+          </li>
+          <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/43ba37393fd02808b8e351ccd4d978c5.jpg">
+          </li>
+          <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/83ca764884bc40110d96be8ad4e2ca45.jpg">
+          </li>
+        </ul>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-buttons">
+      <div class="slider__controls">
+        <div class="slider-btns">
+          <button class="slider-btns__item slider-btns__item--slide--prev">
+            <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+            </svg>
+          </button>
+          <button class="slider-btns__item slider-btns__item--slide--next">
+            <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-info">
+      <div class="works__description">
+        <tags></tags>
+        <div class="works__text">
+          <h3 class="works__title">Сайт школы образования</h3>
+          <div class="works__definition">
+            <p>Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p>
+          </div><a class="iconed-link" href="#" target="_blank">
+            <div class="iconed-link__icon"></div><span class="iconed-link__text">Посмотреть сайт</span></a>
+        </div>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-tags">
+      <div class="wors__tags">
+        <ul class="tags">
+          <li class="tags__item">HTML</li>
+          <li class="tags__item">CSS</li>
+          <li class="tags__item">Javascript</li>
+        </ul>
+      </div>
+    </script>
+  <script type="text/javascript" src="/portfolio/main.bff501bcff6f0dcffe00.build.js"></script></body>
 </html>

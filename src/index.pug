@@ -125,39 +125,8 @@ html(lang="en")
       section.works#works-section
         .container
           h2.section-title.section-title--works Мои работы
-          .works__content
-            .works__slider
-              .slider
-                +image('content/work_preview1.jpg', 'slider__image')
-                .slider__previews
-                  ul.slider__previews-list
-                    li.slider__previews-item.slider__previews-item--active
-                      +image('content/work_preview2.jpg', 'slider__preview-image')
-                    li.slider__previews-item
-                      +image('content/work_preview3.jpg', 'slider__preview-image')
-                    li.slider__previews-item
-                      +image('content/work_preview4.jpg', 'slider__preview-image')
-                .slider__controls
-                  .slider-btns
-                    button.slider-btns__item.slider-btns__item--slide--prev
-                      +icon('arrow-down', 'slider-btns__icon', '8', '10')
-                    button.slider-btns__item.slider-btns__item--slide--next
-                      +icon('arrow-down', 'slider-btns__icon', '8', '10')
-              span.works__number 4
-            .works__description
-              .wors__tags
-                - var tags = ['HTML', 'CSS', 'Javascript'];
-                ul.tags
-                  each tag in tags
-                    li.tags__item #{tag}
-              .works__text
-                h3.works__title Сайт школы образования
-                .works__definition
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a.iconed-link(href='#' target="_blank")
-                  .iconed-link__icon
-                  span.iconed-link__text Посмотреть сайт
-
+          #slider-component
+          
       .reviews-ans-contact-section
         .triangles.triangles--rotated
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
