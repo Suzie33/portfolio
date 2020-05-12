@@ -1,28 +1,25 @@
 script(type="text/x-template")#slider-container
     .works__content
-        display
+        display(
+            :currentWork="currentWork"
+        )
         info
 
 
 script(type="text/x-template")#slider-display
     .works__slider
+        pre {{currentWork}}
         .slider
-            +image('content/work_preview1.jpg', 'slider__image')
+            img.slider__image
             previews
             buttons
-            
         span.works__number 4
 
 script(type="text/x-template")#slider-previews
     .slider__previews
         ul.slider__previews-list
             li.slider__previews-item.slider__previews-item--active
-                +image('content/work_preview2.jpg', 'slider__preview-image')
-            li.slider__previews-item
-                +image('content/work_preview3.jpg', 'slider__preview-image')
-            li.slider__previews-item
-                +image('content/work_preview4.jpg', 'slider__preview-image')
-
+                img.slider__preview-image
 
 script(type="text/x-template")#slider-buttons
     .slider__controls
@@ -45,7 +42,5 @@ script(type="text/x-template")#slider-info
 
 script(type="text/x-template")#slider-tags
     .wors__tags
-        - var tags = ['HTML', 'CSS', 'Javascript'];
         ul.tags
-            each tag in tags
-                li.tags__item #{tag}
+            li.tags__item

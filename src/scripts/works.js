@@ -11,6 +11,7 @@ const buttons = {
 const display = {
     template: "#slider-display",
     components: { buttons, previews },
+    props: ["currentWork"]
 };
 
 const tags = {
@@ -27,4 +28,15 @@ new Vue ({
     el: "#slider-component",
     template: "#slider-container",
     components: { display, info },
+    data() {
+        return {
+            works: [],
+            currentWork: {}
+        };
+    },
+    created() {
+        const data = require("../data/works.json");
+        this.works = data;
+        this.currentWork = data[0];
+    }
 });

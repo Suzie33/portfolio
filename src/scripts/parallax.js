@@ -27,7 +27,6 @@ function moveLayersBuddaDependsOnScroll(wScroll) {
     Array.from(layersBudda).forEach(layerBudda => {
 
         const dividerBudda = layerBudda.dataset.speed;
-        console.log(wScroll);
         
         const strafeBudda = (wScroll-3000) * dividerBudda / 15;
 
