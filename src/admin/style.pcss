@@ -1,0 +1,155 @@
+.container {
+    max-width: 1080px;
+}
+
+.header {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    background-color: $admin-footer;
+    color: #fff;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.header__avatar {
+    width: 45px;
+    height: 45px;
+    margin-right: 20px;
+}
+
+.avatar {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar__pic {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.header__name {
+    font-size: 18px;
+    margin-right: 28px;
+}
+
+.header__note {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: .5;
+}
+
+.link {
+    font-weight: 400;
+    text-decoration: underline;
+    opacity: .7;
+}
+
+.nav {
+    background-color: #fff;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+}
+
+.nav__item {
+    padding: 25px 30px;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+        cursor: pointer;
+        border-bottom: 3px solid $admin-blue;
+
+        .nav__link {
+            color: $admin-blue;
+        }
+    }
+}
+
+.nav__link {
+    color: $admin-color;
+}
+
+.main {
+    padding-bottom: 25px;
+    background: #fcfcfe url('../images/MountainBaloon_white.jpg') no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.about {
+    padding-top: 50px;
+}
+
+.about__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.section__title {
+    font-size: 21px;
+    color: #414c63;
+    font-weight: 700;
+    margin-right: 60px;
+}
+
+.button-inscription {
+    display: flex;
+    padding: 0;
+    color: $admin-blue;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.button-inscription__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.plus-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
+    position: relative;
+
+    &::before{
+        content: "";
+        display: block;
+        width: 8px;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+    }
+
+    &::after{
+        content: "";
+        display: block;
+        width: 2px;
+        height: 8px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+    }
+}
+
+.button-inscription__text {
+    color: inherit;
+}
