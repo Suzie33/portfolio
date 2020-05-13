@@ -29,6 +29,16 @@
               .button-inscription__icon
                 .plus-icon
               span.button-inscription__text Добавить группу
+          ul.about__list.main-list
+            li.about__item.about__item--add.main-list__item
+              form.form.about__form(method="post" action="#")
+                .about__form-top
+                  input.form__input.form__input--width--50(placeholder="Название новой группы")
+                  button.button-icon.button-icon__ok
+                  button.button-icon.button-icon__delete
+
+            li.about__item.main-list__item
+            li.about__item.main-list__item
 
     
 </template>

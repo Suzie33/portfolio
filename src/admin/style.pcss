@@ -110,6 +110,10 @@
     color: $admin-blue;
     background-color: transparent;
     cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
 }
 
 .button-inscription__icon {
@@ -153,3 +157,52 @@
 .button-inscription__text {
     color: inherit;
 }
+
+.main-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-list__item {
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 4.096px 2.868px 10px rgba(0,0,0,0.07);
+}
+
+.about__item {
+    padding: 25px 30px 35px;
+    width: calc(100% / 2 - 15px);
+    min-height: 390px;
+
+    &:nth-of-type(2) {
+        margin-right: 0;
+    }
+}
+
+.form__input {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: none;
+    border-bottom: 1px solid #000;
+
+    &--width--50 {
+        width: 50%;
+    }
+
+    &::-webkit-input-placeholder {
+        font-size: 18px;
+        color: #414c63;
+        opacity: .3;
+    }
+
+    
+}
+
+.about__form-top {
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(170,170,174,0.15);
+    display: flex;
+    align-items: center;
+}
+
