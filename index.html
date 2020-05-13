@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.4be6f03178c163bd839f.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.b5a0ff5dfab82bb211e8.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <div class="welcome-section">
@@ -456,34 +456,34 @@
 </script>
     <script type="text/x-template" id="slider-container">
       <div class="works__content">
-        <display :currentWork="currentWork"></display>
+        <display :currentWork="currentWork" :works="works" @slide="handleSlide"></display>
         <info :currentWork="currentWork"></info>
       </div>
     </script>
     <script type="text/x-template" id="slider-display">
       <div class="works__slider">
         <div class="slider"><img class="slider__image" :src="currentWork.photo">
-          <previews></previews>
-          <buttons></buttons>
+          <previews :works="works" :currentWork="currentWork"></previews>
+          <buttons @slide="$emit('slide', $event)"></buttons>
         </div><span class="works__number">{{currentWork.id}}</span>
       </div>
     </script>
     <script type="text/x-template" id="slider-previews">
       <div class="slider__previews">
         <ul class="slider__previews-list">
-          <li class="slider__previews-item slider__previews-item--active"><img class="slider__preview-image"></li>
+          <li class="slider__previews-item" v-for="work in works" :key="work.id" :class="{'slider__previews-item--active': currentWork.id === work.id}"><img class="slider__preview-image" :src="work.photo"></li>
         </ul>
       </div>
     </script>
     <script type="text/x-template" id="slider-buttons">
       <div class="slider__controls">
         <div class="slider-btns">
-          <button class="slider-btns__item slider-btns__item--slide--prev">
+          <button class="slider-btns__item slider-btns__item--slide--prev" @click.prevent="$emit('slide', 'next')">
             <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
               <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
             </svg>
           </button>
-          <button class="slider-btns__item slider-btns__item--slide--next">
+          <button class="slider-btns__item slider-btns__item--slide--next" @click.prevent="$emit('slide', 'prev')">
             <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
               <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
             </svg>
@@ -493,7 +493,7 @@
     </script>
     <script type="text/x-template" id="slider-info">
       <div class="works__description">
-        <tags></tags>
+        <tags :tags="tagsArray"></tags>
         <div class="works__text">
           <h3 class="works__title">{{currentWork.title}}</h3>
           <div class="works__definition">
@@ -506,9 +506,9 @@
     <script type="text/x-template" id="slider-tags">
       <div class="wors__tags">
         <ul class="tags">
-          <li class="tags__item"></li>
+          <li class="tags__item" v-for="tag in tags" :key="tag">{{tag}}</li>
         </ul>
       </div>
     </script>
-  <script type="text/javascript" src="/portfolio/main.3902b814a74a09e2c61e.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.268beadfbec3d7a39799.build.js"></script></body>
 </html>
