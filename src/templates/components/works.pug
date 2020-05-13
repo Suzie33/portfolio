@@ -2,6 +2,8 @@ script(type="text/x-template")#slider-container
     .works__content
         display(
             :currentWork="currentWork"
+            :works="works"
+            @slide="handleSlide"
         )
         info(
             :currentWork="currentWork"
@@ -12,27 +14,38 @@ script(type="text/x-template")#slider-display
     .works__slider
         .slider
             img(:src="currentWork.photo").slider__image
-            previews
-            buttons
+            previews(
+                :works="works"
+                :currentWork="currentWork"
+            )
+            buttons(
+                @slide="$emit('slide', $event)"
+            )
         span.works__number {{currentWork.id}}
 
 script(type="text/x-template")#slider-previews
     .slider__previews
         ul.slider__previews-list
-            li.slider__previews-item.slider__previews-item--active
-                img.slider__preview-image
+            li.slider__previews-item(
+                v-for="work in works" 
+                :key="work.id"
+                :class="{'slider__previews-item--active': currentWork.id === work.id}"
+            )
+                img.slider__preview-image(:src="work.photo")
 
 script(type="text/x-template")#slider-buttons
     .slider__controls
         .slider-btns
-            button.slider-btns__item.slider-btns__item--slide--prev
+            button(@click.prevent="$emit('slide', 'next')").slider-btns__item.slider-btns__item--slide--prev
                 +icon('arrow-down', 'slider-btns__icon', '8', '10')
-            button.slider-btns__item.slider-btns__item--slide--next
+            button(@click.prevent="$emit('slide', 'prev')").slider-btns__item.slider-btns__item--slide--next
                 +icon('arrow-down', 'slider-btns__icon', '8', '10')
 
 script(type="text/x-template")#slider-info
     .works__description
-        tags
+        tags(
+            :tags="tagsArray"
+        )
         .works__text
             h3.works__title {{currentWork.title}}
             .works__definition
@@ -44,4 +57,4 @@ script(type="text/x-template")#slider-info
 script(type="text/x-template")#slider-tags
     .wors__tags
         ul.tags
-            li.tags__item
+            li.tags__item(v-for="tag in tags" :key="tag") {{tag}}
