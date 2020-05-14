@@ -22,17 +22,17 @@
 
     main.main
       .container
-        section.about
+        section.section.about
           .about__top
             h2.section__title Блок &laquo;Обо мне&raquo;
             button.button-inscription
               .button-inscription__icon
                 .plus-icon
               span.button-inscription__text Добавить группу
-          ul.about__list.main-list
-            li.about__item.main-list__item
+          ul.about__list
+            li.about__item.editcard
               form.form.about__form(method="POST" action="#")
-                .about__form-top
+                .about__form-top.editcard__top
                   input.form__input.form__input--group(placeholder="Название новой группы" required="required")
                   .about__form-icons
                     button.button-icon.button-icon__ok
@@ -44,10 +44,10 @@
                   input.form__input.form__input--percent(placeholder="100%" required="required")
                   button.about__form-button
                     .plus-icon.plus-icon--size-m
-            li.about__item.main-list__item
+            li.about__item.editcard
               form.form.about__form(method="POST" action="#")
-                .about__form-top
-                  span.about__form-group Frontend
+                .about__form-top.editcard__top
+                  h4.about__form-group Frontend
                   .about__form-icons
                     button.button-icon.button-icon__delete
                       svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
@@ -93,15 +93,61 @@
                             svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
                           button.button-icon.button-icon__delete
                             svgIcon(className="button-icon__icon" name="trash" fill="#414c63" width="13" height="17")
-
                 .about__form-bottom
                   input.form__input.form__input--skill(placeholder="Новый навык" required="required")
                   input.form__input.form__input--percent(placeholder="100%" required="required")
                   button.about__form-button
                     .plus-icon.plus-icon--size-m
 
+        section.section.works
+          .works__edit.editcard
+            .works__edit-top.editcard__top
+              h3.editcard__title Добавление работы
+            .works__form
+              form.form(method="POST" action="#")
+                .works__form-left
+                  .works__form-photoplace
+                    .photoplace
+                      .photoplace__label
+                        .photoplace__text Перетащите или загрузите для загрузки изображения
+                        button.button.photoplace__button Загрузить
+                .works__form-right
+                  .works__form-row
+                    label.form__label(for="input_work_title") Название
+                    input.form__input.form__input--works(placeholder="Название работы" required="required" id="input_work_title")
+                  .works__form-row
+                    label.form__label(for="input_work_link") Ссылка
+                    input.form__input.form__input--works(placeholder="Ссылка на работу" required="required" id="input_work_link")
+                  .works__form-row
+                    label.form__label(for="input_work_desc") Описание
+                    textarea.form__textarea.form__input.form__input--works(placeholder="Описание работы" required="required" id="input_work_desc")
+                  .works__form-row
+                    label.form__label(for="input_work_tags") Добавление тега
+                    input.form__input.form__input--works.form__input--tags(placeholder="HTML5" required="required" id="input_work_tags")
+                    .works__form-tags
+                      ul.tags__list
+                        li.tags__item 
+                          span.tags__text HTML5
+                          button.button-icon.button-icon__delete
+                            svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
+                        li.tags__item 
+                          span.tags__text CSS
+                          button.button-icon.button-icon__delete
+                            svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
+                  .works__form-buttons
+                    input.button.button--white(type="reset" value="Отмена")
+                    input.button(type="submit" value="Сохранить")
+
+
+
+
+
+
 
     
+
+
+
 </template>
 
 <style lang="postcss">
