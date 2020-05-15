@@ -43,7 +43,7 @@
                   input.form__input.form__input--skill(placeholder="Новый навык" required="required")
                   input.form__input.form__input--percent(placeholder="100%" required="required")
                   button.about__form-button
-                    .plus-icon.plus-icon--size-m
+                    .plus-icon
             li.about__item.editcard
               form.form.about__form(method="POST" action="#")
                 .about__form-top.editcard__top
@@ -137,6 +137,34 @@
                   .works__form-buttons
                     input.button.button--white(type="reset" value="Отмена")
                     input.button(type="submit" value="Сохранить")
+
+          ul.works__list
+            li.works__item
+              .addcard
+                .addcard__label
+                  button.addcard__button
+                    .plus-icon.plus-icon--addcard
+                  .addcard__text Добавить работу
+            li.works__item
+              .works__item-preview
+                img(src='../images/content/work_preview1.jpg' alt="Work1").works__item-photo
+              .works__item-content
+                .works__item-desc
+                  h3.works__item-title Сайт школы образования
+                  p.works__item-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                  a.works__item-link(href="#" target="_blank") https://loftschool.com
+                .works__item-controls
+                  button.button-inscription.button-inscription--works
+                    span.button-inscription__text Править
+                    .button-inscription__icon
+                      svgIcon(className="button-icon__icon" name="pencil" fill="#383bcf" width="17" height="17")
+                  button.button-inscription.button-inscription--works
+                    span.button-inscription__text Удалить
+                    .button-inscription__icon
+                      svgIcon(className="button-icon__icon" name="close" fill="#c92e2e" width="15" height="15")
+
+
+          
 
 
 
