@@ -7,8 +7,22 @@ button {
     }
 }
 
+.button {
+    &:hover {
+        opacity: .7;
+    }
+}
+
 .container {
     max-width: 1080px;
+
+    @include tablets {
+        width: 92%;
+      }
+
+    @include phones {
+        width: 100%;
+    }
 }
 
 .header {
@@ -21,6 +35,10 @@ button {
 .header__container {
     display: flex;
     align-items: center;
+
+    @include phones {
+        width: 90%;
+    }
 }
 
 .header__left {
@@ -55,6 +73,10 @@ button {
     font-size: 14px;
     font-weight: 400;
     opacity: .5;
+
+    @include phones {
+        display: none;
+    }
 }
 
 .link {
@@ -70,6 +92,7 @@ button {
 .nav__list {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav__item {
@@ -92,6 +115,10 @@ button {
             color: $admin-blue;
         }
     }
+
+    @include phones {
+       padding: 25px;
+    }
 }
 
 .nav__link {
@@ -106,12 +133,28 @@ button {
 
 .section {
     padding-top: 50px;
+
+    @include tablets {
+        padding-top: 30px;
+    }
 }
 
 .about__top {
     display: flex;
     align-items: center;
     margin-bottom: 50px;
+
+    @include tablets {
+        margin-bottom: 40px;
+    }
+
+    @include phones {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .section__title {
@@ -119,6 +162,11 @@ button {
     color: #414c63;
     font-weight: 700;
     margin-right: 60px;
+
+    @include phones {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
 }
 
 .button-inscription {
@@ -205,7 +253,18 @@ button {
     margin-right: 30px;
     margin-bottom: 30px;
 
+    @include tablets {
+        width: calc(100% / 2 - 10px);
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
     &:nth-of-type(2) {
+        margin-right: 0;
+    }
+
+    @include phones {
+        width: 100%;
         margin-right: 0;
     }
 }
@@ -226,6 +285,11 @@ button {
         width: 50%;
         margin-right: auto;
         margin-bottom: 10px;
+
+        @include tablets {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
     }
 
     &--skill {
@@ -233,6 +297,14 @@ button {
         margin-right: 10px;
         margin-left: auto;
         padding-left: 18px;
+
+        @include tablets {
+            flex-grow: 1;
+        }
+
+        @include phones {
+            padding-left: 0;
+        }
     }
 
     &--percent {
@@ -248,14 +320,23 @@ button {
     }
 }
 
-.about__form-top {
-    margin-bottom: 20px;
+.editcard__top {
+    margin-bottom: 48px;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(170,170,174,0.15);
+
+    @include tablets {
+        margin-bottom: 28px;
+    }
 }
 
-.editcard__top {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgba(170,170,174,0.15);
+.about__form-top {
+    margin-bottom: 20px;
+
+    @include tablets {
+        width: 100%;
+    }
 }
 
 .button-icon {
@@ -281,6 +362,10 @@ button {
     margin-right: auto;
     font-size: 18px;
     margin-bottom: 25px;
+}
+
+.about__form-table {
+    width: 100%;
 }
 
 .table-skills {
@@ -326,10 +411,6 @@ button {
     margin-bottom: 30px;
 }
 
-.works__edit-top {
-    margin-bottom: 48px;
-}
-
 .form__input--works {
     width: 100%;
 }
@@ -337,15 +418,58 @@ button {
 .works__form {
     padding-left: 10px;
     padding-right: 10px;
+
+    @include phones {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .form {
     display: flex;
+
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &--reviews {
+        @include tablets {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        @include phones {
+            flex-direction: column;
+        }
+    }
 }
 
 .works__form-left, .works__form-right {
     width: calc(100% / 2 - 15px);
     margin-right: 30px;
+
+    @include tablets {
+        width: 70%;
+        margin-right: 0;
+    }
+}
+
+.works__form-left {
+    @include tablets {
+        width: 63%;
+        margin-bottom: 30px;
+    }
+
+    @include phones {
+        width: 100%;
+    }
+}
+
+.works__form-right {
+    @include phones {
+        width: 100%;
+    }
 }
 
 .works__form-right {
@@ -355,6 +479,10 @@ button {
 .works__form-photoplace {
     width: 100%;
     height: 275px;
+
+    @include phones {
+        height: 195px;
+    }
 }
 
 .button {
@@ -373,10 +501,18 @@ button {
         background-color: #fff;
         background-image: none;
         color: #383bcf;
+
+        @include phones {
+            text-align: center;
+        }
     }
 
     &:last-of-type {
         margin-right: 0;
+    }
+
+    @include phones {
+        padding: 15px 30px;
     }
 }
 
@@ -396,6 +532,7 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .photoplace__text {
@@ -411,11 +548,16 @@ button {
 }
 
 .form__textarea {
+    display: block;
     height: 145px;
     padding-left: 15px;
     padding-right: 15px;
     resize: none;
     border: 1px solid #a3a7b3;
+
+    @include phones {
+        height: 205px;
+    }
 }
 
 .works__form-row {
@@ -449,7 +591,7 @@ button {
     opacity: .7;
 }
 
-.works__form-buttons {
+.form__buttons {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -459,9 +601,15 @@ button {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+
+    @include phones {
+        flex-direction: column;
+    }
 }
 
 .works__item {
+    display: flex;
+    flex-direction: column;
     min-height: 560px;
     width: calc(100% / 3 - 20px);
     margin-right: 30px;
@@ -472,6 +620,20 @@ button {
     &:nth-of-type(3) {
         margin-right: 0;
     }
+
+    @include tablets {
+        width: calc(100% / 2 - 15px);
+
+        &:nth-of-type(2) {
+            margin-right: 0;
+        }
+    }
+
+    @include phones {
+        width: 100%;
+        min-height: 110px;
+        margin-right: 0;
+    }
 }
 
 .addcard {
@@ -479,6 +641,10 @@ button {
     height: 100%;
     position: relative;
     background-image: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
+
+    @include phones {
+        height: 110px;
+    }
 }
 
 .addcard__label {
@@ -487,12 +653,27 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @include phones {
+        width: 90%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
 }
 
 .addcard__button {
     width: 150px;
     height: 150px;
     margin-bottom: 25px;
+
+    @include phones {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        margin-right: 20px;
+    }
 }
 
 .addcard__text {
@@ -503,6 +684,10 @@ button {
     line-height: 1.7;
     color: #fff;
     text-align: center;
+
+    @include phones {
+        text-align: left;
+    }
 }
 
 .works__item-preview {
@@ -510,8 +695,15 @@ button {
     margin-bottom: 35px;
 }
 
+.works__form-button {
+    text-align: center;
+}
+
 .works__item-content {
     width: 82%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     padding-bottom: 30px;
 }
@@ -543,4 +735,193 @@ button {
 .works__item-controls {
     display: flex;
     justify-content: space-between;
+    margin-top: auto;
+}
+
+.reviews__form-left {
+    width: 200px;
+    margin-right: 30px;
+
+    @include phones {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
+
+.form__avatar {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+
+    @include phones {
+        margin: 0 auto 10px;
+    }
+}
+
+.avatar--none {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #dee4ed;
+}
+
+.avatar--none__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: #fff;
+}
+
+.reviews__edit {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.reviews__form-right {
+    width: 56%;
+
+    @include phones {
+        width: 100%;
+    }
+}
+
+.reviews__form-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+
+    @include tablets {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    &--top {
+        @include tablets {
+            width: 70%;
+        }
+
+        @include phones {
+            width: 100%;
+        }
+    }
+}
+
+.reviews__form-block {
+    flex-grow: 1;
+    margin-right: 20px;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    @include tablets {
+        margin-right: 0;
+        margin-bottom: 30px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.form__input--reviews {
+    width: 100%;
+}
+
+.reviews__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reviews__item {
+    display: flex;
+    flex-direction: column;
+    min-height: 380px;
+    width: calc(100% / 3 - 20px);
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 4.096px 2.868px 10px rgba(0,0,0,0.07);
+
+    &:nth-of-type(3) {
+        margin-right: 0;
+    }
+
+    @include tablets {
+        width: calc(100% / 2 - 15px);
+
+        &:nth-of-type(2) {
+            margin-right: 0;
+        }
+    }
+
+    @include phones {
+        width: 100%;
+        margin-right: 0;
+        min-height: 110px;
+    }
+}
+
+.reviews__item-top {
+    padding-top: 30px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(170,170,174,0.15);
+
+    @include phones {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.reviews__source {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.reviews__avatar {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.reviews__author {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.reviews__name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.reviews__position {
+    opacity: .3;
+}
+
+.reviews__item-content {
+    width: 86%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reviews__item-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews__item-text {
+    line-height: 1.8;
+    opacity: .7;
+    margin-bottom: 20px;
 }
