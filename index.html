@@ -456,14 +456,14 @@
 </script>
     <script type="text/x-template" id="slider-container">
       <div class="works__content">
-        <display :currentWork="currentWork" :works="works" @slide="handleSlide"></display>
+        <display :currentWork="currentWork" :works="works" @slide="handleSlide" @slidePreview="handleSlidePreview"></display>
         <info :currentWork="currentWork"></info>
       </div>
     </script>
     <script type="text/x-template" id="slider-display">
       <div class="works__slider">
         <div class="slider"><img class="slider__image" :src="currentWork.photo">
-          <previews :works="works" :currentWork="currentWork"></previews>
+          <previews :works="works" :currentWork="currentWork" @slidePreview="$emit('slidePreview', $event)"></previews>
           <buttons @slide="$emit('slide', $event)"></buttons>
         </div><span class="works__number">{{currentWork.id}}</span>
       </div>
@@ -471,7 +471,7 @@
     <script type="text/x-template" id="slider-previews">
       <div class="slider__previews">
         <ul class="slider__previews-list">
-          <li class="slider__previews-item" v-for="work in works" :key="work.id" :class="{'slider__previews-item--active': currentWork.id === work.id}"><img class="slider__preview-image" :src="work.photo"></li>
+          <li class="slider__previews-item" v-for="(work, index) in works" :key="work.id" :class="{'slider__previews-item--active': currentWork.id === work.id}" @click="$emit('slidePreview', index)"><img class="slider__preview-image" :src="work.photo"></li>
         </ul>
       </div>
     </script>
@@ -510,5 +510,5 @@
         </ul>
       </div>
     </script>
-  <script type="text/javascript" src="/portfolio/main.cd2499b9748fdd3fedb4.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.537b4767631586ca10a5.build.js"></script></body>
 </html>
