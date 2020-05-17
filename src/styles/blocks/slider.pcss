@@ -10,7 +10,15 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 28%;
+    width: 180px;
+
+    @include desktop {
+        width: 28%;
+    }
+
+    @include phones {
+        display: none;
+    }
 }
 
 .slider__previews-item {
@@ -36,10 +44,6 @@
     
     &:hover::after {
         display: block;
-    }
-
-    @include phones {
-        display: none;
     }
 }
 

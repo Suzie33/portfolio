@@ -24,7 +24,7 @@ new Vue ({
             }
         },
         validateForm() {
-            if(this.name == '' || this.email == '' || this.message == '') {
+            if(this.name === '' || this.email === '' || this.message === '') {
                 return false;
             } else {
                 return true;

@@ -9,7 +9,7 @@ html(lang="en")
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     title Portfolio | main page
   body
-    .wrapper
+    .wrapper(id="wrapper")
       .welcome-section
         .parallax
           .parallax__layer(data-speed="0.1")
@@ -52,7 +52,7 @@ html(lang="en")
                     ul.nav__list
                       each item, index in menu[0]
                         li.nav__item
-                          a.nav__link(href="#" + menu[1][index]) #{item}
+                          a.nav__link(href="#" v-scroll-to="'#" + menu[1][index] + "'") #{item}
                 .header__links
                   - var icons = ['insta', 'vk', 'github'];
                   ul.socials
@@ -80,7 +80,7 @@ html(lang="en")
                 p.hero__content-text Личный сайт веб разработчика
                 h1.hero__title Валентины Понамаревой
               .hero__scroll
-                a.scroll(href="#about-section")
+                a.scroll(href="#about-section" v-scroll-to="'#about-section'")
                   span.scroll__text Скролл
                   +icon('scroll', 'scroll__icon', '30')
 
@@ -246,7 +246,7 @@ html(lang="en")
                 ul.nav__list.nav__list--left
                   each item, index in menu[0]
                     li.nav__item
-                      a.nav__link(href="#" + menu[1][index]) #{item}
+                      a.nav__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
             .footer__bottom
               .footer__bottom-left
                 p.footer__note Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool 

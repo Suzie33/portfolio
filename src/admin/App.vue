@@ -15,7 +15,7 @@
               input.form__input.authorization__form-input(type="password" placeholder="Пароль" id="authorization_password" required)
               svgIcon(className="authorization__form-icon" name="key" fill="#a9aeb9" width="26" height="30")
           input.btn(type="submit" value="Отправить")
-        a.close-button(href="#")
+        button.close-button
           svgIcon(className="close-button__icon" name="close" fill="#414c63" width="20" height="20")
 
     header.header
@@ -1308,6 +1308,10 @@ button {
     position: absolute;
     top: 30px;
     right: 30px;
+
+    &:hover {
+      opacity: .7;
+    }
 }
 </style>
 
