@@ -31,7 +31,6 @@ const info = {
     }
 };
 
-
 new Vue ({
     el: "#slider-component",
     template: "#slider-container",
@@ -71,6 +70,9 @@ new Vue ({
                     this.currentIndex--;
                     break;
             }
+        },
+        handleSlidePreview(index) {
+            this.currentIndex = index;
         },
         makeArrWithRequiredImages(array) {
             return array.map((item) => {

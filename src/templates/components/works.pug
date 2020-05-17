@@ -4,6 +4,7 @@ script(type="text/x-template")#slider-container
             :currentWork="currentWork"
             :works="works"
             @slide="handleSlide"
+            @slidePreview="handleSlidePreview"
         )
         info(
             :currentWork="currentWork"
@@ -16,6 +17,7 @@ script(type="text/x-template")#slider-display
             previews(
                 :works="works"
                 :currentWork="currentWork"
+                @slidePreview="$emit('slidePreview', $event)"
             )
             buttons(
                 @slide="$emit('slide', $event)"
@@ -26,9 +28,10 @@ script(type="text/x-template")#slider-previews
     .slider__previews
         ul.slider__previews-list
             li.slider__previews-item(
-                v-for="work in works" 
+                v-for="(work, index) in works"
                 :key="work.id"
                 :class="{'slider__previews-item--active': currentWork.id === work.id}"
+                @click="$emit('slidePreview', index)"
             )
                 img.slider__preview-image(:src="work.photo")
 
