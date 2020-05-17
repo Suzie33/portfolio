@@ -13,7 +13,7 @@
             .authorization__form-block
               label.form__label.authorization__form-label(for="authorization_password") Пароль
               input.form__input.authorization__form-input(type="password" placeholder="Пароль" id="authorization_password" required)
-              svgIcon(className="authorization__form-icon" name="key" fill="#414c63" width="26" height="30")
+              svgIcon(className="authorization__form-icon" name="key" fill="#a9aeb9" width="26" height="30")
           input.btn(type="submit" value="Отправить")
         a.close-button(href="#")
           svgIcon(className="close-button__icon" name="close" fill="#414c63" width="20" height="20")
@@ -242,6 +242,7 @@
 </template>
 
 <style lang="postcss">
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
   @import "normalize.css";
   @import "../styles/mixins.pcss";
   @import "../styles/layout/base.pcss";

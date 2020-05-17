@@ -231,26 +231,7 @@ html(lang="en")
         section.contacts#contacts-section
           .container
             h2.section-title.section-title--contacts Связаться со мной
-            form.form(action="#" method="POST")
-              .form__row
-                label.form__block
-                  span.form__label Введите ваше имя
-                  input.form__input(type="text" name="name" placeholder="Валентина Понамарева")
-                  +icon('user', 'form__input-icon', '30', '29')
-                  .form__error Какая-то ошибка
-                label.form__block
-                  span.form__label Введите ваш email
-                  input.form__input(type="email" name="email" placeholder="valiazin@gmail.com")
-                  +icon('envelope', 'form__input-icon', '30', '30')
-                  .form__error Какая-то ошибка
-              .form__row.form__row--margin--l
-                label.form__block
-                  span.form__label Сообщение к письму
-                  textarea.form__input.form__input--textarea(type="text" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
-                  +icon('message', 'form__input-icon', '30', '30')
-                  .form__error Какая-то ошибка
-              .form__row
-                input.btn(type="submit" value="Отправить")
+            #contact-form-component
 
       footer.footer#footer-section
         .container.footer__container

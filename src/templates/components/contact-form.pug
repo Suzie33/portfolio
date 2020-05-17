@@ -1,0 +1,38 @@
+script(type="text/x-template")#form-container
+    form.form(action="#" method="POST" @submit.prevent='sendForm')
+        .form__row
+            label.form__block
+                span.form__label Введите ваше имя
+                input.form__input(
+                    type="text" 
+                    name="name" 
+                    placeholder="Валентина Понамарева" 
+                    v-model='name'
+                )
+                +icon('user', 'form__input-icon', '30', '29')
+                error
+            label.form__block
+                span.form__label Введите ваш email
+                input.form__input(
+                    type="email"
+                    name="email" 
+                    placeholder="valiazin@gmail.com"
+                    v-model='email'
+                 )
+                +icon('envelope', 'form__input-icon', '30', '30')
+                error
+        .form__row.form__row--margin--l
+            label.form__block
+                span.form__label Сообщение к письму
+                textarea.form__input.form__input--textarea(
+                    name="message" 
+                    placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса"
+                    v-model='message'
+                    )
+                +icon('message', 'form__input-icon', '30', '30')
+                error
+        .form__row
+            input.btn(type="submit" value="Отправить")
+
+script(type="text/x-template")#form-error
+    .form__error Поле не заполнено
