@@ -1,3 +1,1324 @@
 <template lang="pug">
-  h1 Welcome to the Vue App
+  .admin
+    .admin__entry
+      .authorization
+        h1.authorization__title Авторизация
+        form.form.form--authorization(method="POST" action="#")
+          .authorization__form-row
+            .authorization__form-block
+              label.form__label.authorization__form-label(for="authorization_login") Логин
+              input.form__input.authorization__form-input(type="text" placeholder="Логин" id="authorization_login" required)
+              svgIcon(className="authorization__form-icon" name="user" fill="#a9aeb9" width="26" height="30")
+          .authorization__form-row
+            .authorization__form-block
+              label.form__label.authorization__form-label(for="authorization_password") Пароль
+              input.form__input.authorization__form-input(type="password" placeholder="Пароль" id="authorization_password" required)
+              svgIcon(className="authorization__form-icon" name="key" fill="#a9aeb9" width="26" height="30")
+          input.btn(type="submit" value="Отправить")
+        button.close-button
+          svgIcon(className="close-button__icon" name="close" fill="#414c63" width="20" height="20")
+
+    header.header
+      .container.header__container
+        .header__left
+          .header__avatar.avatar
+            img(src='../images/content/user.jpg' alt="Avatar").avatar__pic
+          .header__name Владимир Астаханов
+          .header__note Панель администрирования
+        .header__right
+          .header__links
+            a.link(href="#") Выйти
+
+    .admin__navigation
+      .container
+        nav.nav
+          - var navlist = ['Обо мне', 'Работы', 'Отзывы'];
+          ul.nav__list
+            each item in navlist
+              li.nav__item
+                a.nav__link(href="#") #{item}
+
+    main.main
+      .container
+        section.section.about
+          .about__top
+            h2.section__title Блок &laquo;Обо мне&raquo;
+            button.button-inscription
+              .button-inscription__icon
+                .plus-icon
+              span.button-inscription__text Добавить группу
+          ul.about__list
+            li.about__item.editcard
+              form.form.about__form(method="POST" action="#")
+                .about__form-top.editcard__top
+                  input.form__input.form__input--group(placeholder="Название новой группы" required="required")
+                  .about__form-icons
+                    button.button-icon.button-icon__ok
+                      svgIcon(className="button-icon__icon" name="tick" fill="#00d70a" width="15" height="12")
+                    button.button-icon.button-icon__delete
+                      svgIcon(className="button-icon__icon" name="close" fill="#bf2929" width="14" height="12")
+                .about__form-bottom
+                  input.form__input.form__input--skill(placeholder="Новый навык" required="required")
+                  input.form__input.form__input--percent(placeholder="100%" required="required")
+                  button.about__form-button
+                    .plus-icon
+            li.about__item.editcard
+              form.form.about__form(method="POST" action="#")
+                .about__form-top.editcard__top
+                  h4.about__form-group Frontend
+                  .about__form-icons
+                    button.button-icon.button-icon__delete
+                      svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
+                .about__form-table
+                  table.table-skills
+                    tr.table-skills__row
+                      td.table-skills__skill Git
+                      td.table-skills__value 100
+                      td.table-skills__percent %
+                      td.table-skills__icons
+                        .about__form-icons
+                          button.button-icon.button-icon__ok
+                            svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
+                          button.button-icon.button-icon__delete
+                            svgIcon(className="button-icon__icon" name="trash" fill="#414c63" width="13" height="17")
+                    tr.table-skills__row
+                      td.table-skills__skill Terminal
+                      td.table-skills__value 90
+                      td.table-skills__percent %
+                      td.table-skills__icons
+                        .about__form-icons
+                          button.button-icon.button-icon__ok
+                            svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
+                          button.button-icon.button-icon__delete
+                            svgIcon(className="button-icon__icon" name="trash" fill="#414c63" width="13" height="17")
+                    tr.table-skills__row
+                      td.table-skills__skill Gulp
+                      td.table-skills__value 80
+                      td.table-skills__percent %
+                      td.table-skills__icons
+                        .about__form-icons
+                          button.button-icon.button-icon__ok
+                            svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
+                          button.button-icon.button-icon__delete
+                            svgIcon(className="button-icon__icon" name="trash" fill="#414c63" width="13" height="17")
+                    tr.table-skills__row
+                      td.table-skills__skill Webpack
+                      td.table-skills__value 85
+                      td.table-skills__percent %
+                      td.table-skills__icons
+                        .about__form-icons
+                          button.button-icon.button-icon__ok
+                            svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
+                          button.button-icon.button-icon__delete
+                            svgIcon(className="button-icon__icon" name="trash" fill="#414c63" width="13" height="17")
+                .about__form-bottom
+                  input.form__input.form__input--skill(placeholder="Новый навык" required="required")
+                  input.form__input.form__input--percent(placeholder="100%" required="required")
+                  button.about__form-button
+                    .plus-icon.plus-icon--size-m
+
+        section.section.works
+          .works__edit.editcard
+            .works__edit-top.editcard__top
+              h3.editcard__title Добавление работы
+            .works__form
+              form.form(method="POST" action="#")
+                .works__form-left
+                  .works__form-photoplace
+                    .photoplace
+                      .photoplace__label
+                        .photoplace__text Перетащите или загрузите для загрузки изображения
+                        button.button.photoplace__button Загрузить
+                  .works__form-button
+                    .button.button--white Изменить превью
+                .works__form-right
+                  .works__form-row
+                    label.form__label(for="input_work_title") Название
+                    input.form__input.form__input--works(placeholder="Название работы" required="required" id="input_work_title")
+                  .works__form-row
+                    label.form__label(for="input_work_link") Ссылка
+                    input.form__input.form__input--works(placeholder="Ссылка на работу" required="required" id="input_work_link")
+                  .works__form-row
+                    label.form__label(for="input_work_desc") Описание
+                    textarea.form__textarea.form__input.form__input--works(placeholder="Описание работы" required="required" id="input_work_desc")
+                  .works__form-row
+                    label.form__label(for="input_work_tags") Добавление тега
+                    input.form__input.form__input--works.form__input--tags(placeholder="HTML5" required="required" id="input_work_tags")
+                    .works__form-tags
+                      ul.tags__list
+                        li.tags__item 
+                          span.tags__text HTML5
+                          button.button-icon.button-icon__delete
+                            svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
+                        li.tags__item 
+                          span.tags__text CSS
+                          button.button-icon.button-icon__delete
+                            svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
+                  .form__buttons
+                    input.button.button--white(type="reset" value="Отмена")
+                    input.button(type="submit" value="Сохранить")
+
+          ul.works__list
+            li.works__item
+              .addcard
+                .addcard__label
+                  button.addcard__button
+                    .plus-icon.plus-icon--addcard
+                  .addcard__text Добавить работу
+            li.works__item
+              .works__item-preview
+                img(src='../images/content/work_preview1.jpg' alt="Work1").works__item-photo
+              .works__item-content
+                .works__item-desc
+                  h3.works__item-title Сайт школы образования
+                  p.works__item-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                  a.works__item-link(href="#" target="_blank") https://loftschool.com
+                .works__item-controls
+                  button.button-inscription.button-inscription--works
+                    span.button-inscription__text Править
+                    .button-inscription__icon
+                      svgIcon(className="button-icon__icon" name="pencil" fill="#383bcf" width="17" height="17")
+                  button.button-inscription.button-inscription--works
+                    span.button-inscription__text Удалить
+                    .button-inscription__icon
+                      svgIcon(className="button-icon__icon" name="close" fill="#c92e2e" width="15" height="15")
+
+        section.section.reviews
+          .reviews__edit.editcard
+            .reviews__edit-top.editcard__top
+              h3.editcard__title Новый отзыв
+            .reviews__form
+              form.form.form--reviews(method="POST" action="#")
+                .reviews__form-left
+                  .form__avatar.avatar
+                    .avatar--none
+                      svgIcon(className="avatar--none__icon" name="user" fill="#c92e2e" width="85" height="113")
+                  .form__avatar-btn
+                    .button.button--white Добавить фото
+                .reviews__form-right
+                  .reviews__form-row.reviews__form-row--top
+                    .reviews__form-block
+                      label.form__label(for="input_review_name") Имя автора
+                      input.form__input.form__input--reviews(placeholder="Имя" required="required" id="input_review_name")
+                    .reviews__form-block
+                      label.form__label(for="input_review_position") Титул автора
+                      input.form__input.form__input--reviews(placeholder="Преподаватель" required="required" id="input_review_position")
+                  .reviews__form-row
+                    .reviews__form-block
+                      label.form__label(for="input_review_text") Отзыв
+                      textarea.form__textarea.form__input.form__input--reviews(placeholder="Текст отзыва" required="required" id="input_review_text")
+                  .form__buttons
+                    input.button.button--white(type="reset" value="Отмена")
+                    input.button(type="submit" value="Сохранить")
+          ul.reviews__list
+            li.reviews__item
+              .addcard
+                .addcard__label
+                  button.addcard__button
+                    .plus-icon.plus-icon--addcard
+                  .addcard__text Добавить отзыв
+            li.reviews__item
+              .reviews__item-top
+                .reviews__source
+                  .avatar.reviews__avatar
+                    img(src='../images/content/review1.jpg' alt="Avatar").avatar__pic
+                  .reviews__author
+                    .reviews__name Владимир Сабанцев
+                    .reviews__position Преподаватель
+              .reviews__item-content
+                p.reviews__item-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                .reviews__item-controls
+                    button.button-inscription.button-inscription--works
+                      span.button-inscription__text Править
+                      .button-inscription__icon
+                        svgIcon(className="button-icon__icon" name="pencil" fill="#383bcf" width="17" height="17")
+                    button.button-inscription.button-inscription--works
+                      span.button-inscription__text Удалить
+                      .button-inscription__icon
+                        svgIcon(className="button-icon__icon" name="close" fill="#c92e2e" width="15" height="15")
+
 </template>
+
+<style lang="postcss">
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+  @import "normalize.css";
+  @import "../styles/mixins.pcss";
+  @import "../styles/layout/base.pcss";
+
+input {
+  font-weight: 600;
+}
+
+button {
+    background-color: transparent;
+    padding: 0;
+    font-weight: 600;
+
+    &:hover {
+        opacity: .7;
+    }
+}
+
+.button {
+    &:hover {
+        opacity: .7;
+    }
+}
+
+.container {
+    max-width: 1080px;
+
+    @include tablets {
+        width: 92%;
+      }
+
+    @include phones {
+        width: 100%;
+    }
+}
+
+.header {
+    padding-top: 15px;
+    padding-bottom: 20px;
+    background-color: $admin-footer;
+    color: #fff;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+
+    @include phones {
+        width: 90%;
+    }
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.header__avatar {
+    width: 45px;
+    height: 45px;
+    margin-right: 20px;
+}
+
+.avatar {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar__pic {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.header__name {
+    font-size: 18px;
+    margin-right: 28px;
+}
+
+.header__note {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: .5;
+
+    @include phones {
+        display: none;
+    }
+}
+
+.link {
+    font-weight: 400;
+    text-decoration: underline;
+    opacity: .7;
+
+    &:hover {
+        opacity: .4;
+    }
+}
+
+.nav {
+    background-color: #fff;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav__item {
+    padding: 25px 30px;
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+        cursor: pointer;
+        border-bottom: 3px solid $admin-blue;
+
+        .nav__link {
+            color: $admin-blue;
+        }
+    }
+
+    &--active {
+        border-bottom: 3px solid $admin-blue;
+
+        .nav__link {
+            color: $admin-blue;
+        }
+    }
+
+    @include phones {
+       padding: 25px;
+    }
+}
+
+.nav__link {
+    color: $admin-color;
+}
+
+.main {
+    padding-bottom: 25px;
+    background: #fcfcfe url('../images/MountainBaloon_white.jpg') no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.section {
+    padding-top: 50px;
+
+    @include tablets {
+        padding-top: 30px;
+    }
+}
+
+.about__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @include tablets {
+        margin-bottom: 40px;
+    }
+
+    @include phones {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 40px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.section__title {
+    font-size: 21px;
+    color: #414c63;
+    font-weight: 700;
+    margin-right: 60px;
+
+    @include phones {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+}
+
+.button-inscription {
+    display: flex;
+    padding: 0;
+    color: $admin-blue;
+    background-color: transparent;
+    cursor: pointer;
+
+    &--works {
+        color: inherit;
+
+        .button-inscription__icon {
+            margin-right: 0;
+        }
+
+        .button-inscription__text {
+            margin-right: 15px;
+        }
+    }
+}
+
+.button-inscription__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.button-inscription__text {
+    color: inherit;
+}
+
+.plus-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
+    position: relative;
+
+    &::before{
+        content: "";
+        display: block;
+        width: 30%;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+    }
+
+    &::after{
+        content: "";
+        display: block;
+        width: 2px;
+        height: 30%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+    }
+
+    &--addcard {
+        background-color: transparent;
+        border: 2px solid #fff;
+    }
+}
+
+.editcard {
+    padding: 25px 20px 35px;
+    background-color: #fff;
+    box-shadow: 4.096px 2.868px 10px rgba(0,0,0,0.07);
+}
+
+.about__list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about__item {
+    width: calc(100% / 2 - 15px);
+    min-height: 390px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+
+    @include tablets {
+        width: calc(100% / 2 - 10px);
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    &:nth-of-type(2) {
+        margin-right: 0;
+    }
+
+    @include phones {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.about__form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: none;
+    border-bottom: 1px solid #000;
+
+    &--group {
+        width: 50%;
+        margin-right: auto;
+        margin-bottom: 10px;
+
+        @include tablets {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+    }
+
+    &--skill {
+        width: 41%;
+        margin-right: 10px;
+        margin-left: auto;
+        padding-left: 18px;
+
+        @include tablets {
+            flex-grow: 1;
+            padding-left: 0;
+        }
+    }
+
+    &--percent {
+        width: 75px;
+        margin-right: 30px;
+        text-align: center;
+    }
+
+    &::-webkit-input-placeholder {
+        font-size: 18px;
+        color: #414c63;
+        opacity: .3;
+
+        @include tablets {
+          font-size: 16px;
+        }
+    }
+}
+
+.editcard__top {
+    margin-bottom: 48px;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(170,170,174,0.15);
+
+    @include tablets {
+        margin-bottom: 28px;
+    }
+}
+
+.about__form-top {
+    margin-bottom: 20px;
+
+    @include tablets {
+        width: 100%;
+    }
+}
+
+.button-icon {
+    margin-right: 15px;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.about__form-bottom {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.about__form-button {
+    width: 40px;
+    height: 40px;
+}
+
+.about__form-group {
+    margin-right: auto;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.about__form-table {
+    width: 100%;
+}
+
+.table-skills {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 400;
+}
+
+.table-skills__row {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.table-skills__skill {
+    flex-grow: 1;
+}
+
+.table-skills__value {
+    width: 40px;
+}
+
+.table-skills__percent {
+    margin-right: 55px;
+    opacity: .7;
+}
+
+////////////////////// works //////////////////////
+
+.editcard__title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.works__edit {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.form__input--works {
+    width: 100%;
+}
+
+.works__form {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    @include phones {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.form {
+    display: flex;
+
+    @include tablets {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &--reviews {
+        @include tablets {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        @include phones {
+            flex-direction: column;
+        }
+    }
+}
+
+.works__form-left, .works__form-right {
+    width: calc(100% / 2 - 15px);
+    margin-right: 30px;
+
+    @include tablets {
+        width: 70%;
+        margin-right: 0;
+    }
+}
+
+.works__form-left {
+    @include tablets {
+        width: 63%;
+        margin-bottom: 30px;
+    }
+
+    @include phones {
+        width: 100%;
+    }
+}
+
+.works__form-right {
+    @include phones {
+        width: 100%;
+    }
+}
+
+.works__form-right {
+    margin-right: 0;
+}
+
+.works__form-photoplace {
+    width: 100%;
+    height: 275px;
+
+    @include phones {
+        height: 195px;
+    }
+}
+
+.button {
+    display: block;
+    padding: 15px 40px;
+    margin-right: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 25px;
+    background-image: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
+    border: none;
+    cursor: pointer;
+
+    &--white {
+        padding: 15px 30px;
+        text-transform: initial;
+        background-color: #fff;
+        background-image: none;
+        color: #383bcf;
+
+        @include phones {
+            text-align: center;
+        }
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    @include phones {
+        padding: 15px 30px;
+    }
+}
+
+.photoplace {
+    height: 100%;
+    position: relative;
+    background-color: #dee4ed;
+    border: 1px dashed #a1a1a1;
+}
+
+.photoplace__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 230px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.photoplace__text {
+    margin-bottom: 25px;
+    opacity: .5;
+    line-height: 2;
+}
+
+.form__label {
+    display: inline-block;
+    margin-bottom: 10px;
+    opacity: .5;
+}
+
+.form__textarea {
+    display: block;
+    height: 145px;
+    padding-left: 15px;
+    padding-right: 15px;
+    resize: none;
+    border: 1px solid #a3a7b3;
+
+    @include phones {
+        height: 205px;
+    }
+}
+
+.works__form-row {
+    margin-bottom: 20px;
+
+    &:last-of-type {
+        margin-bottom: 40px;
+    }
+}
+
+.form__input--tags {
+    margin-bottom: 20px;
+}
+
+.tags__item {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-right: 15px;
+    border-radius: 22px;
+    font-size: 13px;
+    background-color: #f3f5f9;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.tags__text {
+    margin-right: 10px;
+    opacity: .7;
+}
+
+.form__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.works__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include phones {
+        flex-direction: column;
+    }
+}
+
+.works__item {
+    display: flex;
+    flex-direction: column;
+    min-height: 560px;
+    width: calc(100% / 3 - 20px);
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 4.096px 2.868px 10px rgba(0,0,0,0.07);
+
+    &:nth-of-type(3) {
+        margin-right: 0;
+    }
+
+    @include tablets {
+        width: calc(100% / 2 - 15px);
+
+        &:nth-of-type(2) {
+            margin-right: 0;
+        }
+    }
+
+    @include phones {
+        width: 100%;
+        min-height: 110px;
+        margin-right: 0;
+    }
+}
+
+.addcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: linear-gradient(90deg, #0069ec 0%, #3f34cb 100%);
+
+    @include phones {
+        height: 110px;
+    }
+}
+
+.addcard__label {
+    width: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include phones {
+        width: 90%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+.addcard__button {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 25px;
+
+    @include phones {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        margin-right: 20px;
+    }
+}
+
+.addcard__text {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.7;
+    color: #fff;
+    text-align: center;
+
+    @include phones {
+        text-align: left;
+    }
+}
+
+.works__item-preview {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.works__form-button {
+    text-align: center;
+}
+
+.works__item-content {
+    width: 82%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.works__item-desc {
+    margin-bottom: 40px;
+}
+
+.works__item-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.works__item-text {
+    line-height: 1.8;
+    opacity: .7;
+    margin-bottom: 25px;
+}
+
+.works__item-link {
+    color: $admin-blue;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.works__item-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.reviews__form-left {
+    width: 200px;
+    margin-right: 30px;
+
+    @include phones {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
+
+.form__avatar {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+
+    @include phones {
+        margin: 0 auto 10px;
+    }
+}
+
+.avatar--none {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #dee4ed;
+}
+
+.avatar--none__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    fill: #fff;
+}
+
+.reviews__edit {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.reviews__form-right {
+    width: 56%;
+
+    @include phones {
+        width: 100%;
+    }
+}
+
+.reviews__form-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+
+    @include tablets {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    &--top {
+        @include tablets {
+            width: 70%;
+        }
+
+        @include phones {
+            width: 100%;
+        }
+    }
+}
+
+.reviews__form-block {
+    flex-grow: 1;
+    margin-right: 20px;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    @include tablets {
+        margin-right: 0;
+        margin-bottom: 30px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.form__input--reviews {
+    width: 100%;
+}
+
+.reviews__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reviews__item {
+    display: flex;
+    flex-direction: column;
+    min-height: 380px;
+    width: calc(100% / 3 - 20px);
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 4.096px 2.868px 10px rgba(0,0,0,0.07);
+
+    &:nth-of-type(3) {
+        margin-right: 0;
+    }
+
+    @include tablets {
+        width: calc(100% / 2 - 15px);
+
+        &:nth-of-type(2) {
+            margin-right: 0;
+        }
+    }
+
+    @include phones {
+        width: 100%;
+        margin-right: 0;
+        min-height: 110px;
+    }
+}
+
+.reviews__item-top {
+    padding-top: 30px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(170,170,174,0.15);
+
+    @include phones {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.reviews__source {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.reviews__avatar {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.reviews__author {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.reviews__name {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.reviews__position {
+    opacity: .3;
+}
+
+.reviews__item-content {
+    width: 86%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reviews__item-controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews__item-text {
+    line-height: 1.8;
+    opacity: .7;
+    margin-bottom: 20px;
+}
+
+.admin__entry {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: #fcfcfe url('../images/parallax/Mountain_Baloon.jpg') no-repeat 50% 50%;
+    background-size: cover;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2d3c4e;
+        opacity: .9;
+    }
+}
+
+.authorization {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 75px;
+    width: 560px;
+    min-height: 515px;
+    background-color: #fff;
+
+    @include phones {
+        width: 100%;
+        height: 100%;
+        padding: 20px 30px;
+    }
+}
+
+.authorization__title {
+    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: 700;
+
+    @include phones {
+        font-size: 30px;
+    }
+}
+
+.form--authorization {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authorization__form-row {
+    width: 100%;
+    margin-bottom: 30px;
+
+    &:last-of-type {
+        margin-bottom: 50px;
+    }
+}
+
+.authorization__form-block {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.authorization__form-label {
+    padding-left: 45px;
+}
+
+.authorization__form-input {
+    padding-left: 45px;
+    padding-bottom: 15px;
+}
+
+.authorization__form-icon {
+    position: absolute;
+    left: 0;
+    top: 34px;
+
+    @include phones {
+        top: 29px;
+    }
+}
+
+.btn {
+    padding: 30px 120px;
+    border: none;
+    border-radius: 40px 5px;
+    background-image: linear-gradient(90deg, #9300e7 0%, #4900ed 100%);
+
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+        background-image: linear-gradient(90deg, #bb00ff 0%, #5900ff 100%);
+    }
+
+    &:active {
+        opacity: .7;
+    }
+
+    @include phones {
+        width: 100%;
+        padding: 30px 75px;
+        font-size: 16px;
+    }
+}
+
+.close-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+
+    &:hover {
+      opacity: .7;
+    }
+}
+</style>
+
+<script>
+import svgIcon from './components/svgIcon';
+
+export default {
+  components: {  svgIcon },
+}
+</script>

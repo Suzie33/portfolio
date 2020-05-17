@@ -1,0 +1,62 @@
+script(type="text/x-template")#slider-container
+    .works__content
+        display(
+            :currentWork="currentWork"
+            :works="works"
+            @slide="handleSlide"
+            @slidePreview="handleSlidePreview"
+        )
+        info(
+            :currentWork="currentWork"
+        )
+
+script(type="text/x-template")#slider-display
+    .works__slider
+        .slider
+            img(:src="currentWork.photo").slider__image
+            previews(
+                :works="works"
+                :currentWork="currentWork"
+                @slidePreview="$emit('slidePreview', $event)"
+            )
+            buttons(
+                @slide="$emit('slide', $event)"
+             )
+        span.works__number {{currentWork.id}}
+
+script(type="text/x-template")#slider-previews
+    .slider__previews
+        ul.slider__previews-list
+            li.slider__previews-item(
+                v-for="(work, index) in works"
+                :key="work.id"
+                :class="{'slider__previews-item--active': currentWork.id === work.id}"
+                @click="$emit('slidePreview', index)"
+            )
+                img.slider__preview-image(:src="work.photo")
+
+script(type="text/x-template")#slider-buttons
+    .slider__controls
+        .slider-btns
+            button(@click.prevent="$emit('slide', 'next')").slider-btns__item.slider-btns__item--slide--prev
+                +icon('arrow-down', 'slider-btns__icon', '8', '10')
+            button(@click.prevent="$emit('slide', 'prev')").slider-btns__item.slider-btns__item--slide--next
+                +icon('arrow-down', 'slider-btns__icon', '8', '10')
+
+script(type="text/x-template")#slider-info
+    .works__description
+        tags(
+            :tags="tagsArray"
+        )
+        .works__text
+            h3.works__title {{currentWork.title}}
+            .works__definition
+                p {{currentWork.desc}}
+            a.iconed-link(:href='currentWork.link' target="_blank")
+                .iconed-link__icon
+                span.iconed-link__text Посмотреть сайт
+
+script(type="text/x-template")#slider-tags
+    .wors__tags
+        ul.tags
+            li.tags__item(v-for="tag in tags" :key="tag") {{tag}}

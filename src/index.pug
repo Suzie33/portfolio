@@ -9,7 +9,7 @@ html(lang="en")
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     title Portfolio | main page
   body
-    .wrapper
+    .wrapper(id="wrapper")
       .welcome-section
         .parallax
           .parallax__layer(data-speed="0.1")
@@ -52,7 +52,7 @@ html(lang="en")
                     ul.nav__list
                       each item, index in menu[0]
                         li.nav__item
-                          a.nav__link(href="#" + menu[1][index]) #{item}
+                          a.nav__link(href="#" v-scroll-to="'#" + menu[1][index] + "'") #{item}
                 .header__links
                   - var icons = ['insta', 'vk', 'github'];
                   ul.socials
@@ -80,7 +80,7 @@ html(lang="en")
                 p.hero__content-text Личный сайт веб разработчика
                 h1.hero__title Валентины Понамаревой
               .hero__scroll
-                a.scroll(href="#about-section")
+                a.scroll(href="#about-section" v-scroll-to="'#about-section'")
                   span.scroll__text Скролл
                   +icon('scroll', 'scroll__icon', '30')
 
@@ -125,39 +125,8 @@ html(lang="en")
       section.works#works-section
         .container
           h2.section-title.section-title--works Мои работы
-          .works__content
-            .works__slider
-              .slider
-                +image('content/work_preview1.jpg', 'slider__image')
-                .slider__previews
-                  ul.slider__previews-list
-                    li.slider__previews-item.slider__previews-item--active
-                      +image('content/work_preview2.jpg', 'slider__preview-image')
-                    li.slider__previews-item
-                      +image('content/work_preview3.jpg', 'slider__preview-image')
-                    li.slider__previews-item
-                      +image('content/work_preview4.jpg', 'slider__preview-image')
-                .slider__controls
-                  .slider-btns
-                    button.slider-btns__item.slider-btns__item--slide--prev
-                      +icon('arrow-down', 'slider-btns__icon', '8', '10')
-                    button.slider-btns__item.slider-btns__item--slide--next
-                      +icon('arrow-down', 'slider-btns__icon', '8', '10')
-              span.works__number 4
-            .works__description
-              .wors__tags
-                - var tags = ['HTML', 'CSS', 'Javascript'];
-                ul.tags
-                  each tag in tags
-                    li.tags__item #{tag}
-              .works__text
-                h3.works__title Сайт школы образования
-                .works__definition
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a.iconed-link(href='#' target="_blank")
-                  .iconed-link__icon
-                  span.iconed-link__text Посмотреть сайт
-
+          #slider-component
+          
       .reviews-ans-contact-section
         .triangles.triangles--rotated
             svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
@@ -262,26 +231,7 @@ html(lang="en")
         section.contacts#contacts-section
           .container
             h2.section-title.section-title--contacts Связаться со мной
-            form.form(action="#" method="POST")
-              .form__row
-                label.form__block
-                  span.form__label Введите ваше имя
-                  input.form__input(type="text" name="name" placeholder="Валентина Понамарева")
-                  +icon('user', 'form__input-icon', '30', '29')
-                  .form__error Какая-то ошибка
-                label.form__block
-                  span.form__label Введите ваш email
-                  input.form__input(type="email" name="email" placeholder="valiazin@gmail.com")
-                  +icon('envelope', 'form__input-icon', '30', '30')
-                  .form__error Какая-то ошибка
-              .form__row.form__row--margin--l
-                label.form__block
-                  span.form__label Сообщение к письму
-                  textarea.form__input.form__input--textarea(type="text" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса")
-                  +icon('message', 'form__input-icon', '30', '30')
-                  .form__error Какая-то ошибка
-              .form__row
-                input.btn(type="submit" value="Отправить")
+            #contact-form-component
 
       footer.footer#footer-section
         .container.footer__container
@@ -296,7 +246,7 @@ html(lang="en")
                 ul.nav__list.nav__list--left
                   each item, index in menu[0]
                     li.nav__item
-                      a.nav__link(href="#" + menu[1][index]) #{item}
+                      a.nav__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
             .footer__bottom
               .footer__bottom-left
                 p.footer__note Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool 

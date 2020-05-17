@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.4be6f03178c163bd839f.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.e6110c63e4bd0a568a96.css" rel="stylesheet"></head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
       <div class="welcome-section">
         <div class="parallax">
           <div class="parallax__layer" data-speed="0.1">
@@ -55,12 +55,12 @@
                 <div class="header__menu">
                   <nav class="nav">
                     <ul class="nav__list">
-                      <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#hero-section'">Главная</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#about-section'">Обо мне</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#values-section'">Навыки</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#works-section'">Работы</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#reviews-section'">Отзывы</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#contacts-section'">Связаться</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -113,7 +113,7 @@
                 <p class="hero__content-text">Личный сайт веб разработчика</p>
                 <h1 class="hero__title">Валентины Понамаревой</h1>
               </div>
-              <div class="hero__scroll"><a class="scroll" href="#about-section"><span class="scroll__text">Скролл</span>
+              <div class="hero__scroll"><a class="scroll" href="#about-section" v-scroll-to="'#about-section'"><span class="scroll__text">Скролл</span>
                   <svg class="scroll__icon" viewBox="-90 0 512 512" width="30" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#scroll"></use>
                   </svg></a></div>
@@ -177,52 +177,7 @@
       <section class="works" id="works-section">
         <div class="container">
           <h2 class="section-title section-title--works">Мои работы</h2>
-          <div class="works__content">
-            <div class="works__slider">
-              <div class="slider"><img class="slider__image" src="/portfolio/1767cd6b950d0b92a4d7ad85438bdbb8.jpg">
-                <div class="slider__previews">
-                  <ul class="slider__previews-list">
-                    <li class="slider__previews-item slider__previews-item--active"><img class="slider__preview-image" src="/portfolio/58015bdcbda14318644bfea176883c35.jpg">
-                    </li>
-                    <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/43ba37393fd02808b8e351ccd4d978c5.jpg">
-                    </li>
-                    <li class="slider__previews-item"><img class="slider__preview-image" src="/portfolio/83ca764884bc40110d96be8ad4e2ca45.jpg">
-                    </li>
-                  </ul>
-                </div>
-                <div class="slider__controls">
-                  <div class="slider-btns">
-                    <button class="slider-btns__item slider-btns__item--slide--prev">
-                      <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                      </svg>
-                    </button>
-                    <button class="slider-btns__item slider-btns__item--slide--next">
-                      <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
-                        <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div><span class="works__number">4</span>
-            </div>
-            <div class="works__description">
-              <div class="wors__tags">
-                <ul class="tags">
-                  <li class="tags__item">HTML</li>
-                  <li class="tags__item">CSS</li>
-                  <li class="tags__item">Javascript</li>
-                </ul>
-              </div>
-              <div class="works__text">
-                <h3 class="works__title">Сайт школы образования</h3>
-                <div class="works__definition">
-                  <p>Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!</p>
-                </div><a class="iconed-link" href="#" target="_blank">
-                  <div class="iconed-link__icon"></div><span class="iconed-link__text">Посмотреть сайт</span></a>
-              </div>
-            </div>
-          </div>
+          <div id="slider-component"></div>
         </div>
       </section>
       <div class="reviews-ans-contact-section">
@@ -384,36 +339,7 @@
         <section class="contacts" id="contacts-section">
           <div class="container">
             <h2 class="section-title section-title--contacts">Связаться со мной</h2>
-            <form class="form" action="#" method="POST">
-              <div class="form__row">
-                <label class="form__block"><span class="form__label">Введите ваше имя</span>
-                  <input class="form__input" type="text" name="name" placeholder="Валентина Понамарева">
-                  <svg class="form__input-icon" viewBox="0 0 482.9 482.9" width="30" height="29" fill="currentcolor">
-                    <use xlink:href="/portfolio/sprite.svg#user"></use>
-                  </svg>
-                  <div class="form__error">Какая-то ошибка</div>
-                </label>
-                <label class="form__block"><span class="form__label">Введите ваш email</span>
-                  <input class="form__input" type="email" name="email" placeholder="valiazin@gmail.com">
-                  <svg class="form__input-icon" viewBox="0 0 483.3 483.3" width="30" height="30" fill="currentcolor">
-                    <use xlink:href="/portfolio/sprite.svg#envelope"></use>
-                  </svg>
-                  <div class="form__error">Какая-то ошибка</div>
-                </label>
-              </div>
-              <div class="form__row form__row--margin--l">
-                <label class="form__block"><span class="form__label">Сообщение к письму</span>
-                  <textarea class="form__input form__input--textarea" type="text" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса"></textarea>
-                  <svg class="form__input-icon" viewBox="0 0 612 612" width="30" height="30" fill="currentcolor">
-                    <use xlink:href="/portfolio/sprite.svg#message"></use>
-                  </svg>
-                  <div class="form__error">Какая-то ошибка</div>
-                </label>
-              </div>
-              <div class="form__row">
-                <input class="btn" type="submit" value="Отправить">
-              </div>
-            </form>
+            <div id="contact-form-component"></div>
           </div>
         </section>
       </div>
@@ -430,12 +356,12 @@
             <div class="footer__top">
               <nav class="nav">
                 <ul class="nav__list nav__list--left">
-                  <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#hero-section" v-scroll-to="'#hero-section'">Главная</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#about-section" v-scroll-to="'#about-section'">Обо мне</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#values-section" v-scroll-to="'#values-section'">Навыки</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#works-section" v-scroll-to="'#works-section'">Работы</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#reviews-section" v-scroll-to="'#reviews-section'">Отзывы</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#contacts-section" v-scroll-to="'#contacts-section'">Связаться</a></li>
                 </ul>
               </nav>
             </div>
@@ -499,5 +425,96 @@
     <div class="skill__title">{{skill.title}}</div>
   </div>
 </script>
-  <script type="text/javascript" src="/portfolio/main.c7815d80fcdf965e24c5.build.js"></script></body>
+    <script type="text/x-template" id="slider-container">
+      <div class="works__content">
+        <display :currentWork="currentWork" :works="works" @slide="handleSlide" @slidePreview="handleSlidePreview"></display>
+        <info :currentWork="currentWork"></info>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-display">
+      <div class="works__slider">
+        <div class="slider"><img class="slider__image" :src="currentWork.photo">
+          <previews :works="works" :currentWork="currentWork" @slidePreview="$emit('slidePreview', $event)"></previews>
+          <buttons @slide="$emit('slide', $event)"></buttons>
+        </div><span class="works__number">{{currentWork.id}}</span>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-previews">
+      <div class="slider__previews">
+        <ul class="slider__previews-list">
+          <li class="slider__previews-item" v-for="(work, index) in works" :key="work.id" :class="{'slider__previews-item--active': currentWork.id === work.id}" @click="$emit('slidePreview', index)"><img class="slider__preview-image" :src="work.photo"></li>
+        </ul>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-buttons">
+      <div class="slider__controls">
+        <div class="slider-btns">
+          <button class="slider-btns__item slider-btns__item--slide--prev" @click.prevent="$emit('slide', 'next')">
+            <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+            </svg>
+          </button>
+          <button class="slider-btns__item slider-btns__item--slide--next" @click.prevent="$emit('slide', 'prev')">
+            <svg class="slider-btns__icon" viewBox="0 0 306 306" width="8" height="10" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-info">
+      <div class="works__description">
+        <tags :tags="tagsArray"></tags>
+        <div class="works__text">
+          <h3 class="works__title">{{currentWork.title}}</h3>
+          <div class="works__definition">
+            <p>{{currentWork.desc}}</p>
+          </div><a class="iconed-link" :href="currentWork.link" target="_blank">
+            <div class="iconed-link__icon"></div><span class="iconed-link__text">Посмотреть сайт</span></a>
+        </div>
+      </div>
+    </script>
+    <script type="text/x-template" id="slider-tags">
+      <div class="wors__tags">
+        <ul class="tags">
+          <li class="tags__item" v-for="tag in tags" :key="tag">{{tag}}</li>
+        </ul>
+      </div>
+    </script>
+    <script type="text/x-template" id="form-container">
+      <form class="form" action="#" method="POST" @submit.prevent="sendForm">
+        <div class="form__row">
+          <label class="form__block"><span class="form__label">Введите ваше имя</span>
+            <input class="form__input" type="text" name="name" placeholder="Валентина Понамарева" v-model="name">
+            <svg class="form__input-icon" viewBox="0 0 482.9 482.9" width="30" height="29" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#user"></use>
+            </svg>
+            <error></error>
+          </label>
+          <label class="form__block"><span class="form__label">Введите ваш email</span>
+            <input class="form__input" type="email" name="email" placeholder="valiazin@gmail.com" v-model="email">
+            <svg class="form__input-icon" viewBox="0 0 483.3 483.3" width="30" height="30" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#envelope"></use>
+            </svg>
+            <error></error>
+          </label>
+        </div>
+        <div class="form__row form__row--margin--l">
+          <label class="form__block"><span class="form__label">Сообщение к письму</span>
+            <textarea class="form__input form__input--textarea" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса" v-model="message"></textarea>
+            <svg class="form__input-icon" viewBox="0 0 612 612" width="30" height="30" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#message"></use>
+            </svg>
+            <error></error>
+          </label>
+        </div>
+        <div class="form__row">
+          <input class="btn" type="submit" value="Отправить">
+        </div>
+      </form>
+    </script>
+    <script type="text/x-template" id="form-error">
+      <div class="form__error">Поле не заполнено</div>
+    </script>
+  <script type="text/javascript" src="/portfolio/main.0d63d5eb8d1dc81cee01.build.js"></script></body>
 </html>
