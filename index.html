@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.85e15cd4966c2cd92f59.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.549f4fa33f5adde656e0.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <div class="welcome-section">
@@ -339,36 +339,7 @@
         <section class="contacts" id="contacts-section">
           <div class="container">
             <h2 class="section-title section-title--contacts">Связаться со мной</h2>
-            <form class="form" action="#" method="POST">
-              <div class="form__row">
-                <label class="form__block"><span class="form__label">Введите ваше имя</span>
-                  <input class="form__input" type="text" name="name" placeholder="Валентина Понамарева">
-                  <svg class="form__input-icon" viewBox="0 0 482.9 482.9" width="30" height="29" fill="currentcolor">
-                    <use xlink:href="/portfolio/sprite.svg#user"></use>
-                  </svg>
-                  <div class="form__error">Какая-то ошибка</div>
-                </label>
-                <label class="form__block"><span class="form__label">Введите ваш email</span>
-                  <input class="form__input" type="email" name="email" placeholder="valiazin@gmail.com">
-                  <svg class="form__input-icon" viewBox="0 0 483.3 483.3" width="30" height="30" fill="currentcolor">
-                    <use xlink:href="/portfolio/sprite.svg#envelope"></use>
-                  </svg>
-                  <div class="form__error">Какая-то ошибка</div>
-                </label>
-              </div>
-              <div class="form__row form__row--margin--l">
-                <label class="form__block"><span class="form__label">Сообщение к письму</span>
-                  <textarea class="form__input form__input--textarea" type="text" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса"></textarea>
-                  <svg class="form__input-icon" viewBox="0 0 612 612" width="30" height="30" fill="currentcolor">
-                    <use xlink:href="/portfolio/sprite.svg#message"></use>
-                  </svg>
-                  <div class="form__error">Какая-то ошибка</div>
-                </label>
-              </div>
-              <div class="form__row">
-                <input class="btn" type="submit" value="Отправить">
-              </div>
-            </form>
+            <div id="contact-form-component"></div>
           </div>
         </section>
       </div>
@@ -510,5 +481,40 @@
         </ul>
       </div>
     </script>
-  <script type="text/javascript" src="/portfolio/main.537b4767631586ca10a5.build.js"></script></body>
+    <script type="text/x-template" id="form-container">
+      <form class="form" action="#" method="POST" @submit.prevent="sendForm">
+        <div class="form__row">
+          <label class="form__block"><span class="form__label">Введите ваше имя</span>
+            <input class="form__input" type="text" name="name" placeholder="Валентина Понамарева" v-model="name">
+            <svg class="form__input-icon" viewBox="0 0 482.9 482.9" width="30" height="29" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#user"></use>
+            </svg>
+            <error></error>
+          </label>
+          <label class="form__block"><span class="form__label">Введите ваш email</span>
+            <input class="form__input" type="email" name="email" placeholder="valiazin@gmail.com" v-model="email">
+            <svg class="form__input-icon" viewBox="0 0 483.3 483.3" width="30" height="30" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#envelope"></use>
+            </svg>
+            <error></error>
+          </label>
+        </div>
+        <div class="form__row form__row--margin--l">
+          <label class="form__block"><span class="form__label">Сообщение к письму</span>
+            <textarea class="form__input form__input--textarea" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса" v-model="message"></textarea>
+            <svg class="form__input-icon" viewBox="0 0 612 612" width="30" height="30" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#message"></use>
+            </svg>
+            <error></error>
+          </label>
+        </div>
+        <div class="form__row">
+          <input class="btn" type="submit" value="Отправить">
+        </div>
+      </form>
+    </script>
+    <script type="text/x-template" id="form-error">
+      <div class="form__error">Поле не заполнено</div>
+    </script>
+  <script type="text/javascript" src="/portfolio/main.c9c0301557c04eaa367f.build.js"></script></body>
 </html>
