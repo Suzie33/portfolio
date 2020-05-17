@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.549f4fa33f5adde656e0.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.e6110c63e4bd0a568a96.css" rel="stylesheet"></head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
       <div class="welcome-section">
         <div class="parallax">
           <div class="parallax__layer" data-speed="0.1">
@@ -55,12 +55,12 @@
                 <div class="header__menu">
                   <nav class="nav">
                     <ul class="nav__list">
-                      <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#hero-section'">Главная</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#about-section'">Обо мне</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#values-section'">Навыки</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#works-section'">Работы</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#reviews-section'">Отзывы</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#" v-scroll-to="'#contacts-section'">Связаться</a></li>
                     </ul>
                   </nav>
                 </div>
@@ -113,7 +113,7 @@
                 <p class="hero__content-text">Личный сайт веб разработчика</p>
                 <h1 class="hero__title">Валентины Понамаревой</h1>
               </div>
-              <div class="hero__scroll"><a class="scroll" href="#about-section"><span class="scroll__text">Скролл</span>
+              <div class="hero__scroll"><a class="scroll" href="#about-section" v-scroll-to="'#about-section'"><span class="scroll__text">Скролл</span>
                   <svg class="scroll__icon" viewBox="-90 0 512 512" width="30" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#scroll"></use>
                   </svg></a></div>
@@ -356,12 +356,12 @@
             <div class="footer__top">
               <nav class="nav">
                 <ul class="nav__list nav__list--left">
-                  <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#contacts-section">Связаться</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#hero-section" v-scroll-to="'#hero-section'">Главная</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#about-section" v-scroll-to="'#about-section'">Обо мне</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#values-section" v-scroll-to="'#values-section'">Навыки</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#works-section" v-scroll-to="'#works-section'">Работы</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#reviews-section" v-scroll-to="'#reviews-section'">Отзывы</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#contacts-section" v-scroll-to="'#contacts-section'">Связаться</a></li>
                 </ul>
               </nav>
             </div>
@@ -516,5 +516,5 @@
     <script type="text/x-template" id="form-error">
       <div class="form__error">Поле не заполнено</div>
     </script>
-  <script type="text/javascript" src="/portfolio/main.2aac29c95b99acc07c50.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.0d63d5eb8d1dc81cee01.build.js"></script></body>
 </html>
