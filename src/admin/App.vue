@@ -1,22 +1,8 @@
 <template lang="pug">
   .admin
     .admin__entry
-      .authorization
-        h1.authorization__title Авторизация
-        form.form.form--authorization(method="POST" action="#")
-          .authorization__form-row
-            .authorization__form-block
-              label.form__label.authorization__form-label(for="authorization_login") Логин
-              input.form__input.authorization__form-input(type="text" placeholder="Логин" id="authorization_login" required)
-              svgIcon(className="authorization__form-icon" name="user" fill="#a9aeb9" width="26" height="30")
-          .authorization__form-row
-            .authorization__form-block
-              label.form__label.authorization__form-label(for="authorization_password") Пароль
-              input.form__input.authorization__form-input(type="password" placeholder="Пароль" id="authorization_password" required)
-              svgIcon(className="authorization__form-icon" name="key" fill="#a9aeb9" width="26" height="30")
-          input.btn(type="submit" value="Отправить")
-        button.close-button
-          svgIcon(className="close-button__icon" name="close" fill="#414c63" width="20" height="20")
+      authorization
+        
 
     header.header
       .container.header__container
@@ -239,11 +225,12 @@
 
 </template>
 
-<style lang="postcss">
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-  @import "normalize.css";
-  @import "../styles/mixins.pcss";
-  @import "../styles/layout/base.pcss";
+<style lang="postcss" src="./global.pcss">
+
+</style>
+
+<style lang="postcss" scoped>
+ @import "../styles/mixins.pcss";
 
 input {
   font-weight: 600;
@@ -1317,8 +1304,9 @@ button {
 
 <script>
 import svgIcon from './components/svgIcon';
+import authorization from './components/authorization';
 
 export default {
-  components: {  svgIcon },
+  components: {  svgIcon, authorization },
 }
 </script>
