@@ -1,18 +1,6 @@
 <template lang="pug">
   .admin
-    authorization
-      
-    headline
-
-    navigation
-
-    main.main
-      .container
-        about
-
-        works
-
-        reviews
+    router-view
 </template>
 
 <style lang="postcss" src="./global.pcss"></style>
@@ -952,8 +940,9 @@ import navigation from './components/navigation';
 import about from './components/about';
 import works from './components/works';
 import reviews from './components/reviews';
+import mainapp from './components/mainapp';
 
 export default {
-  components: { svgIcon, authorization, headline, navigation, about, works, reviews },
+  components: { svgIcon, authorization, mainapp },
 };
 </script>
