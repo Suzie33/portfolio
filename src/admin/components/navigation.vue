@@ -2,11 +2,16 @@
   .admin__navigation
     .container
       nav.nav
-        - var navlist = [['Обо мне', 'Работы', 'Отзывы'], ['/about', '/works', '/reviews']];
+        //- - var navlist = [['Обо мне', 'Работы', 'Отзывы'], ['/about', '/works', '/reviews']];
         ul.nav__list
-          each item, index in navlist[0]
-            li.nav__item
-              a.nav__link(href="#" + navlist[1][index]) #{item}
+          li.nav__item(
+            v-for="tab in tabs" :key="tab.id"
+            @click="handleChange(tab)"
+            :class="{'nav__item--active' : activeTabId === tab.id}"
+          )
+            a.nav__link(
+              :href="tab.href"
+              ) {{tab.title}}
 </template>
 
 <style lang="postcss" scoped>
@@ -56,9 +61,28 @@
 </style>
 
 <script>
+
+const tabs = [
+  {id: 0, title: "Обо мне", href: "admin#/about"},
+  {id: 1, title: "Работы", href: "admin#/works"},
+  {id: 2, title: "Отзывы", href: "admin#/reviews"}
+];
+
 import svgIcon from './svgIcon';
 
 export default {
   components: { svgIcon },
+  data() {
+    return {
+      tabs,
+      activeTabId: 0
+    }
+  },
+  methods: {
+    handleChange(tab) {
+      this.activeTabId = tab.id;
+      this.$emit("tabChanged");
+    }
+  }
 };
 </script>

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --mode=development --hot",
     "build": "rm -rf dist && webpack --mode=production --progress",
-    "reg": "node reg-util.js"
+    "reg": "node reg-util.js",
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "Valentina Ponamareva <valiazin@gmail.com>",
@@ -51,6 +52,7 @@
     "last 2 versions"
   ],
   "dependencies": {
+    "cypress": "^4.6.0",
     "normalize.css": "^8.0.1",
     "promptly": "^3.0.3",
     "pug": "^2.0.3",
