@@ -9,10 +9,14 @@
     ul.about__list
       li.about__item.editcard
         form.form.about__form(method="POST" action="#")
-          .about__form-top.editcard__top
-            input.form__input.form__input--group(placeholder="Название новой группы" required="required")
+          form.about__form-top.editcard__top(@submit.prevent="createCategory")
+            input.form__input.form__input--group(
+              v-model="title"
+              placeholder="Название новой группы" 
+              required="required"
+              )
             .about__form-icons
-              button.button-icon.button-icon__ok
+              button.button-icon.button-icon__ok(type="submit")
                 svgIcon(className="button-icon__icon" name="tick" fill="#00d70a" width="15" height="12")
               button.button-icon.button-icon__delete
                 svgIcon(className="button-icon__icon" name="close" fill="#bf2929" width="14" height="12")
@@ -23,7 +27,7 @@
               .plus-icon
       li.about__item.editcard
         form.form.about__form(method="POST" action="#")
-          .about__form-top.editcard__top
+          form.about__form-top.editcard__top
             h4.about__form-group Frontend
             .about__form-icons
               button.button-icon.button-icon__delete
@@ -80,8 +84,33 @@
 
 <script>
 import svgIcon from './svgIcon';
+import axios from 'axios';
+
+const baseUrl = "https://webdev-api.loftschool.com/";
+const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMxNSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTAwNzQxMDIsImV4cCI6MTU5MDA5MjEwMiwibmJmIjoxNTkwMDc0MTAyLCJqdGkiOiJUdHZMTnREcjdneXN0anpXIn0.8liHxi_ZqPexuEppm7WTi7tL8f_TM8GWwd3MsSoeAoQ";
+
+axios.defaults.baseURL = baseUrl;
+axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+
 
 export default {
   components: { svgIcon },
+  data: () => ({
+    title: ""
+  }),
+  methods: {
+    createCategory() {
+      axios
+      .post('categories', {
+        title: this.title
+      })
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error.response.data);
+      })
+    }
+  }
 };
 </script>

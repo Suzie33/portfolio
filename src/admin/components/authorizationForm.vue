@@ -1,14 +1,27 @@
 <template lang="pug">
-  form.form.form--authorization(method="POST" action="#")
+  form.form.form--authorization(
+    method="POST" action="#"
+    @submit.prevent="login"
+    )
     .authorization__form-row
       .authorization__form-block
         label.form__label.authorization__form-label(for="authorization_login") Логин
-        input.form__input.authorization__form-input(type="text" placeholder="Логин" id="authorization_login" required)
+        input.form__input.authorization__form-input(
+          type="text" 
+          placeholder="Логин" 
+          id="authorization_login"
+          v-model="user.name"
+          )
         svgIcon(className="authorization__form-icon" name="user" fill="#a9aeb9" width="26" height="30")
     .authorization__form-row
       .authorization__form-block
         label.form__label.authorization__form-label(for="authorization_password") Пароль
-        input.form__input.authorization__form-input(type="password" placeholder="Пароль" id="authorization_password" required)
+        input.form__input.authorization__form-input(
+          type="password" 
+          placeholder="Пароль" 
+          id="authorization_password"
+          v-model="user.password"
+          )
         svgIcon(className="authorization__form-icon" name="key" fill="#a9aeb9" width="26" height="30")
     input.btn(type="submit" value="Отправить")
 </template>
@@ -121,8 +134,33 @@ input {
 
 <script>
 import svgIcon from './svgIcon';
+import axios from 'axios';
+
+const baseUrl = "https://webdev-api.loftschool.com/";
+const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjMxNSwiaXNzIjoiaHR0cDovL3dlYmRldi1hcGkubG9mdHNjaG9vbC5jb20vbG9naW4iLCJpYXQiOjE1OTAwNzQxMDIsImV4cCI6MTU5MDA5MjEwMiwibmJmIjoxNTkwMDc0MTAyLCJqdGkiOiJUdHZMTnREcjdneXN0anpXIn0.8liHxi_ZqPexuEppm7WTi7tL8f_TM8GWwd3MsSoeAoQ";
+
+axios.defaults.baseURL = baseUrl;
+axios.defaults.headers['Authorization'] = `Bearer ${token}`;
 
 export default {
   components: { svgIcon },
-};
+  data: () => ({
+    user: {
+      name: "",
+      password: ""
+    }
+  }),
+  methods: {
+    login() {
+      axios
+      .post('login', this.user)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error.response.data);
+      })
+    },
+  }
+  };
 </script>
