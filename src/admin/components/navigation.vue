@@ -2,11 +2,11 @@
   .admin__navigation
     .container
       nav.nav
-        - var navlist = ['Обо мне', 'Работы', 'Отзывы'];
+        - var navlist = [['Обо мне', 'Работы', 'Отзывы'], ['/about', '/works', '/reviews']];
         ul.nav__list
-          each item in navlist
+          each item, index in navlist[0]
             li.nav__item
-              a.nav__link(href="#") #{item}
+              a.nav__link(href="#" + navlist[1][index]) #{item}
 </template>
 
 <style lang="postcss" scoped>

@@ -70,6 +70,7 @@ button {
 
 .section {
   padding-top: 50px;
+  min-height: 100vh;
 
   @include tablets {
     padding-top: 30px;
