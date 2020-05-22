@@ -191,14 +191,14 @@ button {
   margin-right: 30px;
   margin-bottom: 30px;
 
+  &:nth-of-type(2n) {
+    margin-right: 0;
+  }
+
   @include tablets {
     width: calc(100% / 2 - 10px);
     margin-right: 20px;
     margin-bottom: 20px;
-  }
-
-  &:nth-of-type(2) {
-    margin-right: 0;
   }
 
   @include phones {
@@ -312,6 +312,7 @@ button {
   padding-left: 10px;
   padding-right: 10px;
   font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .table-skills__row {
@@ -558,14 +559,14 @@ button {
   background-color: #fff;
   box-shadow: 4.096px 2.868px 10px rgba(0, 0, 0, 0.07);
 
-  &:nth-of-type(3) {
+  &:nth-of-type(3n) {
     margin-right: 0;
   }
 
   @include tablets {
     width: calc(100% / 2 - 15px);
 
-    &:nth-of-type(2) {
+    &:nth-of-type(2n) {
       margin-right: 0;
     }
   }
@@ -788,14 +789,14 @@ button {
   background-color: #fff;
   box-shadow: 4.096px 2.868px 10px rgba(0, 0, 0, 0.07);
 
-  &:nth-of-type(3) {
+  &:nth-of-type(3n) {
     margin-right: 0;
   }
 
   @include tablets {
     width: calc(100% / 2 - 15px);
 
-    &:nth-of-type(2) {
+    &:nth-of-type(2n) {
       margin-right: 0;
     }
   }
