@@ -70,7 +70,8 @@ export default {
         title: this.title
       })
       .then(response => {
-        this.categories.unshift(response.data)
+        this.categories.unshift(response.data);
+        this.title = "";
         console.log(response.data);
       })
       .catch(error => {

@@ -38,6 +38,7 @@
 }
 
 .header__avatar {
+  flex-shrink: 0;
   width: 45px;
   height: 45px;
   margin-right: 20px;

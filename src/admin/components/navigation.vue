@@ -2,7 +2,6 @@
   .admin__navigation
     .container
       nav.nav
-        //- - var navlist = [['Обо мне', 'Работы', 'Отзывы'], ['/about', '/works', '/reviews']];
         ul.nav__list
           li.nav__item(
             v-for="tab in tabs" :key="tab.id"
@@ -30,7 +29,12 @@
 
 .nav__item {
   padding: 25px 30px;
+  margin-right: 10px;
   border-bottom: 3px solid transparent;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   &:hover {
     cursor: pointer;
@@ -50,7 +54,7 @@
   }
 
   @include phones {
-    padding: 25px;
+    padding: 21px;
   }
 }
 

@@ -149,7 +149,9 @@ export default {
       apiSettings.axios
       .post('login', this.user)
       .then(response => {
-        console.log(response.data);
+        const token = response.data.token;
+        apiSettings.axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+        localStorage.setItem('token', token)
       })
       .catch(error => {
         console.log(error.response.data);
