@@ -1,9 +1,14 @@
 import axios from 'axios';
 
-const baseUrl = "https://webdev-api.loftschool.com/";
 const token = localStorage.getItem('token') || "";
 
-axios.defaults.baseURL = baseUrl;
-axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+if (!token) console.warn("Токен отсутствует");
 
-export { baseUrl, token, axios }
+const $axios = axios.create({
+  baseURL: "https://webdev-api.loftschool.com/",
+  headers: {
+    'Authorization' : `Bearer ${token}`
+  }
+});
+
+export default $axios;

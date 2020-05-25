@@ -1,44 +1,28 @@
 <template lang="pug">
-  form.about__form-bottom(@submit.prevent="addNewSkill")
-    input.form__input.form__input--skill(
-      type="text" 
-      placeholder="Новый навык" 
-      required="required" 
-      v-model="skill.title"
-      )
-    input.form__input.form__input--percent(
-      placeholder="100%" 
-      required="required" 
-      v-model="skill.percent"
-      )
-    button.about__form-button(type="submit")
-      .plus-icon
+  tr.table-skills__row
+    td.table-skills__skill {{skill.title}}
+    td.table-skills__value {{skill.percent}}
+    td.table-skills__percent %
+    td.table-skills__icons
+      .about__form-icons
+        button.button-icon.button-icon__ok
+          svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
+        button.button-icon.button-icon__delete
+          svgIcon(className="button-icon__icon" name="trash" fill="#414c63" width="13" height="17")
 </template>
 
 <script>
 import svgIcon from './svgIcon';
-import * as apiSettings from '../apiSettings';
 
 export default {
-  props: [
-    "categoryId"
-  ],
-  data() {
-    return {
-      skill: {
-        title: "",
-        percent: "",
-        category: this.categoryId
-      }
-    }
+  components: {
+    svgIcon
   },
-  methods: {
-    addNewSkill() {
-      apiSettings.axios.post('skills', this.skill).then(response => {
-        this.$emit('skillAdded', response.data);
-        this.skill.title = "";
-        this.skill.percent = "";
-      })
+  props: {
+    skill: {
+      type: Object,
+      default: () => {},
+      required: true
     }
   }
 };

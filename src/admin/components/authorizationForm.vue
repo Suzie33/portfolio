@@ -134,7 +134,7 @@ input {
 
 <script>
 import svgIcon from './svgIcon';
-import * as apiSettings from '../apiSettings';
+import $axios from '../apiSettings';
 
 export default {
   components: { svgIcon },
@@ -145,17 +145,18 @@ export default {
     }
   }),
   methods: {
-    login() {
-      apiSettings.axios
-      .post('login', this.user)
-      .then(response => {
+    async login() {
+      try {
+        const response = await $axios.post('login', this.user);
         const token = response.data.token;
-        apiSettings.axios.defaults.headers["Authorization"] = `Bearer ${token}`;
-        localStorage.setItem('token', token)
-      })
-      .catch(error => {
-        console.log(error.response.data);
-      })
+
+        localStorage.setItem('token', token);
+        $axios.defaults.headers['Authorization'] = `Bearer ${token}`;
+        this.$router.replace("/about");
+      } catch (error) {
+        console.log(error);
+      }
+      
     },
   }
   };
