@@ -10,12 +10,14 @@ export default {
       }
     },
 
-    // async removeSkill({ commit }, skill) {
-    //   try {
-    //     const { data } = await this.$axios.delete(`skills/${skill.id}`);
-    //     commit("categories/REMOVE_SKILL", skill, { root: true });
-    //   } catch (error) {}
-    // },
+    async removeSkill({ commit }, skillToRemove) {
+      try {
+        const { data } = await this.$axios.delete(`skills/${skillToRemove.id}`);
+        commit("categories/REMOVE_SKILL", skillToRemove, { root: true });
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
   //   async editSkill({ commit }, editedSkill) {
   //     try {

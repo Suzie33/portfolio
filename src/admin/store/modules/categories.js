@@ -18,6 +18,23 @@ export default {
         return category;
       });
     },
+    REMOVE_SKILL: (state, deletedSkill) => {
+      const removeSkillInCategory = category => {
+        category.skills = category.skills.filter(
+          skill => skill.id !== deletedSkill.id
+        );
+      };
+
+      const findCategory = category => {
+        if (category.id === deletedSkill.category) {
+          removeSkillInCategory(category);
+        }
+
+        return category;
+      };
+
+      state.categories = state.categories.map(findCategory);
+    },
   },
   actions: {
     async addCategory({commit}, title) {

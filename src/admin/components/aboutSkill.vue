@@ -7,11 +7,14 @@
       .about__form-icons
         button.button-icon.button-icon__ok
           svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
-        button.button-icon.button-icon__delete
+        button.button-icon.button-icon__delete(
+          @click="removeCurrentSkill"
+        )
           svgIcon(className="button-icon__icon" name="trash" fill="#414c63" width="13" height="17")
 </template>
 
 <script>
+import {mapActions} from "vuex";
 import svgIcon from './svgIcon';
 
 export default {
@@ -23,6 +26,16 @@ export default {
       type: Object,
       default: () => {},
       required: true
+    }
+  },
+  methods: {
+    ...mapActions("skills", ["removeSkill"]),
+    async removeCurrentSkill() {
+      try {
+        await this.removeSkill(this.skill);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };
