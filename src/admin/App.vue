@@ -294,6 +294,10 @@ button {
   }
 }
 
+.about__form-icons {
+  flex-shrink: 0;
+}
+
 .button-icon {
   margin-right: 15px;
 

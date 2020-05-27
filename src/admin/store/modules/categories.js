@@ -15,6 +15,22 @@ export default {
         category => category.id !== deletedCategory.id
       );
     },
+    EDIT_CATEGORY(state, editedCategory) {
+      const replaceCategoryName = category => {
+        category.category = editedCategory.category;
+      };
+
+      const findCategory = category => {
+        if (category.id === editedCategory.id) {
+          replaceCategoryName(category);
+        }
+
+        return category;
+      };
+
+      state.categories = state.categories.map(findCategory);
+    },
+
     ADD_SKILL: (state, newSkill) => {
       state.categories = state.categories.map(category => {
         if (category.id === newSkill.category) {
@@ -61,7 +77,7 @@ export default {
   actions: {
     async addCategory({commit}, title) {
       try {
-        const {data} = await this.$axios.post('/categories', {title});
+        const {data} = await this.$axios.post('categories', {title});
         commit("ADD_CATEGORY", data)
       } catch (error) {
         throw new Error(
@@ -85,5 +101,19 @@ export default {
         console.log(error);
       }
     },
+    async editCategory({ commit }, editedCategory) {
+      try {
+        const {
+          data: { category }
+        } = await this.$axios.post(`categories/${editedCategory.id}`,
+         {title: editedCategory.category});
+        
+        commit("categories/EDIT_CATEGORY", category, { root: true });
+        console.log(category);
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 };
