@@ -3,9 +3,14 @@
     form.about__form-top.editcard__top
       h4.about__form-group {{category.category}}
       .about__form-icons
-        button.button-icon.button-icon__delete
+        button.button-icon(
+          type="button"
+        )
           svgIcon(className="button-icon__icon" name="pencil" fill="#414c63" width="16" height="15")
-        button.button-icon.button-icon__delete
+        button.button-icon(
+          type="button"
+          @click="removeCurrentCategory"
+        )
           svgIcon(className="button-icon__icon" name="trash" fill="#414c63" width="13" height="17")
     .about__form-table
       table.table-skills
@@ -21,6 +26,7 @@
 </template>
 
 <script>
+import {mapActions} from "vuex";
 import svgIcon from './svgIcon';
 import aboutAddSkill from './aboutAddSkill';
 import aboutSkill from './aboutSkill';
@@ -29,6 +35,16 @@ export default {
   components: { svgIcon, aboutAddSkill, aboutSkill},
   props: {
     category: Object
+  },
+  methods: {
+    ...mapActions("categories", ["removeCategory"]),
+    async removeCurrentCategory() {
+      try {
+        await this.removeCategory(this.category);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 };
 </script>

@@ -10,6 +10,11 @@ export default {
     ADD_CATEGORY(state, newCategory) {
       state.categories.unshift(newCategory);
     },
+    REMOVE_CATEGORY(state, deletedCategory) {
+      state.categories = state.categories.filter(
+        category => category.id !== deletedCategory.id
+      );
+    },
     ADD_SKILL: (state, newSkill) => {
       state.categories = state.categories.map(category => {
         if (category.id === newSkill.category) {
@@ -68,6 +73,14 @@ export default {
       try {
         const {data} = await this.$axios.get('categories/315');
         commit("SET_CATEGORIES", data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async removeCategory({ commit }, categoryToRemove) {
+      try {
+        const { data } = await this.$axios.delete(`categories/${categoryToRemove.id}`);
+        commit("categories/REMOVE_CATEGORY", categoryToRemove, { root: true });
       } catch (error) {
         console.log(error);
       }
