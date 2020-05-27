@@ -20,6 +20,11 @@ button {
   &:hover {
     opacity: 0.7;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: initial;
+  }
 }
 
 .button {
@@ -246,6 +251,17 @@ button {
     width: 75px;
     margin-right: 30px;
     text-align: center;
+
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+  }
+
+  &--editing {
+    width: 100%;
   }
 
   &::-webkit-input-placeholder {
@@ -327,6 +343,7 @@ button {
 
 .table-skills__skill {
   flex-grow: 1;
+  margin-right: 10px;
 }
 
 .table-skills__value {
@@ -336,6 +353,14 @@ button {
 .table-skills__percent {
   margin-right: 55px;
   opacity: 0.7;
+
+  @include tablets {
+    margin-right: 15px;
+  }
+}
+
+.table-skills__icons {
+  flex-shrink: 0;
 }
 
 ////////////////////// works //////////////////////

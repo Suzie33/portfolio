@@ -7,11 +7,15 @@
       v-model="skill.title"
       )
     input.form__input.form__input--percent(
-      placeholder="100%" 
+      type="number"
+      step="1"
+      min="1"
+      max="100"
+      placeholder="100" 
       required="required" 
       v-model="skill.percent"
       )
-    button.about__form-button(type="submit")
+    button.about__form-button(type="submit" :disabled="isDisabled")
       .plus-icon
 </template>
 
@@ -28,8 +32,9 @@ export default {
       skill: {
         title: "",
         percent: ""
-      }
-    }
+      },
+      isDisabled: false
+    };
   },
   methods: {
     ...mapActions("skills", ["addSkill"]),
@@ -37,11 +42,16 @@ export default {
       const skillData = {
           ...this.skill,
           category: this.category.id
-        }
+      };
+      this.isDisabled = true;
       try {
         await this.addSkill(skillData);
+        this.skill.title = "";
+        this.skill.percent = "";
       } catch (error) {
         console.log(error);
+      } finally {
+        this.isDisabled = false;
       }
     }
   }

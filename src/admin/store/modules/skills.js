@@ -19,14 +19,14 @@ export default {
       }
     },
 
-  //   async editSkill({ commit }, editedSkill) {
-  //     try {
-  //       const {
-  //         data: { skill }
-  //       } = await this.$axios.post(`skills/${editedSkill.id}`, editedSkill);
-  //       commit("categories/EDIT_SKILL", skill , { root: true });
-  //     } catch (error) {}
-  //   }
-  // }
+    async editSkill({ commit }, editedSkill) {
+      try {
+        const {
+          data: { skill }
+        } = await this.$axios.post(`skills/${editedSkill.id}`, editedSkill);
+        commit("categories/EDIT_SKILL", skill , { root: true });
+      } catch (error) {}
+    }
+  }
 }
-}
+
