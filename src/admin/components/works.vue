@@ -10,22 +10,46 @@
               .photoplace
                 .photoplace__label
                   .photoplace__text Перетащите или загрузите для загрузки изображения
-                  button.button.photoplace__button Загрузить
+                  input.photoplace__input(
+                    id="input_work_photo"
+                    type="file"
+                    title="Загрузить"
+                    name="photo"
+                  )
+                  label.button.photoplace__button(
+                    for="input_work_photo"
+                  ) Загрузить
             .works__form-button
               .button.button--white Изменить превью
           .works__form-right
             .works__form-row
               label.form__label(for="input_work_title") Название
-              input.form__input.form__input--works(placeholder="Название работы" required="required" id="input_work_title")
+              input.form__input.form__input--works(
+                placeholder="Название работы" 
+                required="required" 
+                id="input_work_title"
+              )
             .works__form-row
               label.form__label(for="input_work_link") Ссылка
-              input.form__input.form__input--works(placeholder="Ссылка на работу" required="required" id="input_work_link")
+              input.form__input.form__input--works(
+                placeholder="Ссылка на работу" 
+                required="required" 
+                id="input_work_link"
+              )
             .works__form-row
               label.form__label(for="input_work_desc") Описание
-              textarea.form__textarea.form__input.form__input--works(placeholder="Описание работы" required="required" id="input_work_desc")
+              textarea.form__textarea.form__input.form__input--works(
+                placeholder="Описание работы" 
+                required="required" 
+                id="input_work_desc"
+              )
             .works__form-row
               label.form__label(for="input_work_tags") Добавление тега
-              input.form__input.form__input--works.form__input--tags(placeholder="HTML5" required="required" id="input_work_tags")
+              input.form__input.form__input--works.form__input--tags(
+                placeholder="HTML5" 
+                required="required" 
+                id="input_work_tags"
+              )
               .works__form-tags
                 ul.tags__list
                   li.tags__item 
@@ -37,8 +61,11 @@
                     button.button-icon.button-icon__delete
                       svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
             .form__buttons
-              input.button.button--white(type="reset" value="Отмена")
-              input.button(type="submit" value="Сохранить")
+              .button.button--white Отмена
+              input.button(
+                type="submit" 
+                value="Сохранить"
+              )
 
     ul.works__list
       li.works__item
@@ -50,6 +77,11 @@
       li.works__item
         .works__item-preview
           img(src='../../images/content/work_preview1.jpg' alt="Work1").works__item-photo
+          .works__item-tags
+            .works__form-tags
+              ul.tags__list
+                li.tags__item HTML5
+                li.tags__item CSS
         .works__item-content
           .works__item-desc
             h3.works__item-title Сайт школы образования
@@ -69,6 +101,8 @@
 
 <script>
 import svgIcon from './svgIcon';
+import { mapActions } from 'vuex';
+
 
 export default {
   components: { svgIcon },

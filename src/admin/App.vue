@@ -512,6 +512,22 @@ button {
   line-height: 2;
 }
 
+.photoplace__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  z-index: -10;
+}
+
+.photoplace__button {
+  z-index: 10;
+}
+
+.photoplace__input:focus + label {
+  outline: 1px solid #0078d7;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
 .form__label {
   display: inline-block;
   margin-bottom: 10px;
@@ -546,7 +562,7 @@ button {
 .tags__item {
   display: inline-flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 7px 20px;
   margin-right: 15px;
   border-radius: 22px;
   font-size: 13px;
@@ -662,6 +678,7 @@ button {
 }
 
 .works__item-preview {
+  position: relative;
   width: 100%;
   margin-bottom: 35px;
 }
@@ -718,6 +735,12 @@ button {
     margin-right: 0;
     margin-bottom: 30px;
   }
+}
+
+.works__item-tags {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 
 .form__avatar {
@@ -839,6 +862,8 @@ button {
 
 .reviews__item-top {
   padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-bottom: 25px;
   border-bottom: 1px solid rgba(170, 170, 174, 0.15);
 
