@@ -64,34 +64,7 @@ export default {
       } catch (error) {
         alert(error.message);
       }
-      
-
-      // apiSettings.axios
-      // .post('categories', {
-      //   title: this.title
-      // })
-      // .then(response => {
-      //   this.categories.unshift(response.data);
-      //   this.title = "";
-      //   console.log(response.data);
-      // })
-      // .catch(error => {
-      //   console.log(error.response.data);
-      // })
     },
-    // getCategories() {
-    //   this.$axios.get('categories/315').then(response => {
-    //     this.categories = response.data;
-    //   })
-    // },
-    // addSkill(newSkill) {
-    //   this.categories = this.categories.map(category => {
-    //     if (category.id === newSkill.category) {
-    //       category.skills.push(newSkill);
-    //     }
-    //     return category;
-    //   })
-    // }
   }
 };
 </script>

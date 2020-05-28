@@ -134,7 +134,7 @@ input {
 
 <script>
 import svgIcon from './svgIcon';
-import $axios from '../apiSettings';
+import $axios from '../helpers/apiSettings';
 
 export default {
   components: { svgIcon },

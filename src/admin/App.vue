@@ -492,6 +492,17 @@ button {
   position: relative;
   background-color: #dee4ed;
   border: 1px dashed #a1a1a1;
+
+  &--filled {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: none;
+
+    .photoplace__label {
+      display: none;
+    }
+  }
 }
 
 .photoplace__label {
