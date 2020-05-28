@@ -375,6 +375,12 @@ button {
   margin-bottom: 20px;
 }
 
+.works__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .works__edit {
   width: 100%;
   margin-bottom: 30px;

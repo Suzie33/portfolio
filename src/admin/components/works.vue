@@ -82,38 +82,21 @@
             button.addcard__button
               .plus-icon.plus-icon--addcard
             .addcard__text Добавить работу
-      li.works__item
-        .works__item-preview
-          img(src='../../images/content/work_preview1.jpg' alt="Work1").works__item-photo
-          .works__item-tags
-            .works__form-tags
-              ul.tags__list
-                li.tags__item HTML5
-                li.tags__item CSS
-        .works__item-content
-          .works__item-desc
-            h3.works__item-title Сайт школы образования
-            p.works__item-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-            a.works__item-link(href="#" target="_blank") https://loftschool.com
-          .works__item-controls
-            button.button-inscription.button-inscription--works
-              span.button-inscription__text Править
-              .button-inscription__icon
-                svgIcon(className="button-icon__icon" name="pencil" fill="#383bcf" width="17" height="17")
-            button.button-inscription.button-inscription--works
-              span.button-inscription__text Удалить
-              .button-inscription__icon
-                svgIcon(className="button-icon__icon" name="close" fill="#c92e2e" width="15" height="15")
+      li.works__item(v-for="work in works" :key="work.id")
+        worksCard(
+          :work="work"
+        )
 
 </template>
 
 <script>
 import svgIcon from './svgIcon';
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import { renderer } from '../helpers/pictures';
+import worksCard from './worksCard';
 
 export default {
-  components: { svgIcon },
+  components: { svgIcon, worksCard },
   data: () => {
     return {
       work: {
@@ -126,8 +109,16 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState("works", {
+      works: state => state.works
+    })
+  },
+  created() {
+    this.getWorks();
+  },
   methods: {
-    ...mapActions("works", ["addNewWork"]),
+    ...mapActions("works", ["addNewWork", "getWorks"]),
     async createNewWork() {
       try {
         const formData = new FormData();
@@ -147,7 +138,8 @@ export default {
         this.work.techs = "",
         this.work.photo = {},
         this.work.link = "",
-        this.work.description = ""
+        this.work.description = "",
+        this.work.renderedPhoto = ""
       } catch (error) {
         console.log(error);
       }
