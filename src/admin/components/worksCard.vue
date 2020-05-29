@@ -12,11 +12,16 @@
         p.works__item-text {{work.description}}
         a.works__item-link(href="#" target="_blank") {{work.link}}
       .works__item-controls
-        button.button-inscription.button-inscription--works
+        button.button-inscription.button-inscription--works(
+          @click.prevent="$emit('editCurrentWork', work)"
+        )
           span.button-inscription__text Править
           .button-inscription__icon
             svgIcon(className="button-icon__icon" name="pencil" fill="#383bcf" width="17" height="17")
-        button.button-inscription.button-inscription--works
+        button.button-inscription.button-inscription--works(
+          @click="removeCurrentWork"
+          :disabled="isDisabled"
+        )
           span.button-inscription__text Удалить
           .button-inscription__icon
             svgIcon(className="button-icon__icon" name="close" fill="#c92e2e" width="15" height="15")
@@ -31,6 +36,11 @@ export default {
   components: {
     svgIcon
   },
+  data() {
+    return {
+      isDisabled: false
+    }
+  },
   props: {
     work: Object
   },
@@ -40,7 +50,17 @@ export default {
     }
   },
   methods: {
-
+    ...mapActions("works", ["removeWork"]),
+    async removeCurrentWork() {
+      try {
+        this.isDisabled = true;
+        await this.removeWork(this.work);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.isDisabled = false;
+      }
+    }
   }
 };
 </script>

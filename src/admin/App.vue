@@ -176,6 +176,7 @@ button {
   &--addcard {
     background-color: transparent;
     border: 2px solid #fff;
+    margin-bottom: 25px;
   }
 }
 
@@ -493,6 +494,10 @@ button {
   }
 }
 
+.works__form-button {
+  text-align: center;
+}
+
 .photoplace {
   height: 100%;
   position: relative;
@@ -669,7 +674,6 @@ button {
 .addcard__button {
   width: 150px;
   height: 150px;
-  margin-bottom: 25px;
 
   @include phones {
     width: 50px;
@@ -698,10 +702,6 @@ button {
   position: relative;
   width: 100%;
   margin-bottom: 35px;
-}
-
-.works__form-button {
-  text-align: center;
 }
 
 .works__item-content {

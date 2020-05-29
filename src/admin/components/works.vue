@@ -1,10 +1,10 @@
 <template lang="pug">
   section.section.works
-    .works__edit.editcard
+    .works__edit.editcard(v-if="addingWorkMode")
       .works__edit-top.editcard__top
         h3.editcard__title Добавление работы
       .works__form
-        form.form(method="POST" action="#" @submit.prevent="createNewWork")
+        form.form(method="POST" @submit.prevent="createNewWork")
           .works__form-left
             .works__form-photoplace
               .photoplace(
@@ -23,8 +23,10 @@
                   label.button.photoplace__button(
                     for="input_work_photo"
                   ) Загрузить
-            .works__form-button
-              .button.button--white Изменить превью
+            .works__form-button(v-if="work.renderedPhoto.length")
+              label.button.button--white(
+                for="input_work_photo"
+              ) Изменить превью
           .works__form-right
             .works__form-row
               label.form__label(for="input_work_title") Название
@@ -54,7 +56,71 @@
               label.form__label(for="input_work_tags") Добавление тега
               input.form__input.form__input--works.form__input--tags(
                 v-model="work.techs"
-                placeholder="HTML5" 
+                placeholder="HTML5, CSS3, Vue.js" 
+                required="required" 
+                id="input_work_tags"
+              )
+            .form__buttons
+              button.button.button--white(
+                @click="addingWorkMode = false"
+              ) Отмена
+              input.button(
+                type="submit" 
+                value="Сохранить"
+              )
+    .works__edit.editcard(v-if="editWorkMode" )
+      .works__edit-top.editcard__top
+        h3.editcard__title Редактирование работы
+      .works__form
+        form.form(method="POST" @submit.prevent="createNewWork")
+          .works__form-left
+            .works__form-photoplace
+              .photoplace(
+                :style="{backgroundImage: `url(${photoUrlEdited})`}"
+                :class="{'photoplace--filled' : editedWork.photo.length}"
+              )
+                .photoplace__label
+                  .photoplace__text Перетащите или загрузите для загрузки изображения
+                  input.photoplace__input(
+                    @change="handleFileChange"
+                    id="input_work_photo"
+                    type="file"
+                    title="Загрузить"
+                    name="photo"
+                  )
+                  label.button.photoplace__button(
+                    for="input_work_photo"
+                  ) Загрузить
+            .works__form-button(v-if="editedWork.photo.length")
+              label.button.button--white(
+                for="input_work_photo"
+              ) Изменить превью
+          .works__form-right
+            .works__form-row
+              label.form__label(for="input_work_title") Название
+              input.form__input.form__input--works(
+                v-model="editedWork.title"
+                required="required" 
+                id="input_work_title"
+              )
+            .works__form-row
+              label.form__label(for="input_work_link") Ссылка
+              input.form__input.form__input--works(
+                v-model="editedWork.link"
+                required="required" 
+                id="input_work_link"
+              )
+            .works__form-row
+              label.form__label(for="input_work_desc") Описание
+              textarea.form__textarea.form__input.form__input--works(
+                v-model="editedWork.description"
+                required="required" 
+                id="input_work_desc"
+              )
+            .works__form-row
+              label.form__label(for="input_work_tags") Добавление тега
+              input.form__input.form__input--works.form__input--tags(
+                v-model="editedWork.techs"
                 required="required" 
                 id="input_work_tags"
               )
@@ -69,7 +135,9 @@
                     button.button-icon.button-icon__delete
                       svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
             .form__buttons
-              .button.button--white Отмена
+              button.button.button--white(
+                @click="addingWorkMode = false"
+              ) Отмена
               input.button(
                 type="submit" 
                 value="Сохранить"
@@ -79,12 +147,15 @@
       li.works__item
         .addcard
           .addcard__label
-            button.addcard__button
+            button.addcard__button(
+              @click="addingWorkMode = true"
+            )
               .plus-icon.plus-icon--addcard
-            .addcard__text Добавить работу
+              .addcard__text Добавить работу
       li.works__item(v-for="work in works" :key="work.id")
         worksCard(
           :work="work"
+          @editCurrentWork=("editWorkModeOn")
         )
 
 </template>
@@ -92,7 +163,7 @@
 <script>
 import svgIcon from './svgIcon';
 import { mapActions, mapState } from 'vuex';
-import { renderer } from '../helpers/pictures';
+import { renderer, getAbsoluteImgPath } from '../helpers/pictures';
 import worksCard from './worksCard';
 
 export default {
@@ -106,13 +177,26 @@ export default {
         link: "",
         description: "",
         renderedPhoto: ""
-      }
+      },
+      addingWorkMode: false,
+      editWorkMode: false,
+      editedWork: {}
     }
   },
   computed: {
     ...mapState("works", {
       works: state => state.works
-    })
+    }),
+    photoUrl() {
+      return getAbsoluteImgPath(this.editedWork.photo);
+    },
+    photoUrlEdited() {
+      if(this.work.renderedPhoto) {
+        return this.work.renderedPhoto;
+      } else {
+        return getAbsoluteImgPath(this.editedWork.photo);
+      }
+    }
   },
   created() {
     this.getWorks();
@@ -129,9 +213,6 @@ export default {
         formData.append("link", this.work.link);
         formData.append("description", this.work.description);
 
-        console.log(this.work.photo);
-        
-
         await this.addNewWork(formData);
 
         this.work.title = "",
@@ -139,7 +220,8 @@ export default {
         this.work.photo = {},
         this.work.link = "",
         this.work.description = "",
-        this.work.renderedPhoto = ""
+        this.work.renderedPhoto = "",
+        this.addingWorkMode = false
       } catch (error) {
         console.log(error);
       }
@@ -151,6 +233,12 @@ export default {
       renderer(photo).then(pic => {
         this.work.renderedPhoto = pic;
       })
+    },
+    editWorkModeOn(currentWork) {
+      this.editWorkMode = true;
+      
+      this.editedWork = {...currentWork};
+      console.log(this.editedWork);
     }
   }
 };

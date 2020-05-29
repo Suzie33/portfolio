@@ -8,7 +8,12 @@ export default {
       state.works = works;
     },
     ADD_WORK(state, newWork) {
-      state.works.unshift(newWork);
+      state.works.push(newWork);
+    },
+    REMOVE_WORK(state, workToRemove) {
+      state.works = state.works.filter(
+        work => work.id !== workToRemove.id
+      );
     },
   },
   actions: {
@@ -26,6 +31,14 @@ export default {
       try {
         const {data} = await this.$axios.get('works/315');
         commit("SET_WORKS", data);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async removeWork({ commit }, workToRemove) {
+      try {
+        const { data } = await this.$axios.delete(`works/${workToRemove.id}`);
+        commit("works/REMOVE_WORK", workToRemove, { root: true });
       } catch (error) {
         console.log(error);
       }
