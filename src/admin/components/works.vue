@@ -72,7 +72,7 @@
       .works__edit-top.editcard__top
         h3.editcard__title Редактирование работы
       .works__form
-        form.form(method="POST" @submit.prevent="createNewWork")
+        form.form(method="POST" @submit.prevent="editCurrentWork")
           .works__form-left
             .works__form-photoplace
               .photoplace(
@@ -136,7 +136,7 @@
                       svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
             .form__buttons
               button.button.button--white(
-                @click="addingWorkMode = false"
+                @click="editWorkMode = false"
               ) Отмена
               input.button(
                 type="submit" 
@@ -202,7 +202,7 @@ export default {
     this.getWorks();
   },
   methods: {
-    ...mapActions("works", ["addNewWork", "getWorks"]),
+    ...mapActions("works", ["addNewWork", "getWorks", "editWork"]),
     async createNewWork() {
       try {
         const formData = new FormData();
@@ -238,7 +238,28 @@ export default {
       this.editWorkMode = true;
       
       this.editedWork = {...currentWork};
-      console.log(this.editedWork);
+    },
+    async editCurrentWork() {
+      try {
+        const formData = new FormData();
+
+        formData.append("title", this.editedWork.title);
+        formData.append("techs", this.editedWork.techs);
+        formData.append("photo", this.work.photo);
+        formData.append("link", this.editedWork.link);
+        formData.append("description", this.editedWork.description);
+        
+        const editedWorkData = {
+          editedWork: formData, 
+          editedWorkId: this.editedWork.id
+        };
+        
+        await this.editWork(editedWorkData);
+
+        this.editWorkMode = false;
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };

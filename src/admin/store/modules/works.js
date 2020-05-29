@@ -15,6 +15,11 @@ export default {
         work => work.id !== workToRemove.id
       );
     },
+    EDIT_WORK(state, workToEdit) {
+      state.works = state.works.map(work => {
+        return work.id === workToEdit.id ? workToEdit : work;
+      });
+    },
   },
   actions: {
     async addNewWork({commit}, newWork) {
@@ -41,6 +46,16 @@ export default {
         commit("works/REMOVE_WORK", workToRemove, { root: true });
       } catch (error) {
         console.log(error);
+      }
+    },
+    async editWork({ commit }, { editedWork, editedWorkId }) {
+      try {
+        const { data:{ work } } = await this.$axios.post(`works/${editedWorkId}`, editedWork);
+        commit("EDIT_WORK", work)
+      } catch (error) {
+        throw new Error(
+          error.response.data.error || error.response.data.message
+        );
       }
     },
   }
