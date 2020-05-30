@@ -40,8 +40,8 @@ export default {
     ...mapActions("skills", ["addSkill"]),
     async addNewSkill() {
       const skillData = {
-          ...this.skill,
-          category: this.category.id
+        ...this.skill,
+        category: this.category.id
       };
       this.isDisabled = true;
       try {
