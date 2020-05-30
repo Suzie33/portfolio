@@ -67,9 +67,9 @@
 <script>
 
 const tabs = [
-  {id: 0, title: "Обо мне", href: "admin#/about"},
-  {id: 1, title: "Работы", href: "admin#/works"},
-  {id: 2, title: "Отзывы", href: "admin#/reviews"}
+  {id: 0, title: "Обо мне", href: "#" + "/about"},
+  {id: 1, title: "Работы", href: "#" + "/works"},
+  {id: 2, title: "Отзывы", href: "#" + "/reviews"}
 ];
 
 import svgIcon from './svgIcon';

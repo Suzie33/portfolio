@@ -9,7 +9,7 @@
         .header__note Панель администрирования
       .header__right
         .header__links
-          a.link(href="#" + "/login") Выйти
+          a.link(href="#" + "/login").link Выйти
 </template>
 
 <style lang="postcss" scoped>
