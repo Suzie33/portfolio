@@ -7,7 +7,7 @@ if (!token) console.warn("Токен отсутствует");
 const $axios = axios.create({
   baseURL: "https://webdev-api.loftschool.com/",
   headers: {
-    'Authorization' : `Bearer ${token}`
+    Authorization : `Bearer ${token}`
   }
 });
 

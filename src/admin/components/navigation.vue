@@ -4,18 +4,20 @@
       nav.nav
         ul.nav__list
           li.nav__item(
-            v-for="tab in tabs" :key="tab.id"
+            v-for="tab in tabs" 
+            :key="tab.id"
             @click="handleChange(tab)"
             :class="{'nav__item--active' : activeTabId === tab.id}"
           )
-            a.nav__link(
-              :href="tab.href"
-              ) {{tab.title}}
+            router-link(
+              :to="tab.href"
+              :data-text="tab.title" 
+              exact-active-class="active"
+              ).nav__link
 </template>
 
 <style lang="postcss" scoped>
 @import '../../styles/mixins.pcss';
-
 
 .nav {
   background-color: #fff;
@@ -60,17 +62,28 @@
 
 .nav__link {
   color: $admin-color;
+  vertical-align: middle;
+  white-space: nowrap;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+
+  @include phones {
+    width: 100px;
+  }
+  &:before {
+    content: attr(data-text);
+  }
+
 }
 
 </style>
 
 <script>
-
-const tabs = [
-  {id: 0, title: "Обо мне", href: "#" + "/about"},
-  {id: 1, title: "Работы", href: "#" + "/works"},
-  {id: 2, title: "Отзывы", href: "#" + "/reviews"}
-];
 
 import svgIcon from './svgIcon';
 
@@ -78,8 +91,12 @@ export default {
   components: { svgIcon },
   data() {
     return {
-      tabs,
-      activeTabId: 0
+      tabs: [
+        { id: 0, title: "Обо мне", href: "/about" },
+        { id: 1, title: "Работы", href: "/works" },
+        { id: 2, title: "Отзывы", href: "/reviews" }
+      ],
+      activeTabId: 0,
     }
   },
   methods: {
