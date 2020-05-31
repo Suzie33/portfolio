@@ -48,6 +48,17 @@ button {
 .avatar {
   border-radius: 50%;
   overflow: hidden;
+
+  &--filled {
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    border: none;
+
+    /* .photoplace__label {
+      display: none;
+    } */
+  }
 }
 
 .avatar__pic {
@@ -535,6 +546,7 @@ button {
 }
 
 .photoplace__input {
+  position: absolute;
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
