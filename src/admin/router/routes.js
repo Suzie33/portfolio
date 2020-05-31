@@ -3,11 +3,11 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import mainapp from './admin/components/mainapp.vue';
-import about from './admin/components/about.vue'; 
-import works from './admin/components/works.vue'; 
-import reviews from './admin/components/reviews.vue'; 
-import authorization from './admin/components/authorization.vue'; 
+import mainapp from '../components/mainapp.vue';
+import about from '../components/about.vue'; 
+import works from '../components/works.vue'; 
+import reviews from '../components/reviews.vue'; 
+import authorization from '../components/authorization.vue'; 
 
 const routes= [ 
   { 
@@ -30,8 +30,11 @@ const routes= [
   },
   {
     path: '/login',
-    component: authorization
+    component: authorization,
+    meta: {
+      public: true
+    }
   },
  ];
 
-export default new VueRouter({ routes });
+export default routes;

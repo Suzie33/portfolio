@@ -9,7 +9,10 @@
         .header__note Панель администрирования
       .header__right
         .header__links
-          a.link(href="#" + "/login").link Выйти
+          a.link(
+            
+            @click="logoutUser"
+          ) Выйти
 </template>
 
 <style lang="postcss" scoped>
@@ -84,8 +87,16 @@
 
 <script>
 import svgIcon from './svgIcon';
+import { mapActions } from 'vuex';
 
 export default {
   components: { svgIcon },
+  methods: {
+    ...mapActions("user", ["logout"]),
+    logoutUser() {
+      this.logout();
+      this.$router.replace("/login");
+    }
+  }
 };
 </script>
