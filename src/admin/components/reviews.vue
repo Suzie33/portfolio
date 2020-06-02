@@ -1,6 +1,6 @@
 <template lang="pug">
   section.section.reviews
-    .reviews__edit.editcard
+    .reviews__edit.editcard(v-if="addingReviewMode")
       .reviews__edit-top.editcard__top
         h3.editcard__title Новый отзыв
       .reviews__form
@@ -61,44 +61,38 @@
                   id="input_review_text"
                 )
             .form__buttons
-              input.button.button--white(type="reset" value="Отмена")
-              input.button(type="submit" value="Сохранить")
+              button.button.button--white(
+                @click="addingReviewMode = false"
+                type="button"
+              ) Отмена
+              input.button(
+                type="submit" 
+                value="Сохранить" 
+                )
     ul.reviews__list
       li.reviews__item
         .addcard
           .addcard__label
-            button.addcard__button
+            button.addcard__button(
+              @click="addingReviewMode = true"
+            )
               .plus-icon.plus-icon--addcard
-            .addcard__text Добавить отзыв
-      li.reviews__item
-        .reviews__item-top
-          .reviews__source
-            .avatar.reviews__avatar
-              img(src='../../images/content/review1.jpg' alt="Avatar").avatar__pic
-            .reviews__author
-              .reviews__name Владимир Сабанцев
-              .reviews__position Преподаватель
-        .reviews__item-content
-          p.reviews__item-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-          .reviews__item-controls
-              button.button-inscription.button-inscription--works
-                span.button-inscription__text Править
-                .button-inscription__icon
-                  svgIcon(className="button-icon__icon" name="pencil" fill="#383bcf" width="17" height="17")
-              button.button-inscription.button-inscription--works
-                span.button-inscription__text Удалить
-                .button-inscription__icon
-                  svgIcon(className="button-icon__icon" name="close" fill="#c92e2e" width="15" height="15")
+              .addcard__text Добавить отзыв
+      li.reviews__item(v-for="review in reviews" :key="review.id")
+        reviewCard(
+          :review="review"
+        )
 
 </template>
 
 <script>
 import svgIcon from './svgIcon';
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import { renderer, getAbsoluteImgPath } from '../helpers/pictures';
+import reviewCard from './reviewCard';
 
 export default {
-  components: { svgIcon },
+  components: { svgIcon, reviewCard },
   data: () => {
     return {
       review: {
@@ -108,13 +102,21 @@ export default {
         photo: {},
         renderedPhoto: ""
       },
-      // addingWorkMode: false,
+      addingReviewMode: false,
       // editWorkMode: false,
       // editedWork: {}
     }
   },
+  computed: {
+    ...mapState("reviews", {
+      reviews: state => state.reviews
+    }),
+  },
+  created() {
+    this.getReviews();
+  },
   methods: {
-    ...mapActions("reviews", ["addNewReview"]),
+    ...mapActions("reviews", ["addNewReview", "getReviews"]),
     async createNewReview() {
       const formData = new FormData();
 
@@ -125,6 +127,13 @@ export default {
 
       await this.addNewReview(formData);
       
+      this.review.author = "";
+      this.review.position = "";
+      this.review.text = "";
+      this.review.photo = "";
+      this.review.renderedPhoto = "";
+
+      this.addingReviewMode = false;
     },
     handleFileChange(event) {
       const photo = event.target.files[0];

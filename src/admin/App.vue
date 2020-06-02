@@ -854,6 +854,12 @@ button {
   width: 100%;
 }
 
+.reviews__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .reviews__list {
   width: 100%;
   display: flex;
