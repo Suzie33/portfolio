@@ -15,11 +15,11 @@ export default {
         review => review.id !== reviewToRemove.id
       );
     },
-    // EDIT_WORK(state, workToEdit) {
-    //   state.works = state.works.map(work => {
-    //     return work.id === workToEdit.id ? workToEdit : work;
-    //   });
-    // },
+    EDIT_REVIEW(state, reviewToEdit) {
+      state.reviews = state.reviews.map(review => {
+        return review.id === reviewToEdit.id ? reviewToEdit : review;
+      });
+    },
   },
   actions: {
     async addNewReview({commit}, newReview) {
@@ -48,15 +48,15 @@ export default {
         console.log(error);
       }
     },
-    // async editWork({ commit }, { editedWork, editedWorkId }) {
-    //   try {
-    //     const { data:{ work } } = await this.$axios.post(`works/${editedWorkId}`, editedWork);
-    //     commit("EDIT_WORK", work)
-    //   } catch (error) {
-    //     throw new Error(
-    //       error.response.data.error || error.response.data.message
-    //     );
-    //   }
-    // },
+    async editReview({ commit }, { editedReview, editedReviewId }) {
+      try {
+        const { data:{ review } } = await this.$axios.post(`reviews/${editedReviewId}`, editedReview);
+        commit("EDIT_REVIEW", review)
+      } catch (error) {
+        throw new Error(
+          error.response.data.error || error.response.data.message
+        );
+      }
+    },
   }
 }

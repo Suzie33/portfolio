@@ -10,7 +10,9 @@
     .reviews__item-content
       p.reviews__item-text {{review.text}}
       .reviews__item-controls
-          button.button-inscription.button-inscription--works
+          button.button-inscription.button-inscription--works(
+            @click="$emit('editCurrentReviewMode', review)"
+          )
             span.button-inscription__text Править
             .button-inscription__icon
               svgIcon(className="button-icon__icon" name="pencil" fill="#383bcf" width="17" height="17")

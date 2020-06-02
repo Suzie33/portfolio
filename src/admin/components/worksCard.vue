@@ -1,7 +1,5 @@
 <template lang="pug">
   .works__card
-
-    pre {{review}}
     .works__item-preview
       img(:src='photoUrl' alt="Work").works__item-photo
       .works__item-tags
