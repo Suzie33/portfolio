@@ -86,13 +86,6 @@ new Vue ({
         handleSlidePreview(index) {
             this.currentIndex = index;
         },
-        // makeArrWithRequiredImages(array) {
-        //     return array.map((item) => {
-        //         const requirePic = require(`../images/content/${item.photo}`);
-        //         item.photo = requirePic;
-        //         return item;
-        //     });
-        // },
     },
     async created() {
         const { data } = await $axios.get("works/315");

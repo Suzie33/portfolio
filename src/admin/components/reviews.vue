@@ -12,7 +12,7 @@
           .reviews__form-left
             .form__avatar.avatar(
               :style="{backgroundImage: `url(${review.renderedPhoto})`}"
-              :class="{'avatar--filled' : editedReview.photo.length}"
+              :class="{'avatar--filled' : review.renderedPhoto.length}"
             )
               input.photoplace__input(
                 @change="handleFileChange"
