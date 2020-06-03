@@ -1,8 +1,9 @@
 script(type="text/x-template")#slider-container
-    .works__content
+    .works__content(v-if="works.length")
         display(
             :currentWork="currentWork"
             :works="works"
+            :currentIndex="currentIndex"
             @slide="handleSlide"
             @slidePreview="handleSlidePreview"
         )
@@ -13,7 +14,7 @@ script(type="text/x-template")#slider-container
 script(type="text/x-template")#slider-display
     .works__slider
         .slider
-            img(:src="currentWork.photo").slider__image
+            img(:src="photoUrl(currentWork.photo)").slider__image
             previews(
                 :works="works"
                 :currentWork="currentWork"
@@ -22,7 +23,7 @@ script(type="text/x-template")#slider-display
             buttons(
                 @slide="$emit('slide', $event)"
              )
-        span.works__number {{currentWork.id}}
+        span.works__number {{currentIndex + 1}}
 
 script(type="text/x-template")#slider-previews
     .slider__previews
@@ -33,7 +34,7 @@ script(type="text/x-template")#slider-previews
                 :class="{'slider__previews-item--active': currentWork.id === work.id}"
                 @click="$emit('slidePreview', index)"
             )
-                img.slider__preview-image(:src="work.photo")
+                img.slider__preview-image(:src="photoUrl(work.photo)")
 
 script(type="text/x-template")#slider-buttons
     .slider__controls
@@ -51,7 +52,7 @@ script(type="text/x-template")#slider-info
         .works__text
             h3.works__title {{currentWork.title}}
             .works__definition
-                p {{currentWork.desc}}
+                p {{currentWork.description}}
             a.iconed-link(:href='currentWork.link' target="_blank")
                 .iconed-link__icon
                 span.iconed-link__text Посмотреть сайт
