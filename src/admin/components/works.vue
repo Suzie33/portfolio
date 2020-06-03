@@ -1,5 +1,7 @@
 <template lang="pug">
   section.section.works
+    .section__top
+      h2.section__title Блок &laquo;Работы&raquo;
     .works__edit.editcard(v-if="addingWorkMode")
       .works__edit-top.editcard__top
         h3.editcard__title Добавление работы

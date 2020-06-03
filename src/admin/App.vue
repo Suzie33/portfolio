@@ -93,7 +93,7 @@ button {
   }
 }
 
-.about__top {
+.section__top {
   display: flex;
   align-items: center;
   margin-bottom: 50px;

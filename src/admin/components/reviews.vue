@@ -1,5 +1,7 @@
 <template lang="pug">
   section.section.reviews
+    .section__top
+      h2.section__title Блок &laquo;Отзывы&raquo;
     .reviews__edit.editcard(v-if="addingReviewMode")
       .reviews__edit-top.editcard__top
         h3.editcard__title Новый отзыв

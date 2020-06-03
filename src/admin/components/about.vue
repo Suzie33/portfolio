@@ -1,13 +1,15 @@
 <template lang="pug">
   section.section.about
-    .about__top
+    .section__top
       h2.section__title Блок &laquo;Обо мне&raquo;
-      button.button-inscription
+      button.button-inscription(
+        @click="addCategoryMode = true"
+      )
         .button-inscription__icon
           .plus-icon
         span.button-inscription__text Добавить группу
     ul.about__list
-      li.about__item.editcard
+      li.about__item.editcard(v-if="addCategoryMode")
         .form.about__form(method="POST" action="#")
           form.about__form-top.editcard__top(
             @submit.prevent="createCategory"
@@ -44,6 +46,7 @@ export default {
       category: {
         title: ""
       },
+      addCategoryMode: false
     }
     
   },
@@ -61,6 +64,7 @@ export default {
       try {
         await this.addCategory(this.category.title);
         this.category.title = "";
+        this.addCategoryMode = false;
       } catch (error) {
         alert(error.message);
       }

@@ -6,13 +6,11 @@
           li.nav__item(
             v-for="tab in tabs" 
             :key="tab.id"
-            @click="handleChange(tab)"
-            :class="{'nav__item--active' : activeTabId === tab.id}"
           )
             router-link(
               :to="tab.href"
               :data-text="tab.title" 
-              exact-active-class="active"
+              exact-active-class="nav__link--active"
               ).nav__link
 </template>
 
@@ -30,25 +28,14 @@
 }
 
 .nav__item {
-  padding: 25px 30px;
   margin-right: 10px;
-  border-bottom: 3px solid transparent;
 
   &:last-child {
     margin-right: 0;
   }
 
-  &:hover {
-    cursor: pointer;
-    border-bottom: 3px solid $admin-blue;
-
-    .nav__link {
-      color: $admin-blue;
-    }
-  }
-
   &--active {
-    border-bottom: 3px solid $admin-blue;
+    
 
     .nav__link {
       color: $admin-blue;
@@ -61,6 +48,7 @@
 }
 
 .nav__link {
+  padding: 25px 30px;
   color: $admin-color;
   vertical-align: middle;
   white-space: nowrap;
@@ -79,6 +67,16 @@
     content: attr(data-text);
   }
 
+  &:hover {
+    cursor: pointer;
+    border-bottom: 3px solid $admin-blue;
+    color: $admin-blue;
+  }
+
+  &--active {
+    border-bottom: 3px solid $admin-blue;
+    color: $admin-blue;
+  }
 }
 
 </style>
@@ -99,11 +97,5 @@ export default {
       activeTabId: 0,
     }
   },
-  methods: {
-    handleChange(tab) {
-      this.activeTabId = tab.id;
-      this.$emit("tabChanged");
-    }
-  }
 };
 </script>
