@@ -5,7 +5,7 @@
       .works__item-tags
         .works__form-tags
           ul.tags__list
-            li.tags__item {{work.techs}}
+            li.tags__item(v-for="tag in tagsArray") {{tag}}
     .works__item-content
       .works__item-desc
         h3.works__item-title {{work.title}}
@@ -47,6 +47,9 @@ export default {
   computed: {
     photoUrl() {
       return getAbsoluteImgPath(this.work.photo);
+    },
+    tagsArray() {
+      return this.work.techs.split(",");
     }
   },
   methods: {

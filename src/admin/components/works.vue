@@ -19,6 +19,7 @@
                     @change="handleFileChange"
                     id="input_work_photo"
                     type="file"
+                    required
                     title="Загрузить"
                     name="photo"
                   )
@@ -128,13 +129,11 @@
               )
               .works__form-tags
                 ul.tags__list
-                  li.tags__item 
-                    span.tags__text HTML5
-                    button.button-icon.button-icon__delete
-                      svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
-                  li.tags__item 
-                    span.tags__text CSS
-                    button.button-icon.button-icon__delete
+                  li.tags__item(v-for="(tag, index) in tagsArray")
+                    span.tags__text {{tag}}
+                    button.button-icon.button-icon__delete(
+                      @click.prevent="deleteTag(tag, index)"
+                    )
                       svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
             .form__buttons
               button.button.button--white(
@@ -198,6 +197,9 @@ export default {
       } else {
         return getAbsoluteImgPath(this.editedWork.photo);
       }
+    },
+    tagsArray() {
+      return this.editedWork.techs.split(",");
     }
   },
   created() {
@@ -262,6 +264,14 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    deleteTag(tag, index) {
+      console.log(this.editedWork.techs);
+      this.tagsArray.splice(index, 1);
+      this.editedWork.techs = this.tagsArray.toString();
+      console.log(this.editedWork.techs);
+      
+      
     }
   }
 };
