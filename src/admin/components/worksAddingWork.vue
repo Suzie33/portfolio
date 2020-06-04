@@ -62,6 +62,14 @@
               id="input_work_tags"
             )
             div.form__error {{validation.firstError('work.techs')}}
+            .works__form-tags
+              ul.tags__list
+                li.tags__item(v-for="(tag, index) in tagsArray")
+                  span.tags__text {{tag}}
+                  button.button-icon.button-icon__delete(
+                    @click.prevent="deleteTag(tag, index)"
+                  )
+                    svgIcon(className="button-icon__icon" name="close" fill="#414c63" width="11" height="11")
           .form__buttons
             button.button.button--white(
               @click.prevent="$emit('closeCard')"
@@ -105,7 +113,7 @@ export default {
       }
     },
     tagsArray() {
-      return this.editedWork.techs.split(",");
+      return this.work.techs.split(",");
     }
   },
   methods: {
@@ -168,6 +176,10 @@ export default {
     deleteTag(tag, index) {
       this.tagsArray.splice(index, 1);
       this.editedWork.techs = this.tagsArray.toString();
+    },
+    deleteTag(tag, index) {
+      this.tagsArray.splice(index, 1);
+      this.work.techs = this.tagsArray.toString();
     }
   },
   mixins: [require('simple-vue-validator').mixin],

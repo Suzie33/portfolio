@@ -594,6 +594,11 @@ button {
   margin-bottom: 20px;
 }
 
+.tags__list {
+  display: flex;
+  align-items: center;
+}
+
 .tags__item {
   display: inline-flex;
   align-items: center;
