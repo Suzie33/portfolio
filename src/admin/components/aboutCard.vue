@@ -77,7 +77,7 @@ export default {
     async removeCurrentCategory() {
       try {
         await this.removeCategory(this.category);
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Категория удалена'  });
       } catch (error) {
         alert(error.message);
       }
@@ -85,7 +85,7 @@ export default {
     async editCurrentCategory() {
       try {
         await this.editCategory(this.editedCategory);
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Категория отредактирована'  });
       } catch (error) {
         alert(error.message);
       } finally {

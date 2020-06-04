@@ -223,7 +223,7 @@ export default {
 
           this.addingReviewMode = false;
 
-          EventBus.$emit('updateEvent', { showed: true });
+          EventBus.$emit('updateEvent', { showed: true, message: 'Отзыв добавлен'  });
       } catch (error) {
         if(error.message === "The given data was invalid.") {
           alert("Ошибка в данных. Убедитесь, что все поля заполнены и загруженный файл является изображением размером до 1,5 Мб.");
@@ -275,7 +275,7 @@ export default {
 
         this.editReviewMode = false;
 
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Отзыв отредактирован' });
       } catch (error) {
         console.log(error);
         alert("Какая-то ошибка");

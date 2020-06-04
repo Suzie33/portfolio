@@ -68,7 +68,7 @@ export default {
         await this.addCategory(this.category.title);
         this.category.title = "";
         this.addCategoryMode = false;
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Категория добавлена'  });
       } catch (error) {
         alert(error.message);
       }

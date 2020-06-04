@@ -49,7 +49,7 @@ export default {
         await this.addSkill(skillData);
         this.skill.title = "";
         this.skill.percent = "";
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Навык добавлен'  });
       } catch (error) {
         alert(error.message);
       } finally {

@@ -53,7 +53,7 @@ export default {
       try {
         this.isDisabled = true;
         await this.removeReview(this.review);
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Отзыв удален'  });
       } catch (error) {
         alert(error.message);
       } finally {

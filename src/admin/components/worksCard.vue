@@ -59,7 +59,7 @@ export default {
       try {
         this.isDisabled = true;
         await this.removeWork(this.work);
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Запись удалена' });
       } catch (error) {
         alert(error.message);
       } finally {

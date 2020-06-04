@@ -68,6 +68,7 @@ export default {
   mounted() {
     EventBus.$on('updateEvent', payload => {
       this.tooltip.showed = payload.showed;
+      this.tooltip.message = payload.message;
     });
   },
   watch: {

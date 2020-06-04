@@ -67,7 +67,7 @@ export default {
     async removeCurrentSkill() {
       try {
         await this.removeSkill(this.skill);
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Навык удален'  });
       } catch (error) {
         alert(error.message);
       }
@@ -75,7 +75,7 @@ export default {
     async editCurrentSkill() {
       try {
         await this.editSkill(this.editedSkill);
-        EventBus.$emit('updateEvent', { showed: true });
+        EventBus.$emit('updateEvent', { showed: true, message: 'Навык отредактирован'  });
       } catch (error) {
         alert(error.message);
       } finally {
