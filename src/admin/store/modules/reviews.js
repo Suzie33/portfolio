@@ -32,10 +32,12 @@ export default {
         );
       }
     },
-    async getReviews({commit}) {
+    async getReviews(store) {
       try {
-        const {data} = await this.$axios.get('reviews/315');
-        commit("SET_REVIEWS", data);
+        if (store.state.reviews.length === 0) {
+          const {data} = await this.$axios.get('reviews/315');
+          store.commit("SET_REVIEWS", data);
+        }
       } catch (error) {
         console.log(error);
       }

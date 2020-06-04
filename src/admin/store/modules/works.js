@@ -32,10 +32,12 @@ export default {
         );
       }
     },
-    async getWorks({commit}) {
+    async getWorks(store) {
       try {
-        const {data} = await this.$axios.get('works/315');
-        commit("SET_WORKS", data);
+        if (store.state.works.length === 0) {
+          const {data} = await this.$axios.get('works/315');
+          store.commit("SET_WORKS", data);
+        }
       } catch (error) {
         console.log(error);
       }

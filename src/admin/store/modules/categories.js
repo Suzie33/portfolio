@@ -86,10 +86,12 @@ export default {
         );
       }
     },
-    async getCategories({commit}) {
+    async getCategories(store) {
       try {
-        const {data} = await this.$axios.get('categories/315');
-        commit("SET_CATEGORIES", data);
+        if (store.state.categories.length === 0) {
+          const {data} = await this.$axios.get('categories/315');
+          store.commit("SET_CATEGORIES", data);
+        }
       } catch (error) {
         console.log(error);
       }
