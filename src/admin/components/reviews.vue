@@ -2,77 +2,78 @@
   section.section.reviews
     .section__top
       h2.section__title Блок &laquo;Отзывы&raquo;
-    .reviews__edit.editcard(v-if="addingReviewMode")
-      .reviews__edit-top.editcard__top
-        h3.editcard__title Новый отзыв
-      .reviews__form
-        form.form.form--reviews(
-          method="POST" 
-          action="#"
-          @submit.prevent="createNewReview"
-        )
-          .reviews__form-left
-            .form__avatar.avatar(
-              :style="{backgroundImage: `url(${review.renderedPhoto})`}"
-              :class="{'avatar--filled' : review.renderedPhoto.length}"
-            )
-              input.photoplace__input(
-                @change="handleFileChange"
-                id="input_review_photo"
-                type="file"
-                
-                title="Загрузить"
-                name="photo"
+    .reviews__edit(v-if="addingReviewMode")
+      .editcard
+        .reviews__edit-top.editcard__top
+          h3.editcard__title Новый отзыв
+        .reviews__form
+          form.form.form--reviews(
+            method="POST" 
+            action="#"
+            @submit.prevent="createNewReview"
+          )
+            .reviews__form-left
+              .form__avatar.avatar(
+                :style="{backgroundImage: `url(${review.renderedPhoto})`}"
+                :class="{'avatar--filled' : review.renderedPhoto.length}"
               )
-              .avatar--none(
-                v-if="review.renderedPhoto.length == false"
-              )
-                svgIcon(className="avatar--none__icon" name="user" fill="#c92e2e" width="85" height="113")
-            
-            .form__avatar-btn
-              label(
-                v-if="review.renderedPhoto.length == false"
-                for="input_review_photo"
-              ).button.button--white Добавить фото
-              label(
-                v-if="review.renderedPhoto.length"
-                for="input_review_photo"
-              ).button.button--white Изменить фото
-          .reviews__form-right
-            .reviews__form-row.reviews__form-row--top
-              .reviews__form-block
-                label.form__label(for="input_review_name") Имя автора
-                input.form__input.form__input--reviews( placeholder="Имя"
-                 
-                 id="input_review_name"
-                 v-model="review.author"
-                )
-              .reviews__form-block
-                label.form__label(for="input_review_position") Титул автора
-                input.form__input.form__input--reviews(
-                  v-model="review.position"
-                  placeholder="Преподаватель" 
+                input.photoplace__input(
+                  @change="handleFileChange"
+                  id="input_review_photo"
+                  type="file"
                   
-                  id="input_review_position"
+                  title="Загрузить"
+                  name="photo"
                 )
-            .reviews__form-row
-              .reviews__form-block
-                label.form__label(for="input_review_text") Отзыв
-                textarea.form__textarea.form__input.form__input--reviews(
-                  v-model="review.text"
-                  placeholder="Текст отзыва" 
+                .avatar--none(
+                  v-if="review.renderedPhoto.length === false"
+                )
+                  svgIcon(className="avatar--none__icon" name="user" fill="#c92e2e" width="85" height="113")
+              
+              .form__avatar-btn
+                label(
+                  v-if="review.renderedPhoto.length === false"
+                  for="input_review_photo"
+                ).button.button--white Добавить фото
+                label(
+                  v-if="review.renderedPhoto.length"
+                  for="input_review_photo"
+                ).button.button--white Изменить фото
+            .reviews__form-right
+              .reviews__form-row.reviews__form-row--top
+                .reviews__form-block
+                  label.form__label(for="input_review_name") Имя автора
+                  input.form__input.form__input--reviews( placeholder="Имя"
                   
-                  id="input_review_text"
-                )
-            .form__buttons
-              button.button.button--white(
-                @click="addingReviewMode = false"
-                type="button"
-              ) Отмена
-              input.button(
-                type="submit" 
-                value="Сохранить" 
-                )
+                  id="input_review_name"
+                  v-model="review.author"
+                  )
+                .reviews__form-block
+                  label.form__label(for="input_review_position") Титул автора
+                  input.form__input.form__input--reviews(
+                    v-model="review.position"
+                    placeholder="Преподаватель" 
+                    
+                    id="input_review_position"
+                  )
+              .reviews__form-row
+                .reviews__form-block
+                  label.form__label(for="input_review_text") Отзыв
+                  textarea.form__textarea.form__input.form__input--reviews(
+                    v-model="review.text"
+                    placeholder="Текст отзыва" 
+                    
+                    id="input_review_text"
+                  )
+              .form__buttons
+                button.button.button--white(
+                  @click="addingReviewMode = false"
+                  type="button"
+                ) Отмена
+                input.button(
+                  type="submit" 
+                  value="Сохранить" 
+                  )
     .reviews__edit.editcard(v-if="editReviewMode")
       .reviews__edit-top.editcard__top
         h3.editcard__title Редактировать отзыв
@@ -95,12 +96,12 @@
                 name="photo"
               )
               .avatar--none(
-                v-if="editedReview.photo.length == false"
+                v-if="editedReview.photo.length === false"
               )
                 svgIcon(className="avatar--none__icon" name="user" fill="#c92e2e" width="85" height="113")
             .form__avatar-btn
               label(
-                v-if="editedReview.photo.length == false"
+                v-if="editedReview.photo.length === false"
                 for="input_review_photo"
               ).button.button--white Добавить фото
               label(

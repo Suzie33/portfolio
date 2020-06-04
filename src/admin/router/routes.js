@@ -11,7 +11,7 @@ import authorization from '../components/authorization.vue';
 
 const routes= [ 
   { 
-    path: '/', 
+    path: '/', redirect: '/about',
     component: mainapp,
     children: [
       {
