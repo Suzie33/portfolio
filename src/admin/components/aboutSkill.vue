@@ -43,6 +43,7 @@
 <script>
 import {mapActions} from "vuex";
 import svgIcon from './svgIcon';
+import EventBus from '../EventBus';
 
 export default {
   components: {
@@ -66,15 +67,17 @@ export default {
     async removeCurrentSkill() {
       try {
         await this.removeSkill(this.skill);
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        alert(error.message);
       }
     },
     async editCurrentSkill() {
       try {
         await this.editSkill(this.editedSkill);
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        alert(error.message);
       } finally {
         this.editModeOn = false;
       }

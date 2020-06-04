@@ -59,6 +59,7 @@ import {mapActions} from "vuex";
 import svgIcon from './svgIcon';
 import aboutAddSkill from './aboutAddSkill';
 import aboutSkill from './aboutSkill';
+import EventBus from '../EventBus';
 
 export default {
   data() {
@@ -76,15 +77,17 @@ export default {
     async removeCurrentCategory() {
       try {
         await this.removeCategory(this.category);
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        alert(error.message);
       }
     },
     async editCurrentCategory() {
       try {
         await this.editCategory(this.editedCategory);
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        alert(error.message);
       } finally {
         this.editModeOn = false;
       }

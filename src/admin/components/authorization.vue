@@ -3,7 +3,6 @@
     .authorization
       h1.authorization__title Авторизация
       authorizationForm
-      authorizationCloseButton
 
 </template>
 
@@ -40,14 +39,20 @@
     font-size: 30px;
   }
 }
+
+.authorization__close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
 </style>
 
 <script>
 import svgIcon from './svgIcon';
-import authorizationCloseButton from './authorizationCloseButton';
+import closeButton from './closeButton';
 import authorizationForm from './authorizationForm';
 
 export default {
-  components: { svgIcon, authorizationCloseButton, authorizationForm },
+  components: { svgIcon, closeButton, authorizationForm },
 };
 </script>

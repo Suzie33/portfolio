@@ -22,6 +22,7 @@
 <script>
 import svgIcon from './svgIcon';
 import {mapActions} from 'vuex';
+import EventBus from '../EventBus';
 
 export default {
   props: [
@@ -48,8 +49,9 @@ export default {
         await this.addSkill(skillData);
         this.skill.title = "";
         this.skill.percent = "";
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        alert(error.message);
       } finally {
         this.isDisabled = false;
       }

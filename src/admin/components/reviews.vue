@@ -163,6 +163,7 @@ import { mapActions, mapState } from 'vuex';
 import { renderer, getAbsoluteImgPath } from '../helpers/pictures';
 import reviewCard from './reviewCard';
 import { Validator } from "simple-vue-validator";
+import EventBus from '../EventBus';
 
 export default {
   components: { svgIcon, reviewCard },
@@ -218,21 +219,35 @@ export default {
           this.review.photo = "";
           this.review.renderedPhoto = "";
 
+          this.validation.reset();
+
           this.addingReviewMode = false;
+
+          EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        if(error.message === "The given data was invalid.") {
+          alert("Ошибка в данных. Убедитесь, что все поля заполнены и загруженный файл является изображением размером до 1,5 Мб.");
+        } else {
+          alert("Какая-то ошибка");
+        }
       }
     }) 
       
     },
     handleFileChange(event) {
       const photo = event.target.files[0];
-      this.review.photo = photo;
+
+      if (photo.size > 1024*1024*1.5) {
+        alert('Файл слишком большой. Загрузите изображение до 1,5 Мб');
+      } else {
+        this.review.photo = photo;
       
-      renderer(photo).then(pic => {
-        this.review.renderedPhoto = pic;
-      });
-      this.photoChanged = true;
+        renderer(photo).then(pic => {
+          this.review.renderedPhoto = pic;
+        });
+        this.photoChanged = true;
+      }
+      
     },
     editReviewModeOn(currentReview) {
       this.editReviewMode = true;
@@ -259,8 +274,11 @@ export default {
         await this.editReview(editedReviewData);
 
         this.editReviewMode = false;
+
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
         console.log(error);
+        alert("Какая-то ошибка");
       }
     }
   },

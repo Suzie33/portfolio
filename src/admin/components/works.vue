@@ -17,7 +17,7 @@
                   .photoplace__text Перетащите или загрузите для загрузки изображения
                   input.photoplace__input(
                     @change="handleFileChange"
-                    refs="fileInput"
+                    ref="fileInput"
                     id="input_work_photo"
                     
                     type="file"
@@ -169,6 +169,7 @@ import { mapActions, mapState } from 'vuex';
 import { renderer, getAbsoluteImgPath } from '../helpers/pictures';
 import worksCard from './worksCard';
 import { Validator } from "simple-vue-validator";
+import EventBus from '../EventBus';
 
 export default {
   components: { svgIcon, worksCard },
@@ -231,18 +232,26 @@ export default {
           this.work.link = "",
           this.work.description = "",
           this.work.renderedPhoto = "",
-          this.addingWorkMode = false
+
+          this.validation.reset();
+
+          this.addingWorkMode = false;
+
+          EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        if(error.message === "The given data was invalid.") {
+          alert("Ошибка в данных. Убедитесь, что все поля заполнены и загруженный файл является изображением размером до 1,5 Мб.");
+        } else {
+          alert("Какая-то ошибка");
+        }
       }
     }) 
-      
     },
     handleFileChange(event) {
       const photo = event.target.files[0];
       
       if (photo.size > 1024*1024*1.5) {
-        alert('Файл слишком большой. ');
+        alert('Файл слишком большой. Загрузите изображение до 1,5 Мб');
       } else {
         this.work.photo = photo;
       
@@ -275,8 +284,14 @@ export default {
         await this.editWork(editedWorkData);
 
         this.editWorkMode = false;
+
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        if(error.message === "The given data was invalid.") {
+          alert("Ошибка в данных. Убедитесь, что все поля заполнены и загруженный файл является изображением размером до 1,5 Мб.");
+        } else {
+          alert("Какая-то ошибка");
+        }
       }
     },
     deleteTag(tag, index) {

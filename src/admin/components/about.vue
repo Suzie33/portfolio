@@ -30,6 +30,7 @@
         aboutCard(
           :category="cat"
         )
+    closeButton
 
 </template>
 
@@ -38,15 +39,17 @@ import { mapActions, mapState } from 'vuex';
 import svgIcon from './svgIcon';
 import aboutAddSkill from './aboutAddSkill';
 import aboutCard from './aboutCard';
+import closeButton from './closeButton';
+import EventBus from '../EventBus';
 
 export default {
-  components: { svgIcon, aboutAddSkill, aboutCard },
+  components: { svgIcon, aboutAddSkill, aboutCard, closeButton },
   data: () => {
     return {
       category: {
         title: ""
       },
-      addCategoryMode: false
+      addCategoryMode: false,
     }
     
   },
@@ -65,6 +68,7 @@ export default {
         await this.addCategory(this.category.title);
         this.category.title = "";
         this.addCategoryMode = false;
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
         alert(error.message);
       }

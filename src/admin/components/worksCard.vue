@@ -31,6 +31,7 @@
 import {mapActions} from "vuex";
 import svgIcon from './svgIcon';
 import {getAbsoluteImgPath} from '../helpers/pictures';
+import EventBus from '../EventBus';
 
 export default {
   components: {
@@ -58,8 +59,9 @@ export default {
       try {
         this.isDisabled = true;
         await this.removeWork(this.work);
+        EventBus.$emit('updateEvent', { showed: true });
       } catch (error) {
-        console.log(error);
+        alert(error.message);
       } finally {
         this.isDisabled = false;
       }

@@ -8,6 +8,8 @@
       .container
         router-view
 
+    tooltip
+
 </template>
 
 <style lang="postcss" scoped>
@@ -22,8 +24,9 @@ import navigation from './navigation';
 import about from './about';
 import works from './works';
 import reviews from './reviews';
+import tooltip from './tooltip';
 
 export default {
-  components: { svgIcon, headline, navigation, about, works, reviews },
+  components: { svgIcon, headline, navigation, about, works, reviews, tooltip },
 };
 </script>

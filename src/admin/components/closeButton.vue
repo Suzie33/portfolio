@@ -1,6 +1,6 @@
 <template lang="pug">
   button.close-button
-    svgIcon(className="close-button__icon" name="close" fill="#414c63" width="20" height="20")
+    svgIcon(className="close-button__icon" name="close" fill="#fff" width="20" height="20")
 </template>
 
 <style lang="postcss" scoped>
@@ -17,10 +17,6 @@ button {
 }
 
 .close-button {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-
   &:hover {
     opacity: 0.7;
   }

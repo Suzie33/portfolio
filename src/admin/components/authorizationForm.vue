@@ -158,7 +158,7 @@ export default {
         $axios.defaults.headers['Authorization'] = `Bearer ${token}`;
         this.$router.replace("/about");
       } catch (error) {
-        console.log(error);
+        alert(error.message);
       }
     },
   },

@@ -1031,16 +1031,6 @@ button {
     font-size: 16px;
   }
 }
-
-.close-button {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
 </style>
 
 <script>
