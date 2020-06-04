@@ -17,15 +17,17 @@
                   .photoplace__text Перетащите или загрузите для загрузки изображения
                   input.photoplace__input(
                     @change="handleFileChange"
+                    refs="fileInput"
                     id="input_work_photo"
+                    
                     type="file"
-                    required
                     title="Загрузить"
                     name="photo"
                   )
                   label.button.photoplace__button(
                     for="input_work_photo"
                   ) Загрузить
+                  div.form__error.form__error--photo {{validation.firstError('work.photo')}}
             .works__form-button(v-if="work.renderedPhoto.length")
               label.button.button--white(
                 for="input_work_photo"
@@ -36,33 +38,33 @@
               input.form__input.form__input--works(
                 v-model="work.title"
                 placeholder="Название работы" 
-                required="required" 
                 id="input_work_title"
               )
+              div.form__error {{validation.firstError('work.title')}}
             .works__form-row
               label.form__label(for="input_work_link") Ссылка
               input.form__input.form__input--works(
                 v-model="work.link"
-                placeholder="Ссылка на работу" 
-                required="required" 
+                placeholder="Ссылка на работу"
                 id="input_work_link"
               )
+              div.form__error {{validation.firstError('work.link')}}
             .works__form-row
               label.form__label(for="input_work_desc") Описание
               textarea.form__textarea.form__input.form__input--works(
                 v-model="work.description"
-                placeholder="Описание работы" 
-                required="required" 
+                placeholder="Описание работы"
                 id="input_work_desc"
               )
+              div.form__error {{validation.firstError('work.description')}}
             .works__form-row
               label.form__label(for="input_work_tags") Добавление тега
               input.form__input.form__input--works.form__input--tags(
                 v-model="work.techs"
-                placeholder="HTML5, CSS3, Vue.js" 
-                required="required" 
+                placeholder="HTML5, CSS3, Vue.js"
                 id="input_work_tags"
               )
+              div.form__error {{validation.firstError('work.techs')}}
             .form__buttons
               button.button.button--white(
                 @click="addingWorkMode = false"
@@ -166,6 +168,7 @@ import svgIcon from './svgIcon';
 import { mapActions, mapState } from 'vuex';
 import { renderer, getAbsoluteImgPath } from '../helpers/pictures';
 import worksCard from './worksCard';
+import { Validator } from "simple-vue-validator";
 
 export default {
   components: { svgIcon, worksCard },
@@ -174,7 +177,7 @@ export default {
       work: {
         title: "",
         techs: "",
-        photo: {},
+        photo: "",
         link: "",
         description: "",
         renderedPhoto: ""
@@ -207,36 +210,47 @@ export default {
   },
   methods: {
     ...mapActions("works", ["addNewWork", "getWorks", "editWork"]),
-    async createNewWork() {
-      try {
-        const formData = new FormData();
+    createNewWork() {
+      this.$validate().then(async success => {
+        if (!success) return alert("Пожалуйста, заполните все поля, в том числе поле с фотографией");
 
-        formData.append("title", this.work.title);
-        formData.append("techs", this.work.techs);
-        formData.append("photo", this.work.photo);
-        formData.append("link", this.work.link);
-        formData.append("description", this.work.description);
+        try {
+          const formData = new FormData();
 
-        await this.addNewWork(formData);
+          formData.append("title", this.work.title);
+          formData.append("techs", this.work.techs);
+          formData.append("photo", this.work.photo);
+          formData.append("link", this.work.link);
+          formData.append("description", this.work.description);
 
-        this.work.title = "",
-        this.work.techs = "",
-        this.work.photo = {},
-        this.work.link = "",
-        this.work.description = "",
-        this.work.renderedPhoto = "",
-        this.addingWorkMode = false
+          await this.addNewWork(formData);
+
+          this.work.title = "",
+          this.work.techs = "",
+          this.work.photo = "",
+          this.work.link = "",
+          this.work.description = "",
+          this.work.renderedPhoto = "",
+          this.addingWorkMode = false
       } catch (error) {
         console.log(error);
       }
+    }) 
+      
     },
     handleFileChange(event) {
       const photo = event.target.files[0];
-      this.work.photo = photo;
       
-      renderer(photo).then(pic => {
+      if (photo.size > 1024*1024*1.5) {
+        alert('Файл слишком большой. ');
+      } else {
+        this.work.photo = photo;
+      
+        renderer(photo).then(pic => {
         this.work.renderedPhoto = pic;
       })
+      }
+      
     },
     editWorkModeOn(currentWork) {
       this.editWorkMode = true;
@@ -266,12 +280,26 @@ export default {
       }
     },
     deleteTag(tag, index) {
-      console.log(this.editedWork.techs);
       this.tagsArray.splice(index, 1);
       this.editedWork.techs = this.tagsArray.toString();
-      console.log(this.editedWork.techs);
-      
-      
+    }
+  },
+  mixins: [require('simple-vue-validator').mixin],
+  validators: {
+    'work.title'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    },
+    'work.techs'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    },
+    'work.link'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    },
+    'work.description'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    },
+    'work.photo'(value) {
+      return Validator.value(value).required('Загрузите фотографию размером до 1,5 Мб');
     }
   }
 };

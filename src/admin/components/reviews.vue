@@ -20,6 +20,7 @@
                 @change="handleFileChange"
                 id="input_review_photo"
                 type="file"
+                
                 title="Загрузить"
                 name="photo"
               )
@@ -27,6 +28,7 @@
                 v-if="review.renderedPhoto.length == false"
               )
                 svgIcon(className="avatar--none__icon" name="user" fill="#c92e2e" width="85" height="113")
+            
             .form__avatar-btn
               label(
                 v-if="review.renderedPhoto.length == false"
@@ -41,7 +43,7 @@
               .reviews__form-block
                 label.form__label(for="input_review_name") Имя автора
                 input.form__input.form__input--reviews( placeholder="Имя"
-                 required="required" 
+                 
                  id="input_review_name"
                  v-model="review.author"
                 )
@@ -50,7 +52,7 @@
                 input.form__input.form__input--reviews(
                   v-model="review.position"
                   placeholder="Преподаватель" 
-                  required="required" 
+                  
                   id="input_review_position"
                 )
             .reviews__form-row
@@ -59,7 +61,7 @@
                 textarea.form__textarea.form__input.form__input--reviews(
                   v-model="review.text"
                   placeholder="Текст отзыва" 
-                  required="required" 
+                  
                   id="input_review_text"
                 )
             .form__buttons
@@ -160,6 +162,7 @@ import svgIcon from './svgIcon';
 import { mapActions, mapState } from 'vuex';
 import { renderer, getAbsoluteImgPath } from '../helpers/pictures';
 import reviewCard from './reviewCard';
+import { Validator } from "simple-vue-validator";
 
 export default {
   components: { svgIcon, reviewCard },
@@ -169,7 +172,7 @@ export default {
         author: "",
         position: "",
         text: "",
-        photo: {},
+        photo: "",
         renderedPhoto: ""
       },
       addingReviewMode: false,
@@ -196,22 +199,31 @@ export default {
   methods: {
     ...mapActions("reviews", ["addNewReview", "getReviews", "editReview"]),
     async createNewReview() {
-      const formData = new FormData();
+      this.$validate().then(async success => {
+        if (!success) return alert("Пожалуйста, заполните все поля, в том числе поле с фотографией");
 
-      formData.append("author", this.review.author);
-      formData.append("occ", this.review.position);
-      formData.append("text", this.review.text);
-      formData.append("photo", this.review.photo);
+        try {
+          const formData = new FormData();
 
-      await this.addNewReview(formData);
+          formData.append("author", this.review.author);
+          formData.append("occ", this.review.position);
+          formData.append("text", this.review.text);
+          formData.append("photo", this.review.photo);
+
+          await this.addNewReview(formData);
+          
+          this.review.author = "";
+          this.review.position = "";
+          this.review.text = "";
+          this.review.photo = "";
+          this.review.renderedPhoto = "";
+
+          this.addingReviewMode = false;
+      } catch (error) {
+        console.log(error);
+      }
+    }) 
       
-      this.review.author = "";
-      this.review.position = "";
-      this.review.text = "";
-      this.review.photo = "";
-      this.review.renderedPhoto = "";
-
-      this.addingReviewMode = false;
     },
     handleFileChange(event) {
       const photo = event.target.files[0];
@@ -250,6 +262,21 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    }
+  },
+  mixins: [require('simple-vue-validator').mixin],
+  validators: {
+    'review.author'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    },
+    'review.position'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    },
+    'review.text'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    },
+    'review.photo'(value) {
+      return Validator.value(value).required('Загрузите фото');
     }
   }
 };

@@ -582,6 +582,7 @@ button {
 }
 
 .works__form-row {
+  position: relative;
   margin-bottom: 20px;
 
   &:last-of-type {
@@ -773,6 +774,7 @@ button {
 }
 
 .form__avatar {
+  position: relative;
   width: 200px;
   height: 200px;
   margin-bottom: 10px;
@@ -811,6 +813,7 @@ button {
 }
 
 .reviews__form-row {
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -852,6 +855,23 @@ button {
 
 .form__input--reviews {
   width: 100%;
+}
+
+.form__error {
+  position: absolute;
+  top: 0%;
+  left: 35%;
+  width: auto;
+  padding: 10px 20px;
+  color: #cd1515;
+  font-size: 14px;
+  font-weight: 400;
+
+  &--photo {
+    width: 100%;
+    top: 147%;
+    left: 0;
+  }
 }
 
 .reviews__card {

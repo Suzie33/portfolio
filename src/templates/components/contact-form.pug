@@ -6,6 +6,7 @@ script(type="text/x-template")#form-container
                 input.form__input(
                     type="text" 
                     name="name" 
+                    required
                     placeholder="Валентина Понамарева" 
                     v-model='name'
                 )
@@ -16,6 +17,7 @@ script(type="text/x-template")#form-container
                 input.form__input(
                     type="email"
                     name="email" 
+                    required
                     placeholder="valiazin@gmail.com"
                     v-model='email'
                  )

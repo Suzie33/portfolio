@@ -9,16 +9,19 @@
         input.form__input.authorization__form-input(
           type="text" 
           placeholder="Логин" 
+          required
           id="authorization_login"
           v-model="user.name"
           )
         svgIcon(className="authorization__form-icon" name="user" fill="#a9aeb9" width="26" height="30")
+        div.form__error {{validation.firstError('user.name')}}
     .authorization__form-row
       .authorization__form-block
         label.form__label.authorization__form-label(for="authorization_password") Пароль
         input.form__input.authorization__form-input(
           type="password" 
           placeholder="Пароль" 
+          required
           id="authorization_password"
           v-model="user.password"
           )
@@ -135,6 +138,7 @@ input {
 <script>
 import svgIcon from './svgIcon';
 import $axios from '../helpers/apiSettings';
+import { Validator } from "simple-vue-validator";
 
 export default {
   components: { svgIcon },
@@ -157,6 +161,12 @@ export default {
         console.log(error);
       }
     },
+  },
+  mixins: [require('simple-vue-validator').mixin],
+  validators: {
+    'user.name'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    }
   }
-  };
+};
 </script>
