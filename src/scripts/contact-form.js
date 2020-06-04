@@ -1,4 +1,6 @@
 import Vue from "vue";
+import axios from 'axios';
+import EventBus from './EventBus';
 
 const error = {
     template: "#form-error",
@@ -16,9 +18,26 @@ new Vue ({
         };
     },
     methods: {
-        sendForm() {
+        async sendForm() {
             if (this.validateForm()) {
-                console.log('yes');
+                try {
+                    const formData = new FormData();
+
+                    formData.append("name", this.name);
+                    formData.append("phone", this.email);
+                    formData.append("comment", this.message);
+                    formData.append('to', 'valiazin@gmail.com');
+
+                    await axios.post("https://webdev-api.loftschool.com/sendmail", formData);
+
+                    this.clearForm();
+
+                    EventBus.$emit('updateEvent', { showed: true, message: 'Сообщение отправлено!' });
+                    
+                } catch (error) {
+                    console.log(error);
+                    
+                }
             } else {
                 console.log('no');
             }
@@ -30,5 +49,8 @@ new Vue ({
                 return true;
             }
         },
+        clearForm() {
+            this.name = this.email = this.message = "";
+        }
     },
 })

@@ -1,5 +1,9 @@
 script(type="text/x-template")#form-container
-    form.form(action="#" method="POST" @submit.prevent='sendForm')
+    form.form(
+        action="#" 
+        method="POST" 
+        @submit.prevent='sendForm'
+    )
         .form__row
             label.form__block
                 span.form__label Введите ваше имя

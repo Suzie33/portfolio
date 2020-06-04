@@ -11,3 +11,4 @@ import "./scripts/contact-form";
 import "./scripts/hamburger-menu";
 import "./scripts/parallax";
 import "./scripts/reviews";
+import "./scripts/tooltip";
