@@ -93,8 +93,6 @@ export default {
         description: "",
         renderedPhoto: ""
       },
-      addingWorkMode: false,
-      editWorkMode: false,
     }
   },
   props: {

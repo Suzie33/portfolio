@@ -91,9 +91,6 @@ export default {
         description: "",
         renderedPhoto: ""
       },
-      addingWorkMode: false,
-      editWorkMode: false,
-      editedWork: {}
     }
   },
   computed: {

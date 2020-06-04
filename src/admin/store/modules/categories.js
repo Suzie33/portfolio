@@ -112,8 +112,6 @@ export default {
          {title: editedCategory.category});
         
         commit("categories/EDIT_CATEGORY", category, { root: true });
-        console.log(category);
-        
       } catch (error) {
         console.log(error);
       }
