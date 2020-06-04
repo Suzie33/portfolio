@@ -8,37 +8,41 @@ script(type="text/x-template")#form-container
             label.form__block
                 span.form__label Введите ваше имя
                 input.form__input(
+                    :class="{'valid-error' : validation.hasError('name')}"
                     type="text" 
                     name="name" 
-                    required
                     placeholder="Валентина Понамарева" 
                     v-model='name'
                 )
                 +icon('user', 'form__input-icon', '30', '29')
-                error
+                .form__error(
+                    :class="{'valid-error' : validation.hasError('name')}"
+                ) Поле не заполнено
             label.form__block
                 span.form__label Введите ваш email
                 input.form__input(
+                    :class="{'valid-error' : validation.hasError('email')}"
                     type="email"
                     name="email" 
-                    required
                     placeholder="valiazin@gmail.com"
                     v-model='email'
                  )
                 +icon('envelope', 'form__input-icon', '30', '30')
-                error
+                .form__error(
+                    :class="{'valid-error' : validation.hasError('email')}"
+                ) Поле не заполнено
         .form__row.form__row--margin--l
             label.form__block
                 span.form__label Сообщение к письму
                 textarea.form__input.form__input--textarea(
+                    :class="{'valid-error' : validation.hasError('message')}"
                     name="message" 
                     placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса"
                     v-model='message'
                     )
                 +icon('message', 'form__input-icon', '30', '30')
-                error
+                .form__error(
+                    :class="{'valid-error' : validation.hasError('message')}"
+                ) Поле не заполнено
         .form__row
-            input.btn(type="submit" value="Отправить")
-
-script(type="text/x-template")#form-error
-    .form__error Поле не заполнено
+            input.btn(type="submit" value="Отправить" :disabled="isDisabled")
