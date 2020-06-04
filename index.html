@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.aba7eb6ca98a33219f6e.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.4b5ed02d69f1c90dec49.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper" id="wrapper">
       <div class="welcome-section">
@@ -321,6 +321,7 @@
           </div>
         </div>
       </footer>
+      <div id="tooltip-component"></div>
     </div>
 <script type="text/x-template" id="skills-list">
   <ul class="skill-groups">
@@ -412,36 +413,45 @@
       <form class="form" action="#" method="POST" @submit.prevent="sendForm">
         <div class="form__row">
           <label class="form__block"><span class="form__label">Введите ваше имя</span>
-            <input class="form__input" type="text" name="name" placeholder="Валентина Понамарева" v-model="name">
+            <input class="form__input" :class="{'valid-error' : validation.hasError('name')}" type="text" name="name" placeholder="Валентина Понамарева" v-model="name">
             <svg class="form__input-icon" viewBox="0 0 482.9 482.9" width="30" height="29" fill="currentcolor">
               <use xlink:href="/portfolio/sprite.svg#user"></use>
             </svg>
-            <error></error>
+            <div class="form__error" :class="{'valid-error' : validation.hasError('name')}">Поле не заполнено</div>
           </label>
           <label class="form__block"><span class="form__label">Введите ваш email</span>
-            <input class="form__input" type="email" name="email" placeholder="valiazin@gmail.com" v-model="email">
+            <input class="form__input" :class="{'valid-error' : validation.hasError('email')}" type="email" name="email" placeholder="valiazin@gmail.com" v-model="email">
             <svg class="form__input-icon" viewBox="0 0 483.3 483.3" width="30" height="30" fill="currentcolor">
               <use xlink:href="/portfolio/sprite.svg#envelope"></use>
             </svg>
-            <error></error>
+            <div class="form__error" :class="{'valid-error' : validation.hasError('email')}">Поле не заполнено</div>
           </label>
         </div>
         <div class="form__row form__row--margin--l">
           <label class="form__block"><span class="form__label">Сообщение к письму</span>
-            <textarea class="form__input form__input--textarea" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса" v-model="message"></textarea>
+            <textarea class="form__input form__input--textarea" :class="{'valid-error' : validation.hasError('message')}" name="message" placeholder="Требуется Ваша помощь в создании сайта. Интересуют сроки и цена вопроса" v-model="message"></textarea>
             <svg class="form__input-icon" viewBox="0 0 612 612" width="30" height="30" fill="currentcolor">
               <use xlink:href="/portfolio/sprite.svg#message"></use>
             </svg>
-            <error></error>
+            <div class="form__error" :class="{'valid-error' : validation.hasError('message')}">Поле не заполнено</div>
           </label>
         </div>
         <div class="form__row">
-          <input class="btn" type="submit" value="Отправить">
+          <input class="btn" type="submit" value="Отправить" :disabled="isDisabled">
         </div>
       </form>
     </script>
-    <script type="text/x-template" id="form-error">
-      <div class="form__error">Поле не заполнено</div>
+    <script type="text/x-template" id="tooltip-container">
+      <div class="tooltip" :class="{ showed : tooltip.showed }">
+        <div class="tooltip__message">{{ tooltip.message }}</div>
+        <div class="tooltip__close" @click="closeTooltip">
+          <button class="tooltip__button">
+            <svg class="tooltip__icon" viewBox="0 0 18 18" width="20" height="20" fill="currentcolor">
+              <use xlink:href="/portfolio/sprite.svg#close"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
     </script>
-  <script type="text/javascript" src="/portfolio/main.8e018d844504cc226c17.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.2d7a0fd291592168a767.build.js"></script></body>
 </html>
