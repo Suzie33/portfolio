@@ -26,6 +26,7 @@
           v-model="user.password"
           )
         svgIcon(className="authorization__form-icon" name="key" fill="#a9aeb9" width="26" height="30")
+        div.form__error {{validation.firstError('user.password')}}
     input.btn(type="submit" value="Отправить")
 </template>
 
@@ -166,7 +167,10 @@ export default {
   validators: {
     'user.name'(value) {
       return Validator.value(value).required('Поле не должно быть пустым');
-    }
+    },
+    'user.password'(value) {
+      return Validator.value(value).required('Поле не должно быть пустым');
+    },
   }
 };
 </script>

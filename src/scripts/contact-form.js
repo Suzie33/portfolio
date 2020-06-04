@@ -43,7 +43,6 @@ new Vue ({
                     this.isDisabled = false;
                   }
             })
-         
         },
         clearForm() {
             this.name = this.email = this.message = "";
