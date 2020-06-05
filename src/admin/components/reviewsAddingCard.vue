@@ -17,18 +17,16 @@
               @change="handleFileChange"
               id="input_review_photo"
               type="file"
-              
               title="Загрузить"
               name="photo"
             )
             .avatar--none(
-              v-if="review.renderedPhoto.length == false"
+              v-if="review.renderedPhoto.length === 0"
             )
               svgIcon(className="avatar--none__icon" name="user" fill="#c92e2e" width="85" height="113")
-          
           .form__avatar-btn
             label(
-              v-if="review.renderedPhoto.length == false"
+              v-if="review.renderedPhoto.length === 0"
               for="input_review_photo"
             ).button.button--white Добавить фото
             label(
@@ -40,18 +38,18 @@
             .reviews__form-block
               label.form__label(for="input_review_name") Имя автора
               input.form__input.form__input--reviews( placeholder="Имя"
-              
               id="input_review_name"
               v-model="review.author"
               )
+              div.form__error.form__error--review {{validation.firstError('review.author')}}
             .reviews__form-block
               label.form__label(for="input_review_position") Титул автора
               input.form__input.form__input--reviews(
                 v-model="review.position"
                 placeholder="Преподаватель" 
-                
                 id="input_review_position"
               )
+              div.form__error.form__error--review {{validation.firstError('review.position')}}
           .reviews__form-row
             .reviews__form-block
               label.form__label(for="input_review_text") Отзыв
@@ -60,6 +58,7 @@
                 placeholder="Текст отзыва" 
                 id="input_review_text"
               )
+              div.form__error.form__error--review {{validation.firstError('review.text')}}
           .form__buttons
             button.button.button--white(
               @click.prevent="$emit('closeCard')"

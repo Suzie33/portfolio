@@ -841,6 +841,7 @@ button {
 }
 
 .reviews__form-block {
+  position: relative;
   flex-grow: 1;
   margin-right: 20px;
 
@@ -875,6 +876,11 @@ button {
   &--photo {
     width: 100%;
     top: 147%;
+    left: 0;
+  }
+
+  &--review {
+    top: 100%;
     left: 0;
   }
 }

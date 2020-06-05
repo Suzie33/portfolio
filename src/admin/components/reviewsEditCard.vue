@@ -38,25 +38,25 @@
             .reviews__form-block
               label.form__label(for="input_review_name") Имя автора
               input.form__input.form__input--reviews( 
-              required="required" 
               id="input_review_name"
               v-model="editedReview.author"
               )
+              div.form__error.form__error--review {{validation.firstError('editedReview.author')}}
             .reviews__form-block
               label.form__label(for="input_review_position") Титул автора
               input.form__input.form__input--reviews(
                 v-model="editedReview.occ" 
-                required="required" 
                 id="input_review_position"
               )
+              div.form__error.form__error--review {{validation.firstError('editedReview.occ')}}
           .reviews__form-row
             .reviews__form-block
               label.form__label(for="input_review_text") Отзыв
               textarea.form__textarea.form__input.form__input--reviews(
                 v-model="editedReview.text"
-                required="required" 
                 id="input_review_text"
               )
+              div.form__error.form__error--review {{validation.firstError('editedReview.text')}}
           .form__buttons
             button.button.button--white(
               @click.prevent="$emit('closeCard')"
@@ -117,10 +117,12 @@ export default {
         });
         this.photoChanged = true;
       }
-      
     },
     async editCurrentReview(){
-      try {
+      this.$validate().then(async success => {
+        if (!success) return alert("Пожалуйста, заполните все поля, в том числе поле с фотографией");
+
+        try {
         const formData = new FormData();
 
         formData.append("author", this.editedReview.author);
@@ -145,6 +147,7 @@ export default {
         console.log(error);
         alert("Какая-то ошибка");
       }
+      })
     },
     showTooltip() {
       EventBus.$emit('updateEvent', { showed: true, message: 'Отзыв отредактирован' });
@@ -152,16 +155,16 @@ export default {
   },
   mixins: [require('simple-vue-validator').mixin],
   validators: {
-    'review.author'(value) {
+    'editedReview.author'(value) {
       return Validator.value(value).required('Поле не должно быть пустым');
     },
-    'review.position'(value) {
+    'editedReview.occ'(value) {
       return Validator.value(value).required('Поле не должно быть пустым');
     },
-    'review.text'(value) {
+    'editedReview.text'(value) {
       return Validator.value(value).required('Поле не должно быть пустым');
     },
-    'review.photo'(value) {
+    'editedReview.photo'(value) {
       return Validator.value(value).required('Загрузите фото');
     }
   }

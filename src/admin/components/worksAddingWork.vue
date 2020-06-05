@@ -24,7 +24,6 @@
                 label.button.photoplace__button(
                   for="input_work_photo"
                 ) Загрузить
-                div.form__error.form__error--photo {{validation.firstError('work.photo')}}
           .works__form-button(v-if="work.renderedPhoto.length")
             label.button.button--white(
               for="input_work_photo"
