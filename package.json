@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --mode=development --hot",
     "build": "rm -rf dist && webpack --mode=production --progress",
-    "reg": "node reg-util.js"
+    "reg": "node reg-util.js",
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "Valentina Ponamareva <valiazin@gmail.com>",
@@ -19,6 +20,7 @@
     "acorn-dynamic-import": "^4.0.0",
     "autoprefixer": "^9.4.8",
     "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
     "browser-sync": "^2.26.7",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.10",
@@ -51,15 +53,19 @@
     "last 2 versions"
   ],
   "dependencies": {
+    "axios": "^0.19.2",
+    "cypress": "^4.6.0",
     "normalize.css": "^8.0.1",
     "promptly": "^3.0.3",
     "pug": "^2.0.3",
     "request": "^2.88.0",
     "signale": "^1.4.0",
+    "simple-vue-validator": "^0.16.0",
     "vue": "^2.6.7",
     "vue-flickity": "^1.2.1",
-    "vue-router": "^3.0.2",
-    "vue-scrollto": "^2.18.1"
+    "vue-router": "^3.2.0",
+    "vue-scrollto": "^2.18.1",
+    "vuex": "^3.4.0"
   },
   "repository": "https://github.com/loftschool/ls-advanced-portfolio.git"
 }

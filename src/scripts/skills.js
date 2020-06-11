@@ -1,4 +1,5 @@
 import Vue from "vue";
+import $axios from "../admin/helpers/apiSettings"
 
 const skill = {
     template: "#skill",
@@ -42,8 +43,8 @@ new Vue({
             skills: [],
         }
     },
-    created() {
-        const data = require('../data/skills.json');
+    async created() {
+        const { data } = await $axios.get("categories/315");
         this.skills = data;
     }
 });

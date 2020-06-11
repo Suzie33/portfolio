@@ -1,8 +1,15 @@
 import Vue from "vue";
+import $axios from "../admin/helpers/apiSettings";
+import {getAbsoluteImgPath} from '../admin/helpers/pictures';
 
 const previews = {
     template: "#slider-previews",
-    props: ["works", "currentWork"]
+    props: ["works", "currentWork"],
+    methods: {
+        photoUrl(path) {
+          return getAbsoluteImgPath(path);
+        }
+      },
 };
 
 const buttons = {
@@ -12,7 +19,12 @@ const buttons = {
 const display = {
     template: "#slider-display",
     components: { buttons, previews },
-    props: ["currentWork", "works"],
+    props: ["currentWork", "works", "currentIndex"],
+    methods: {
+        photoUrl(path) {
+          return getAbsoluteImgPath(path);
+        }
+      },
 };
 
 const tags = {
@@ -26,7 +38,7 @@ const info = {
     props: ["currentWork"],
     computed: {
         tagsArray() {
-            return this.currentWork.skills.split(",");
+            return this.currentWork.techs.split(",");
         }
     }
 };
@@ -74,16 +86,9 @@ new Vue ({
         handleSlidePreview(index) {
             this.currentIndex = index;
         },
-        makeArrWithRequiredImages(array) {
-            return array.map((item) => {
-                const requirePic = require(`../images/content/${item.photo}`);
-                item.photo = requirePic;
-                return item;
-            });
-        },
     },
-    created() {
-        const data = require("../data/works.json");
-        this.works = this.makeArrWithRequiredImages(data);
+    async created() {
+        const { data } = await $axios.get("works/315");
+        this.works = data;
     },
 });

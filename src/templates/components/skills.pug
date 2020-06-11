@@ -6,8 +6,8 @@ script(type="text/x-template")#skills-list
             )
 
 script(type="text/x-template")#skills-row
-    .skills-row
-        h3.skills-row__title {{category.title}}
+    .skills-row(v-if="category.skills.length")
+        h3.skills-row__title {{category.category}}
         ul.skills-row__list
             li.skills-row__item(v-for="skill in category.skills" :key="skill.id")
                 skill(

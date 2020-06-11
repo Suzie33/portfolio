@@ -82,6 +82,8 @@
         }
     }
 
+    
+
     &::-webkit-input-placeholder {
         color: #414c63;
         opacity: .3;
@@ -118,7 +120,7 @@
 }
 
 .form__error {
-    display: none;
+    visibility: hidden;
     position: absolute;
     top: 98%;
     left: 40px;
@@ -141,5 +143,16 @@
         border-top: none;
         border-left-color: 8px transparent;
         border-right-color: 8px transparent;
+    }
+}
+
+
+.valid-error {
+    border-bottom-color: #cd1515;
+    outline: none;
+    visibility: visible;
+
+    &+.form__input-icon {
+        fill: #cd1515;
     }
 }

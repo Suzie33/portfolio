@@ -1,6 +1,8 @@
 import Vue from 'vue';
+import $axios from "../admin/helpers/apiSettings";
+import {getAbsoluteImgPath} from '../admin/helpers/pictures';
 import Flickity from 'vue-flickity';
- 
+
 new Vue({
     el: '#reviews-section',
     components: {
@@ -17,8 +19,15 @@ new Vue({
                 groupCells: true,
                 freeScroll: false,
                 contain: true
-            }
+            }, 
+            reviews: []
         }
+    },
+    async created() {
+        const { data } = await $axios.get("reviews/315");
+        this.reviews = data;
+        this.$nextTick(function () { this.$refs.flickity.rerender(); });
+        
     },
 
     methods: {
@@ -40,6 +49,9 @@ new Vue({
                 this.$refs.circleBtnPrev.disabled = false;
                 this.$refs.circleBtnNext.disabled = false;
             }
+        },
+        photoUrl(path) {
+            return getAbsoluteImgPath(path);
         }
     }
 });

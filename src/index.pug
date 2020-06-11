@@ -52,7 +52,7 @@ html(lang="en")
                     ul.nav__list
                       each item, index in menu[0]
                         li.nav__item
-                          a.nav__link(href="#" v-scroll-to="'#" + menu[1][index] + "'") #{item}
+                          a.nav__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
                 .header__links
                   - var icons = ['insta', 'vk', 'github'];
                   ul.socials
@@ -172,61 +172,17 @@ html(lang="en")
                     +icon('arrow-down', 'circle-btns__icon', '10', '8')
             .reviews__slider
               flickity(ref="flickity" :options="flickityOptions").slider-horizontal
-                .slider-horizontal__item
+                .slider-horizontal__item(v-for="review in reviews")
                   +icon('quote', 'slider-horizontal__item-icon', '75', '63')
                   .slider-horizontal__content
                     .slider-horizontal__text
-                      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                      p {{review.text}}
                     .slider-horizontal__source
                       .avatar.slider-horizontal__avatar
-                        +image('content/review1.jpg', 'avatar__pic')
+                        img(:src="photoUrl(review.photo)").avatar__pic
                       .slider-horizontal__author
-                        .slider-horizontal__name Ковальчук Дмитрий
-                        .slider-horizontal__position Основатель Loftschool
-                .slider-horizontal__item
-                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
-                  .slider-horizontal__content
-                    .slider-horizontal__text
-                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                    .slider-horizontal__source
-                      .avatar.slider-horizontal__avatar
-                        +image('content/review2.jpg', 'avatar__pic')
-                      .slider-horizontal__author
-                        .slider-horizontal__name Владимир Сабанцев
-                        .slider-horizontal__position Преподаватель
-                .slider-horizontal__item
-                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
-                  .slider-horizontal__content
-                    .slider-horizontal__text
-                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                    .slider-horizontal__source
-                      .avatar.slider-horizontal__avatar
-                        +image('content/review2.jpg', 'avatar__pic')
-                      .slider-horizontal__author
-                        .slider-horizontal__name Владимир Сабанцев
-                        .slider-horizontal__position Преподаватель
-                .slider-horizontal__item
-                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
-                  .slider-horizontal__content
-                    .slider-horizontal__text
-                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                    .slider-horizontal__source
-                      .avatar.slider-horizontal__avatar
-                        +image('content/review2.jpg', 'avatar__pic')
-                      .slider-horizontal__author
-                        .slider-horizontal__name Владимир Сабанцев
-                        .slider-horizontal__position Преподаватель
-                .slider-horizontal__item
-                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
-                  .slider-horizontal__content
-                    .slider-horizontal__text
-                      p Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах
-                    .slider-horizontal__source
-                      .avatar.slider-horizontal__avatar
-                        +image('content/review2.jpg', 'avatar__pic')
-                      .slider-horizontal__author
-                        .slider-horizontal__name Владимир Сабанцев
-                        .slider-horizontal__position Преподаватель
+                        .slider-horizontal__name {{review.author}}
+                        .slider-horizontal__position {{review.occ}}
 
         section.contacts#contacts-section
           .container
@@ -261,5 +217,6 @@ html(lang="en")
                 .blockquote
                   p.blockquote__text Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                   span.blockquote__author Martin Golding
+      #tooltip-component
 
     include ./templates/entry.pug

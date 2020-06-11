@@ -4,14 +4,6 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      icon: { },
-    };
-  },
-  created() {
-    this.icon = require(`../../images/icons/${this.name}.svg`).default;
-  },
   props: {
     name: {
       type: String,
@@ -29,6 +21,9 @@ export default {
     viewBox() {
       return this.icon.viewBox;
     },
+    icon() {
+      return require(`../../images/icons/${this.name}.svg`).default;
+    }
   },
 };
 </script>
