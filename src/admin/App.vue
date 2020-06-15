@@ -388,6 +388,7 @@ button {
 }
 
 .works__card {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -651,6 +652,10 @@ button {
   @include tablets {
     width: calc(100% / 2 - 15px);
 
+    &:nth-of-type(3n) {
+      margin-right: 30px;
+    }
+
     &:nth-of-type(2n) {
       margin-right: 0;
     }
@@ -742,6 +747,7 @@ button {
 }
 
 .works__item-text {
+  overflow: hidden;
   line-height: 1.8;
   opacity: 0.7;
   margin-bottom: 25px;
@@ -886,6 +892,7 @@ button {
 }
 
 .reviews__card {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -913,6 +920,10 @@ button {
 
   @include tablets {
     width: calc(100% / 2 - 15px);
+
+    &:nth-of-type(3n) {
+    margin-right: 30px;
+    }
 
     &:nth-of-type(2n) {
       margin-right: 0;
@@ -972,6 +983,7 @@ button {
   height: 100%;
   margin: 0 auto;
   padding-bottom: 30px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

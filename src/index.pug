@@ -9,7 +9,7 @@ html(lang="en")
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     title Portfolio | main page
   body
-    .wrapper(id="wrapper")
+    .wrapper
       .welcome-section
         .parallax
           .parallax__layer(data-speed="0.1")
@@ -47,7 +47,7 @@ html(lang="en")
               header.header
                 .header__logo.logo ВП
                 .header__menu
-                  nav.nav
+                  nav.nav#nav
                     - var menu = [['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'], ['hero-section', 'about-section', 'values-section', 'works-section', 'reviews-section', 'contacts-section']];
                     ul.nav__list
                       each item, index in menu[0]

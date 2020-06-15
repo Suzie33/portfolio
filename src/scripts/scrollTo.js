@@ -4,7 +4,6 @@ import VueScrollTo from 'vue-scrollto';
 Vue.use(VueScrollTo);
  
 Vue.use(VueScrollTo, {
-     el: "body",
      duration: 500,
      easing: "ease",
      offset: 0,
@@ -18,5 +17,5 @@ Vue.use(VueScrollTo, {
  })
 
 new Vue({
-    el: "#wrapper"
+    el: ".nav"
 });
