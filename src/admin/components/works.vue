@@ -1,9 +1,13 @@
 <template lang="pug">
   section.section.works
     .section__top
-      h2.section__title Блок &laquo;Работы&raquo;
+      h2.section__title#sectionTitle(
+        ref="sectionTitle"
+      ) Блок &laquo;Работы&raquo;
 
-    .works__edit(v-if="addingWorkMode")
+    .works__edit(
+      v-if="addingWorkMode"
+    )
       worksAddingWork(
         @closeCard="addingWorkMode = false"
       )
@@ -18,7 +22,7 @@
         .addcard
           .addcard__label
             button.addcard__button(
-              @click="addingWorkMode = true"
+              @click="addingWorkModeOn"
             )
               .plus-icon.plus-icon--addcard
               .addcard__text Добавить работу
@@ -85,8 +89,19 @@ export default {
     ...mapActions("works", ["getWorks"]),
     editWorkModeOn(currentWork) {
       this.editWorkMode = true;
-      
+
       this.editedWork = {...currentWork};
+
+      this.scrollToTop();
+    },
+    addingWorkModeOn() {
+      this.addingWorkMode = true;
+
+      this.scrollToTop();
+    },
+    scrollToTop() {
+      const sectionTitle = this.$refs["sectionTitle"];
+      sectionTitle.scrollIntoView({behavior: "smooth"});
     }
   },
 };

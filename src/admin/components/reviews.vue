@@ -1,7 +1,9 @@
 <template lang="pug">
   section.section.reviews
     .section__top
-      h2.section__title Блок &laquo;Отзывы&raquo;
+      h2.section__title(
+        ref="sectionTitle"
+      ) Блок &laquo;Отзывы&raquo;
     .reviews__edit(v-if="addingReviewMode")
       reviewsAddingCard(
         @closeCard="addingReviewMode = false"
@@ -18,7 +20,7 @@
         .addcard
           .addcard__label
             button.addcard__button(
-              @click="addingReviewMode = true"
+              @click="addingReviewModeOn"
             )
               .plus-icon.plus-icon--addcard
               .addcard__text Добавить отзыв
@@ -107,7 +109,6 @@ export default {
         }
       }
     }) 
-      
     },
     handleFileChange(event) {
       const photo = event.target.files[0];
@@ -128,6 +129,13 @@ export default {
       this.editReviewMode = true;
 
       this.editedReview = {...currentReview};
+
+      this.scrollToTop();
+    },
+    addingReviewModeOn() {
+      this.addingReviewMode = true;
+
+      this.scrollToTop();
     },
     async editCurrentReview(){
       try {
@@ -155,6 +163,11 @@ export default {
         console.log(error);
         alert("Какая-то ошибка");
       }
+    },
+    scrollToTop() {
+      const sectionTitle = this.$refs.sectionTitle;
+      
+      sectionTitle.scrollIntoView({behavior: "smooth"});
     }
   },
   mixins: [require('simple-vue-validator').mixin],
