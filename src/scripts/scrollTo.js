@@ -17,5 +17,13 @@ Vue.use(VueScrollTo, {
  })
 
 new Vue({
-    el: ".nav"
+    el: "#header-nav"
+});
+
+new Vue({
+    el: "#footer-nav"
+});
+
+new Vue({
+    el: "#about-scroll"
 });

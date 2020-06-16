@@ -47,8 +47,8 @@ html(lang="en")
               header.header
                 .header__logo.logo ВП
                 .header__menu
-                  nav.nav#nav
-                    - var menu = [['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'], ['hero-section', 'about-section', 'values-section', 'works-section', 'reviews-section', 'contacts-section']];
+                  nav.nav#header-nav
+                    - var menu = [['Главная', 'Обо мне', 'Навыки', 'Работы', 'Отзывы', 'Связаться'], ['hero-section', 'about-scroll', 'values-section', 'works-section', 'reviews-section', 'contacts-section']];
                     ul.nav__list
                       each item, index in menu[0]
                         li.nav__item
@@ -79,8 +79,8 @@ html(lang="en")
               .hero__content
                 p.hero__content-text Личный сайт веб разработчика
                 h1.hero__title Валентины Понамаревой
-              .hero__scroll
-                a.scroll(href="#about-section" v-scroll-to="'#about-section'")
+              .hero__scroll#about-scroll
+                a.scroll(v-scroll-to="'#about-scroll'")
                   span.scroll__text Скролл
                   +icon('scroll', 'scroll__icon', '30')
 
@@ -89,7 +89,7 @@ html(lang="en")
               .about__left
                 .user
                   .avatar.user__avatar
-                    +image('content/user.jpg', 'avatar__pic', 'avatar')
+                    +image('content/user2.jpg', 'avatar__pic', 'avatar')
                   table.user__info
                     tr.user__info-row
                       th.user__info-header Проживаю:
@@ -198,7 +198,7 @@ html(lang="en")
               .footer__copyright-note Личный сайт веб-разработчика
           .footer__right
             .footer__top
-              nav.nav
+              nav.nav#footer-nav
                 ul.nav__list.nav__list--left
                   each item, index in menu[0]
                     li.nav__item
