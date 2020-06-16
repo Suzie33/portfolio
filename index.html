@@ -8,7 +8,7 @@
     <title>Portfolio | main page</title>
   <link href="/portfolio/main.1972b29a0e163bab201c.css" rel="stylesheet"></head>
   <body>
-    <div class="wrapper" id="wrapper">
+    <div class="wrapper">
       <div class="welcome-section">
         <div class="parallax">
           <div class="parallax__layer" data-speed="0.1">
@@ -53,10 +53,10 @@
               <header class="header">
                 <div class="header__logo logo">ВП</div>
                 <div class="header__menu">
-                  <nav class="nav">
+                  <nav class="nav" id="header-nav">
                     <ul class="nav__list">
                       <li class="nav__item"><a class="nav__link" href="#hero-section" v-scroll-to="'#hero-section'">Главная</a></li>
-                      <li class="nav__item"><a class="nav__link" href="#about-section" v-scroll-to="'#about-section'">Обо мне</a></li>
+                      <li class="nav__item"><a class="nav__link" href="#about-scroll" v-scroll-to="'#about-scroll'">Обо мне</a></li>
                       <li class="nav__item"><a class="nav__link" href="#values-section" v-scroll-to="'#values-section'">Навыки</a></li>
                       <li class="nav__item"><a class="nav__link" href="#works-section" v-scroll-to="'#works-section'">Работы</a></li>
                       <li class="nav__item"><a class="nav__link" href="#reviews-section" v-scroll-to="'#reviews-section'">Отзывы</a></li>
@@ -84,7 +84,7 @@
                 <nav class="hamburger-menu" id="hamburger-menu">
                   <ul class="nav__list">
                     <li class="nav__item"><a class="nav__link" href="#hero-section">Главная</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#about-section">Обо мне</a></li>
+                    <li class="nav__item"><a class="nav__link" href="#about-scroll">Обо мне</a></li>
                     <li class="nav__item"><a class="nav__link" href="#values-section">Навыки</a></li>
                     <li class="nav__item"><a class="nav__link" href="#works-section">Работы</a></li>
                     <li class="nav__item"><a class="nav__link" href="#reviews-section">Отзывы</a></li>
@@ -113,7 +113,7 @@
                 <p class="hero__content-text">Личный сайт веб разработчика</p>
                 <h1 class="hero__title">Валентины Понамаревой</h1>
               </div>
-              <div class="hero__scroll"><a class="scroll" href="#about-section" v-scroll-to="'#about-section'"><span class="scroll__text">Скролл</span>
+              <div class="hero__scroll" id="about-scroll"><a class="scroll" v-scroll-to="'#about-scroll'"><span class="scroll__text">Скролл</span>
                   <svg class="scroll__icon" viewBox="-90 0 512 512" width="30" fill="currentcolor">
                     <use xlink:href="/portfolio/sprite.svg#scroll"></use>
                   </svg></a></div>
@@ -281,10 +281,10 @@
           </div>
           <div class="footer__right">
             <div class="footer__top">
-              <nav class="nav">
+              <nav class="nav" id="footer-nav">
                 <ul class="nav__list nav__list--left">
                   <li class="nav__item"><a class="nav__link" href="#hero-section" v-scroll-to="'#hero-section'">Главная</a></li>
-                  <li class="nav__item"><a class="nav__link" href="#about-section" v-scroll-to="'#about-section'">Обо мне</a></li>
+                  <li class="nav__item"><a class="nav__link" href="#about-scroll" v-scroll-to="'#about-scroll'">Обо мне</a></li>
                   <li class="nav__item"><a class="nav__link" href="#values-section" v-scroll-to="'#values-section'">Навыки</a></li>
                   <li class="nav__item"><a class="nav__link" href="#works-section" v-scroll-to="'#works-section'">Работы</a></li>
                   <li class="nav__item"><a class="nav__link" href="#reviews-section" v-scroll-to="'#reviews-section'">Отзывы</a></li>
@@ -453,5 +453,5 @@
         </div>
       </div>
     </script>
-  <script type="text/javascript" src="/portfolio/main.fe236b390bc9607ee26b.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.1d4a0c07cfd1de8ebf41.build.js"></script></body>
 </html>
