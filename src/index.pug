@@ -28,15 +28,15 @@ html(lang="en")
             picture
               source(srcset=require("images/parallax/layer-04_cloud.png") media="(min-width: 1200px)").parallax__img
               img.parallax__img(src="")
+          //- .parallax__layer(data-speed="0.45")
+          //-   picture
+          //-     source(srcset=require("images/parallax/layer-05_man.png") media="(min-width: 1200px)").parallax__img
+          //-     img.parallax__img(src="")
           .parallax__layer(data-speed="0.45")
-            picture
-              source(srcset=require("images/parallax/layer-05_man.png") media="(min-width: 1200px)").parallax__img
-              img.parallax__img(src="")
-          .parallax__layer(data-speed="0.48")
             picture
               source(srcset=require("images/parallax/layer-06_mountain2.png") media="(min-width: 1200px)").parallax__img
               img.parallax__img(src="")
-          .parallax__layer(data-speed="0.50")
+          .parallax__layer(data-speed="0.48")
             picture
               source(srcset=require("images/parallax/layer-07_white.png") media="(min-width: 1200px)").parallax__img
               img.parallax__img(src="")
@@ -89,7 +89,7 @@ html(lang="en")
               .about__left
                 .user
                   .avatar.user__avatar
-                    +image('content/user2.jpg', 'avatar__pic', 'avatar')
+                    +image('content/user.jpg', 'avatar__pic', 'avatar')
                   table.user__info
                     tr.user__info-row
                       th.user__info-header Проживаю:
@@ -105,7 +105,7 @@ html(lang="en")
                   p.about__description-top Привет, меня зовут
                   h2.section-title Валентина Понамарева
                   p.about__description-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. 
-                p.about__note Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                p.about__note Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             
       section.values#values-section
         .triangles
@@ -160,29 +160,8 @@ html(lang="en")
               source(srcset=require("images/parallax/layer-06_cloud3Budda.png") media="(min-width: 1200px)").parallax__img
               img.parallax__img(src="")
 
-        section.reviews#reviews-section(@click="checkArrows" @touchEnd="checkArrows")
-          .container
-            .reviews__top
-              h2.section-title.section-title--reviews Что обо мне говорят
-              .reviews__controls
-                .circle-btns
-                  button.circle-btns__item.circle-btns__item--slide--prev(@click='previous' :disabled='true' ref="circleBtnPrev")
-                    +icon('arrow-down', 'circle-btns__icon', '10', '8')
-                  button.circle-btns__item.circle-btns__item--slide--next(@click='next' :disabled='false' ref="circleBtnNext")
-                    +icon('arrow-down', 'circle-btns__icon', '10', '8')
-            .reviews__slider
-              flickity(ref="flickity" :options="flickityOptions").slider-horizontal
-                .slider-horizontal__item(v-for="review in reviews")
-                  +icon('quote', 'slider-horizontal__item-icon', '75', '63')
-                  .slider-horizontal__content
-                    .slider-horizontal__text
-                      p {{review.text}}
-                    .slider-horizontal__source
-                      .avatar.slider-horizontal__avatar
-                        img(:src="photoUrl(review.photo)").avatar__pic
-                      .slider-horizontal__author
-                        .slider-horizontal__name {{review.author}}
-                        .slider-horizontal__position {{review.occ}}
+        section.reviews#reviews-section
+          #reviews-slider-component
 
         section.contacts#contacts-section
           .container

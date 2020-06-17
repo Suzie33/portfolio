@@ -11,7 +11,7 @@
               :class="{'photoplace--filled' : work.renderedPhoto.length}"
             )
               .photoplace__label
-                .photoplace__text Перетащите или загрузите для загрузки изображения
+                .photoplace__text Нажмите загрузить для добавления изображения
                 input.photoplace__input(
                   @change="handleFileChange"
                   ref="fileInput"

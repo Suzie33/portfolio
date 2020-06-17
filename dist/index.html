@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Portfolio | main page</title>
-  <link href="/portfolio/main.1972b29a0e163bab201c.css" rel="stylesheet"></head>
+  <link href="/portfolio/main.bcb84cebdd75ac4c9da5.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <div class="welcome-section">
@@ -33,15 +33,10 @@
           </div>
           <div class="parallax__layer" data-speed="0.45">
             <picture>
-              <source class="parallax__img" srcset="/portfolio/e5d9920e03815e77fbb56db0a1d40696.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
-            </picture>
-          </div>
-          <div class="parallax__layer" data-speed="0.48">
-            <picture>
               <source class="parallax__img" srcset="/portfolio/acedc5398c8382441db43b88d7ca0cae.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
             </picture>
           </div>
-          <div class="parallax__layer" data-speed="0.50">
+          <div class="parallax__layer" data-speed="0.48">
             <picture>
               <source class="parallax__img" srcset="/portfolio/b74d2546ecd531e4665cd558f289deaf.png" media="(min-width: 1200px)"><img class="parallax__img" src="">
             </picture>
@@ -123,7 +118,7 @@
             <div class="container about__container">
               <div class="about__left">
                 <div class="user">
-                  <div class="avatar user__avatar"><img class="avatar__pic" src="/portfolio/f11a05dd8ebf037660e4ea01df4872d7.jpg" alt="avatar">
+                  <div class="avatar user__avatar"><img class="avatar__pic" src="/portfolio/70c18fb5a8b5c0608cb0c1c035e2d04b.jpg" alt="avatar">
                   </div>
                   <table class="user__info">
                     <tr class="user__info-row">
@@ -147,7 +142,7 @@
                   <h2 class="section-title">Валентина Понамарева</h2>
                   <p class="about__description-text">Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. </p>
                 </div>
-                <p class="about__note">Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
+                <p class="about__note">Этот сайт я сделала в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!</p>
               </div>
             </div>
           </section>
@@ -221,47 +216,8 @@
             </picture>
           </div>
         </div>
-        <section class="reviews" id="reviews-section" @click="checkArrows" @touchEnd="checkArrows">
-          <div class="container">
-            <div class="reviews__top">
-              <h2 class="section-title section-title--reviews">Что обо мне говорят</h2>
-              <div class="reviews__controls">
-                <div class="circle-btns">
-                  <button class="circle-btns__item circle-btns__item--slide--prev" @click="previous" :disabled="true" ref="circleBtnPrev">
-                    <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
-                      <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                    </svg>
-                  </button>
-                  <button class="circle-btns__item circle-btns__item--slide--next" @click="next" :disabled="false" ref="circleBtnNext">
-                    <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
-                      <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="reviews__slider">
-              <flickity class="slider-horizontal" ref="flickity" :options="flickityOptions">
-                <div class="slider-horizontal__item" v-for="review in reviews">
-                  <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
-                    <use xlink:href="/portfolio/sprite.svg#quote"></use>
-                  </svg>
-                  <div class="slider-horizontal__content">
-                    <div class="slider-horizontal__text">
-                      <p>{{review.text}}</p>
-                    </div>
-                    <div class="slider-horizontal__source">
-                      <div class="avatar slider-horizontal__avatar"><img class="avatar__pic" :src="photoUrl(review.photo)"></div>
-                      <div class="slider-horizontal__author">
-                        <div class="slider-horizontal__name">{{review.author}}</div>
-                        <div class="slider-horizontal__position">{{review.occ}}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </flickity>
-            </div>
-          </div>
+        <section class="reviews" id="reviews-section">
+          <div id="reviews-slider-component"></div>
         </section>
         <section class="contacts" id="contacts-section">
           <div class="container">
@@ -409,6 +365,48 @@
         </ul>
       </div>
     </script>
+    <script type="text/x-template" id="reviews-slider">
+      <div class="container" @click="checkArrows" @touchEnd="checkArrows">
+        <div class="reviews__top">
+          <h2 class="section-title section-title--reviews">Что обо мне говорят</h2>
+          <div class="reviews__controls">
+            <div class="circle-btns">
+              <button class="circle-btns__item circle-btns__item--slide--prev" @click="previous" :disabled="true" ref="circleBtnPrev">
+                <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
+                  <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+                </svg>
+              </button>
+              <button class="circle-btns__item circle-btns__item--slide--next" @click="next" :disabled="false" ref="circleBtnNext">
+                <svg class="circle-btns__icon" viewBox="0 0 306 306" width="10" height="8" fill="currentcolor">
+                  <use xlink:href="/portfolio/sprite.svg#arrow-down"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="reviews__slider">
+          <flickity class="slider-horizontal" ref="flickity" :options="flickityOptions">
+            <div class="slider-horizontal__item" v-for="review in reviews">
+              <svg class="slider-horizontal__item-icon" viewBox="0 0 95.333 95.332" width="75" height="63" fill="currentcolor">
+                <use xlink:href="/portfolio/sprite.svg#quote"></use>
+              </svg>
+              <div class="slider-horizontal__content">
+                <div class="slider-horizontal__text">
+                  <p>{{review.text}}</p>
+                </div>
+                <div class="slider-horizontal__source">
+                  <div class="avatar slider-horizontal__avatar"><img class="avatar__pic" :src="photoUrl(review.photo)"></div>
+                  <div class="slider-horizontal__author">
+                    <div class="slider-horizontal__name">{{review.author}}</div>
+                    <div class="slider-horizontal__position">{{review.occ}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </flickity>
+        </div>
+      </div>
+    </script>
     <script type="text/x-template" id="form-container">
       <form class="form" action="#" method="POST" @submit.prevent="sendForm">
         <div class="form__row">
@@ -453,5 +451,5 @@
         </div>
       </div>
     </script>
-  <script type="text/javascript" src="/portfolio/main.1d4a0c07cfd1de8ebf41.build.js"></script></body>
+  <script type="text/javascript" src="/portfolio/main.f451934a6fb391ee21cb.build.js"></script></body>
 </html>

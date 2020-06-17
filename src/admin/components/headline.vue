@@ -5,7 +5,7 @@
       .header__left
         .header__avatar.avatar
           img(src='../../images/content/user.jpg' alt="Avatar").avatar__pic
-        .header__name Владимир Астаханов
+        .header__name Валентина Понамарева
         .header__note Панель администрирования
       .header__right
         .header__links

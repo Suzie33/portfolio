@@ -1,0 +1,23 @@
+script(type="text/x-template")#reviews-slider
+  .container(@click="checkArrows" @touchEnd="checkArrows")
+    .reviews__top
+      h2.section-title.section-title--reviews Что обо мне говорят
+      .reviews__controls
+        .circle-btns
+          button.circle-btns__item.circle-btns__item--slide--prev(@click='previous' :disabled='true' ref="circleBtnPrev")
+            +icon('arrow-down', 'circle-btns__icon', '10', '8')
+          button.circle-btns__item.circle-btns__item--slide--next(@click='next' :disabled='false' ref="circleBtnNext")
+            +icon('arrow-down', 'circle-btns__icon', '10', '8')
+    .reviews__slider
+      flickity(ref="flickity" :options="flickityOptions").slider-horizontal
+        .slider-horizontal__item(v-for="review in reviews")
+          +icon('quote', 'slider-horizontal__item-icon', '75', '63')
+          .slider-horizontal__content
+            .slider-horizontal__text
+              p {{review.text}}
+            .slider-horizontal__source
+              .avatar.slider-horizontal__avatar
+                img(:src="photoUrl(review.photo)").avatar__pic
+              .slider-horizontal__author
+                .slider-horizontal__name {{review.author}}
+                .slider-horizontal__position {{review.occ}}
