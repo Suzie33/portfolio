@@ -28,10 +28,6 @@ html(lang="en")
             picture
               source(srcset=require("images/parallax/layer-04_cloud.png") media="(min-width: 1200px)").parallax__img
               img.parallax__img(src="")
-          //- .parallax__layer(data-speed="0.45")
-          //-   picture
-          //-     source(srcset=require("images/parallax/layer-05_man.png") media="(min-width: 1200px)").parallax__img
-          //-     img.parallax__img(src="")
           .parallax__layer(data-speed="0.45")
             picture
               source(srcset=require("images/parallax/layer-06_mountain2.png") media="(min-width: 1200px)").parallax__img
@@ -54,11 +50,11 @@ html(lang="en")
                         li.nav__item
                           a.nav__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
                 .header__links
-                  - var icons = ['insta', 'vk', 'github'];
+                  - var icons = [['insta', 'vk', 'github'], ['https://www.instagram.com/suuzie33/', 'https://vk.com/zinoveva', 'https://github.com/Suzie33']];
                   ul.socials
-                    each item in icons
+                    each item, index in icons[0]
                       li.socials__item
-                        a.socials__link(href="#" target="_blank")
+                        a.socials__link(href=icons[1][index] target="_blank")
                           +icon(`${item}`, 'socials__icon')
                 a.hamburger-menu-link(href="#")#hamburger-menu-link
                   .hamburger-menu-link__bars
@@ -171,7 +167,7 @@ html(lang="en")
       footer.footer#footer-section
         .container.footer__container
           .footer__copyright
-            .footer__copyright-year &copy; 2019
+            .footer__copyright-year &copy; 2020
             .footer__copyright-name
               .footer__copyright-myname Валентина Понамарева
               .footer__copyright-note Личный сайт веб-разработчика
@@ -184,13 +180,13 @@ html(lang="en")
                       a.nav__link(href="#" + menu[1][index] v-scroll-to="'#" + menu[1][index] + "'") #{item}
             .footer__bottom
               .footer__bottom-left
-                p.footer__note Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool 
+                p.footer__note Этот сайт я сделала в рамках обучения в Школе онлайн образования Loftschool 
                 .footer__links
-                  - var icons = ['insta', 'vk', 'github'];
+                  - var icons = [['insta', 'vk', 'github'], ['https://www.instagram.com/suuzie33/', 'https://vk.com/zinoveva', 'https://github.com/Suzie33']];
                     ul.socials
-                      each item in icons
+                      each item, index in icons[0]
                         li.socials__item.socials__item--circled
-                          a.socials__link(href="#" target="_blank")
+                          a.socials__link(href=icons[1][index] target="_blank")
                             +icon(`${item}`, 'socials__icon')
               .footer__bottom-right
                 .blockquote
